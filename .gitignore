@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Environment/secrets
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw/private data
+data/raw/
+
+# Trained model files
+models/
+
+# VS Code
+.vscode/
+
+# Streamlit secrets
+.streamlit/secrets.toml

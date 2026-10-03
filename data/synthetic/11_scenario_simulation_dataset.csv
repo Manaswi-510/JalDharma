@@ -1,0 +1,8 @@
+scenario_id,scenario_name,rainfall_change_percent,population_change_percent,water_availability_percent,pipeline_failure,failed_pipeline_id,source_capacity_change
+SCN_01,Normal Baseline Baseline Conditions,0,0,100,No,None,0
+SCN_02,Moderate Drought / Late Monsoon,-30,2,70,No,None,-25
+SCN_03,Severe Summer Heatwave & Drought,-55,5,50,No,None,-45
+SCN_04,Critical Transmission Main Failure (Dam Feeder),0,0,85,Yes,PIPE_001,-35
+SCN_05,Secondary Feeder Burst under Heatwave,-40,3,60,Yes,PIPE_003,-30
+SCN_06,Mass Festival Influx / Peak Population Demand,-10,25,90,No,None,0
+SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion),-70,4,35,Yes,PIPE_005,-60

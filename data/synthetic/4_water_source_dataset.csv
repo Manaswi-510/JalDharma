@@ -1,0 +1,4 @@
+source_id,source_name,source_type,latitude,longitude,total_capacity_l,current_storage_l,daily_supply_capacity_l,reliability_score,status
+SRC_001,Godavari Major Reservoir,Reservoir,19.35,75.62,125000000000.0,82000000000.0,150000000.0,0.92,Active
+SRC_002,Jayakwadi Canal Intake,River/Canal,19.18,75.92,45000000000.0,26000000000.0,65000000.0,0.85,Active
+SRC_003,Kashti Deep Aquifer Wellfield,Groundwater,18.88,75.75,15000000000.0,7200000000.0,25000000.0,0.78,Active

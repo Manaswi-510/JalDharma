@@ -1,0 +1,6 @@
+tank_id,tank_name,latitude,longitude,capacity_l,current_storage_l,inflow_capacity_l,outflow_capacity_l,status
+TNK_01,North Master Balancing Reservoir,19.28,75.71,8500000.0,6120000.0,40000000.0,38000000.0,Active
+TNK_02,Central Elevated Storage Reservoir,19.14,75.82,6200000.0,4200000.0,35000000.0,32000000.0,Active
+TNK_03,East Regional Balancing Tank,19.16,76.08,5500000.0,3500000.0,28000000.0,26000000.0,Active
+TNK_04,South Junction Master Reservoir,18.98,75.84,7000000.0,4400000.0,30000000.0,28000000.0,Active
+TNK_05,Southwest Booster Staging Tank,18.91,75.65,4200000.0,2200000.0,20000000.0,18000000.0,Active
