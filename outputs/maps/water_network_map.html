@@ -1,0 +1,4049 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_feac8e23f74433bba049e44b9df8b3e9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_feac8e23f74433bba049e44b9df8b3e9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_feac8e23f74433bba049e44b9df8b3e9 = L.map(
+                "map_feac8e23f74433bba049e44b9df8b3e9",
+                {
+                    center: [19.062205111111112, 75.84913653333334],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7919cab4a65efa822120522434ada34f = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: Esri, DeLorme, NAVTEQ, USGS",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7919cab4a65efa822120522434ada34f.addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+            var poly_line_7446e633a046e74c7dafb5981d90a776 = L.polyline(
+                [[19.35, 75.62], [19.28, 75.71]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_8486151480c103590e7ef01f63f6f098 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_93321f221cacf764e11fc6ac0e1bb1c8 = $(`<div id="html_93321f221cacf764e11fc6ac0e1bb1c8" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_001<br>             <b>From:</b> SRC_001 &rarr; <b>To:</b> TNK_01<br>             <b>Capacity:</b> 80.0 M Litres/day<br>             <b>Length:</b> 16.5 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_8486151480c103590e7ef01f63f6f098.setContent(html_93321f221cacf764e11fc6ac0e1bb1c8);
+            
+        
+
+        poly_line_7446e633a046e74c7dafb5981d90a776.bindPopup(popup_8486151480c103590e7ef01f63f6f098)
+        ;
+
+        
+    
+    
+            poly_line_7446e633a046e74c7dafb5981d90a776.bindTooltip(
+                `<div>
+                     Pipeline PIPE_001 (80.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8fbad56956456702ce2c4a627ad4ebeb = L.polyline(
+                [[19.35, 75.62], [19.14, 75.82]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_09739186b83032620a03728a7c5e1dfc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bbd4f66440ce8b68c0bc416befbb9f39 = $(`<div id="html_bbd4f66440ce8b68c0bc416befbb9f39" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_002<br>             <b>From:</b> SRC_001 &rarr; <b>To:</b> TNK_02<br>             <b>Capacity:</b> 60.0 M Litres/day<br>             <b>Length:</b> 24.2 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_09739186b83032620a03728a7c5e1dfc.setContent(html_bbd4f66440ce8b68c0bc416befbb9f39);
+            
+        
+
+        poly_line_8fbad56956456702ce2c4a627ad4ebeb.bindPopup(popup_09739186b83032620a03728a7c5e1dfc)
+        ;
+
+        
+    
+    
+            poly_line_8fbad56956456702ce2c4a627ad4ebeb.bindTooltip(
+                `<div>
+                     Pipeline PIPE_002 (60.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d18fe2cb96e940586e461562011e3167 = L.polyline(
+                [[19.18, 75.92], [19.14, 75.82]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_b58268cd966382b6c4d9f32507f2d914 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7a51d397079a10f69f0b67bd06f5ca61 = $(`<div id="html_7a51d397079a10f69f0b67bd06f5ca61" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_003<br>             <b>From:</b> SRC_002 &rarr; <b>To:</b> TNK_02<br>             <b>Capacity:</b> 50.0 M Litres/day<br>             <b>Length:</b> 14.8 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_b58268cd966382b6c4d9f32507f2d914.setContent(html_7a51d397079a10f69f0b67bd06f5ca61);
+            
+        
+
+        poly_line_d18fe2cb96e940586e461562011e3167.bindPopup(popup_b58268cd966382b6c4d9f32507f2d914)
+        ;
+
+        
+    
+    
+            poly_line_d18fe2cb96e940586e461562011e3167.bindTooltip(
+                `<div>
+                     Pipeline PIPE_003 (50.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5ad919906f4849654a20e75419263d57 = L.polyline(
+                [[19.18, 75.92], [19.16, 76.08]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_15d14506b02daceaed6dbc47c5e05f16 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6151e99124c91fd5072871291bf82c34 = $(`<div id="html_6151e99124c91fd5072871291bf82c34" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_004<br>             <b>From:</b> SRC_002 &rarr; <b>To:</b> TNK_03<br>             <b>Capacity:</b> 55.0 M Litres/day<br>             <b>Length:</b> 18.1 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_15d14506b02daceaed6dbc47c5e05f16.setContent(html_6151e99124c91fd5072871291bf82c34);
+            
+        
+
+        poly_line_5ad919906f4849654a20e75419263d57.bindPopup(popup_15d14506b02daceaed6dbc47c5e05f16)
+        ;
+
+        
+    
+    
+            poly_line_5ad919906f4849654a20e75419263d57.bindTooltip(
+                `<div>
+                     Pipeline PIPE_004 (55.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bb46333a9e0a3c9a77ea0e3f845be421 = L.polyline(
+                [[18.88, 75.75], [18.98, 75.84]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_9de46476f4cda0ed32b0cdc20a5cc1c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e3664b5f693e6980fd08c84d14b3a417 = $(`<div id="html_e3664b5f693e6980fd08c84d14b3a417" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_005<br>             <b>From:</b> SRC_003 &rarr; <b>To:</b> TNK_04<br>             <b>Capacity:</b> 35.0 M Litres/day<br>             <b>Length:</b> 12.4 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_9de46476f4cda0ed32b0cdc20a5cc1c0.setContent(html_e3664b5f693e6980fd08c84d14b3a417);
+            
+        
+
+        poly_line_bb46333a9e0a3c9a77ea0e3f845be421.bindPopup(popup_9de46476f4cda0ed32b0cdc20a5cc1c0)
+        ;
+
+        
+    
+    
+            poly_line_bb46333a9e0a3c9a77ea0e3f845be421.bindTooltip(
+                `<div>
+                     Pipeline PIPE_005 (35.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_76bf66c1d29e2356635faaba6a357deb = L.polyline(
+                [[18.88, 75.75], [18.91, 75.65]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_d0f0a2a9191d9af9cc55da88cb362ddc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa5ea67f267c2fb96aff72a3bcb1b861 = $(`<div id="html_aa5ea67f267c2fb96aff72a3bcb1b861" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_006<br>             <b>From:</b> SRC_003 &rarr; <b>To:</b> TNK_05<br>             <b>Capacity:</b> 25.0 M Litres/day<br>             <b>Length:</b> 15.0 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_d0f0a2a9191d9af9cc55da88cb362ddc.setContent(html_aa5ea67f267c2fb96aff72a3bcb1b861);
+            
+        
+
+        poly_line_76bf66c1d29e2356635faaba6a357deb.bindPopup(popup_d0f0a2a9191d9af9cc55da88cb362ddc)
+        ;
+
+        
+    
+    
+            poly_line_76bf66c1d29e2356635faaba6a357deb.bindTooltip(
+                `<div>
+                     Pipeline PIPE_006 (25.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7bd5448451d67708be882cc813d7f1a0 = L.polyline(
+                [[19.28, 75.71], [19.14, 75.82]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_71cf8fdb1d62aa7bc52e763a29fd0a2f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ecbe950708e036bd333c48cd4a377305 = $(`<div id="html_ecbe950708e036bd333c48cd4a377305" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_007<br>             <b>From:</b> TNK_01 &rarr; <b>To:</b> TNK_02<br>             <b>Capacity:</b> 30.0 M Litres/day<br>             <b>Length:</b> 18.0 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_71cf8fdb1d62aa7bc52e763a29fd0a2f.setContent(html_ecbe950708e036bd333c48cd4a377305);
+            
+        
+
+        poly_line_7bd5448451d67708be882cc813d7f1a0.bindPopup(popup_71cf8fdb1d62aa7bc52e763a29fd0a2f)
+        ;
+
+        
+    
+    
+            poly_line_7bd5448451d67708be882cc813d7f1a0.bindTooltip(
+                `<div>
+                     Pipeline PIPE_007 (30.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ef2dba6080201f8c4ae4adce5658afe3 = L.polyline(
+                [[19.28, 75.71], [19.4155, 75.718198]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_6d6b82e18a0e0ed3a7d9dccfa34f6eb8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0f512ae310df3ec4f325e24935e3f401 = $(`<div id="html_0f512ae310df3ec4f325e24935e3f401" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_012<br>             <b>From:</b> TNK_01 &rarr; <b>To:</b> VIL_002<br>             <b>Capacity:</b> 8.0 M Litres/day<br>             <b>Length:</b> 15.07 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_6d6b82e18a0e0ed3a7d9dccfa34f6eb8.setContent(html_0f512ae310df3ec4f325e24935e3f401);
+            
+        
+
+        poly_line_ef2dba6080201f8c4ae4adce5658afe3.bindPopup(popup_6d6b82e18a0e0ed3a7d9dccfa34f6eb8)
+        ;
+
+        
+    
+    
+            poly_line_ef2dba6080201f8c4ae4adce5658afe3.bindTooltip(
+                `<div>
+                     Pipeline PIPE_012 (8.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4e817968e7e9024b231335264264b75f = L.polyline(
+                [[19.28, 75.71], [19.428937, 75.561945]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_0db6a011b1880095f15a9268bae3cdc5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_97dfcaaaa3ed76e7505b7937c688c5b5 = $(`<div id="html_97dfcaaaa3ed76e7505b7937c688c5b5" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_024<br>             <b>From:</b> TNK_01 &rarr; <b>To:</b> VIL_012<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 22.69 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_0db6a011b1880095f15a9268bae3cdc5.setContent(html_97dfcaaaa3ed76e7505b7937c688c5b5);
+            
+        
+
+        poly_line_4e817968e7e9024b231335264264b75f.bindPopup(popup_0db6a011b1880095f15a9268bae3cdc5)
+        ;
+
+        
+    
+    
+            poly_line_4e817968e7e9024b231335264264b75f.bindTooltip(
+                `<div>
+                     Pipeline PIPE_024 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d2ed65a71a868d0e2f1a35b3044643b9 = L.polyline(
+                [[19.28, 75.71], [19.33271, 75.637188]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_17b63f7b5282f35d4323f419d323f5fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b55dead775798348e670216cea97b6a0 = $(`<div id="html_b55dead775798348e670216cea97b6a0" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_025<br>             <b>From:</b> TNK_01 &rarr; <b>To:</b> VIL_013<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 9.63 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_17b63f7b5282f35d4323f419d323f5fd.setContent(html_b55dead775798348e670216cea97b6a0);
+            
+        
+
+        poly_line_d2ed65a71a868d0e2f1a35b3044643b9.bindPopup(popup_17b63f7b5282f35d4323f419d323f5fd)
+        ;
+
+        
+    
+    
+            poly_line_d2ed65a71a868d0e2f1a35b3044643b9.bindTooltip(
+                `<div>
+                     Pipeline PIPE_025 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_40fbe613555f575aac46da49d840f30e = L.polyline(
+                [[19.28, 75.71], [19.41422, 75.750926]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_30cf6b3bf683c9db78b5fd881c27effb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2bec08f01c9563e6ebba8fba7b1d6d60 = $(`<div id="html_2bec08f01c9563e6ebba8fba7b1d6d60" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_050<br>             <b>From:</b> TNK_01 &rarr; <b>To:</b> VIL_034<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 15.51 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_30cf6b3bf683c9db78b5fd881c27effb.setContent(html_2bec08f01c9563e6ebba8fba7b1d6d60);
+            
+        
+
+        poly_line_40fbe613555f575aac46da49d840f30e.bindPopup(popup_30cf6b3bf683c9db78b5fd881c27effb)
+        ;
+
+        
+    
+    
+            poly_line_40fbe613555f575aac46da49d840f30e.bindTooltip(
+                `<div>
+                     Pipeline PIPE_050 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d6b1a5df88a757eaa3c93d3182ea3e61 = L.polyline(
+                [[19.28, 75.71], [19.425942, 75.581108]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_23f70c69a53b8d747aad5e1719763e9a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_08ec81cb668996ab0538a8ebc19bb561 = $(`<div id="html_08ec81cb668996ab0538a8ebc19bb561" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_051<br>             <b>From:</b> TNK_01 &rarr; <b>To:</b> VIL_035<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 21.11 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_23f70c69a53b8d747aad5e1719763e9a.setContent(html_08ec81cb668996ab0538a8ebc19bb561);
+            
+        
+
+        poly_line_d6b1a5df88a757eaa3c93d3182ea3e61.bindPopup(popup_23f70c69a53b8d747aad5e1719763e9a)
+        ;
+
+        
+    
+    
+            poly_line_d6b1a5df88a757eaa3c93d3182ea3e61.bindTooltip(
+                `<div>
+                     Pipeline PIPE_051 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7e09e1aa401587cb987bac43003c66a5 = L.polyline(
+                [[19.28, 75.71], [19.228963, 75.544491]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_6086b1703f37bb59abd9d415c32db9b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_35b02101ab1d08a729ce7dcd3c737c02 = $(`<div id="html_35b02101ab1d08a729ce7dcd3c737c02" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_056<br>             <b>From:</b> TNK_01 &rarr; <b>To:</b> VIL_039<br>             <b>Capacity:</b> 8.0 M Litres/day<br>             <b>Length:</b> 18.28 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_6086b1703f37bb59abd9d415c32db9b5.setContent(html_35b02101ab1d08a729ce7dcd3c737c02);
+            
+        
+
+        poly_line_7e09e1aa401587cb987bac43003c66a5.bindPopup(popup_6086b1703f37bb59abd9d415c32db9b5)
+        ;
+
+        
+    
+    
+            poly_line_7e09e1aa401587cb987bac43003c66a5.bindTooltip(
+                `<div>
+                     Pipeline PIPE_056 (8.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ff1aa78894a7d9df1c448eca0d329b17 = L.polyline(
+                [[19.14, 75.82], [18.98, 75.84]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_f0791e68adbe62990027e867043f739c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7d4c43ed8dca507e844670521c92e246 = $(`<div id="html_7d4c43ed8dca507e844670521c92e246" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_008<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> TNK_04<br>             <b>Capacity:</b> 30.0 M Litres/day<br>             <b>Length:</b> 17.5 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_f0791e68adbe62990027e867043f739c.setContent(html_7d4c43ed8dca507e844670521c92e246);
+            
+        
+
+        poly_line_ff1aa78894a7d9df1c448eca0d329b17.bindPopup(popup_f0791e68adbe62990027e867043f739c)
+        ;
+
+        
+    
+    
+            poly_line_ff1aa78894a7d9df1c448eca0d329b17.bindTooltip(
+                `<div>
+                     Pipeline PIPE_008 (30.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7258d4a5040a0d028cdf371e4f43f2d3 = L.polyline(
+                [[19.14, 75.82], [19.262396, 75.864048]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_39aa021d9f719e5f4e8efd488a65328f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5e086d098b9d7e66690f21f202df5e3f = $(`<div id="html_5e086d098b9d7e66690f21f202df5e3f" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_013<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> VIL_003<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 14.35 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_39aa021d9f719e5f4e8efd488a65328f.setContent(html_5e086d098b9d7e66690f21f202df5e3f);
+            
+        
+
+        poly_line_7258d4a5040a0d028cdf371e4f43f2d3.bindPopup(popup_39aa021d9f719e5f4e8efd488a65328f)
+        ;
+
+        
+    
+    
+            poly_line_7258d4a5040a0d028cdf371e4f43f2d3.bindTooltip(
+                `<div>
+                     Pipeline PIPE_013 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e19cfa68273db31503aa61d31751dbfd = L.polyline(
+                [[19.14, 75.82], [19.169061, 75.882697]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_329c966a7470a65b788c647def9d411c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6bf89de1030163935390e7a911485705 = $(`<div id="html_6bf89de1030163935390e7a911485705" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_014<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> VIL_004<br>             <b>Capacity:</b> 8.0 M Litres/day<br>             <b>Length:</b> 7.33 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_329c966a7470a65b788c647def9d411c.setContent(html_6bf89de1030163935390e7a911485705);
+            
+        
+
+        poly_line_e19cfa68273db31503aa61d31751dbfd.bindPopup(popup_329c966a7470a65b788c647def9d411c)
+        ;
+
+        
+    
+    
+            poly_line_e19cfa68273db31503aa61d31751dbfd.bindTooltip(
+                `<div>
+                     Pipeline PIPE_014 (8.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fe4b79037c6f166698248c30a1fb8861 = L.polyline(
+                [[19.14, 75.82], [19.245651, 75.91853]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_a108366ee470e868dac3fe59727bcff8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d91ea8f7981af3126d8fb7aa84fd4022 = $(`<div id="html_d91ea8f7981af3126d8fb7aa84fd4022" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_021<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> VIL_010<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 15.64 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_a108366ee470e868dac3fe59727bcff8.setContent(html_d91ea8f7981af3126d8fb7aa84fd4022);
+            
+        
+
+        poly_line_fe4b79037c6f166698248c30a1fb8861.bindPopup(popup_a108366ee470e868dac3fe59727bcff8)
+        ;
+
+        
+    
+    
+            poly_line_fe4b79037c6f166698248c30a1fb8861.bindTooltip(
+                `<div>
+                     Pipeline PIPE_021 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4202cf70f64d729578a67df07d4d8ee6 = L.polyline(
+                [[19.14, 75.82], [19.052362, 75.749727]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_348bcb6d83c27c02268dd9362001ada2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bed08b0ecbc0a9e2aed691f03e11cc74 = $(`<div id="html_bed08b0ecbc0a9e2aed691f03e11cc74" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_032<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> VIL_019<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 12.21 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_348bcb6d83c27c02268dd9362001ada2.setContent(html_bed08b0ecbc0a9e2aed691f03e11cc74);
+            
+        
+
+        poly_line_4202cf70f64d729578a67df07d4d8ee6.bindPopup(popup_348bcb6d83c27c02268dd9362001ada2)
+        ;
+
+        
+    
+    
+            poly_line_4202cf70f64d729578a67df07d4d8ee6.bindTooltip(
+                `<div>
+                     Pipeline PIPE_032 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f03f515f1eabd2786d550369245d6e41 = L.polyline(
+                [[19.14, 75.82], [19.178297, 75.879887]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_8dce03f81c124b80caf05020e98e1b62 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b4e780ba9775507f2f21767420c9511 = $(`<div id="html_2b4e780ba9775507f2f21767420c9511" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_034<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> VIL_021<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 7.59 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_8dce03f81c124b80caf05020e98e1b62.setContent(html_2b4e780ba9775507f2f21767420c9511);
+            
+        
+
+        poly_line_f03f515f1eabd2786d550369245d6e41.bindPopup(popup_8dce03f81c124b80caf05020e98e1b62)
+        ;
+
+        
+    
+    
+            poly_line_f03f515f1eabd2786d550369245d6e41.bindTooltip(
+                `<div>
+                     Pipeline PIPE_034 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_53ef28df99736dccb2327e5bff7bdf59 = L.polyline(
+                [[19.14, 75.82], [19.299623, 76.040571]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_81e08a5132991eda9a1fe8af4a112c2a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_62b32995fb711114036a326a9b4d5243 = $(`<div id="html_62b32995fb711114036a326a9b4d5243" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_041<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> VIL_026<br>             <b>Capacity:</b> 2.5 M Litres/day<br>             <b>Length:</b> 29.16 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_81e08a5132991eda9a1fe8af4a112c2a.setContent(html_62b32995fb711114036a326a9b4d5243);
+            
+        
+
+        poly_line_53ef28df99736dccb2327e5bff7bdf59.bindPopup(popup_81e08a5132991eda9a1fe8af4a112c2a)
+        ;
+
+        
+    
+    
+            poly_line_53ef28df99736dccb2327e5bff7bdf59.bindTooltip(
+                `<div>
+                     Pipeline PIPE_041 (2.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_69821fc59f25bf81e7e910fb29e078df = L.polyline(
+                [[19.14, 75.82], [19.175281, 76.010305]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_ddf2ac67f650295d28f81bdde2e85ef9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14f10b1aaf02e628bafdc8349f9a5ee3 = $(`<div id="html_14f10b1aaf02e628bafdc8349f9a5ee3" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_047<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> VIL_031<br>             <b>Capacity:</b> 2.5 M Litres/day<br>             <b>Length:</b> 20.36 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_ddf2ac67f650295d28f81bdde2e85ef9.setContent(html_14f10b1aaf02e628bafdc8349f9a5ee3);
+            
+        
+
+        poly_line_69821fc59f25bf81e7e910fb29e078df.bindPopup(popup_ddf2ac67f650295d28f81bdde2e85ef9)
+        ;
+
+        
+    
+    
+            poly_line_69821fc59f25bf81e7e910fb29e078df.bindTooltip(
+                `<div>
+                     Pipeline PIPE_047 (2.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a72684712ec16d33a5fea612524fbcf2 = L.polyline(
+                [[19.14, 75.82], [19.315878, 76.104172]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_0a3ebc5114707cf5f6fa6deb475d41fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_920ebda1f37696aa290698e28b1f5f63 = $(`<div id="html_920ebda1f37696aa290698e28b1f5f63" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_053<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> VIL_036<br>             <b>Capacity:</b> 2.5 M Litres/day<br>             <b>Length:</b> 35.66 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_0a3ebc5114707cf5f6fa6deb475d41fc.setContent(html_920ebda1f37696aa290698e28b1f5f63);
+            
+        
+
+        poly_line_a72684712ec16d33a5fea612524fbcf2.bindPopup(popup_0a3ebc5114707cf5f6fa6deb475d41fc)
+        ;
+
+        
+    
+    
+            poly_line_a72684712ec16d33a5fea612524fbcf2.bindTooltip(
+                `<div>
+                     Pipeline PIPE_053 (2.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ccc9db7e4720e8a5a948a82be85b28cd = L.polyline(
+                [[19.14, 75.82], [19.058107, 75.717688]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_29c35e3fdc60c8f69224990429409d7e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6b8d58dc420f090d97bdc030986e9819 = $(`<div id="html_6b8d58dc420f090d97bdc030986e9819" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_057<br>             <b>From:</b> TNK_02 &rarr; <b>To:</b> VIL_040<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 14.07 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_29c35e3fdc60c8f69224990429409d7e.setContent(html_6b8d58dc420f090d97bdc030986e9819);
+            
+        
+
+        poly_line_ccc9db7e4720e8a5a948a82be85b28cd.bindPopup(popup_29c35e3fdc60c8f69224990429409d7e)
+        ;
+
+        
+    
+    
+            poly_line_ccc9db7e4720e8a5a948a82be85b28cd.bindTooltip(
+                `<div>
+                     Pipeline PIPE_057 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4e6d80bcd7bd41e826e0a9c55c2ed6ec = L.polyline(
+                [[19.16, 76.08], [19.012178, 75.963766]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_191a456bd20905a334bebadd5621f73e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f77878c2944c30d8dea16dd54d1871fc = $(`<div id="html_f77878c2944c30d8dea16dd54d1871fc" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_011<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_001<br>             <b>Capacity:</b> 2.5 M Litres/day<br>             <b>Length:</b> 20.45 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_191a456bd20905a334bebadd5621f73e.setContent(html_f77878c2944c30d8dea16dd54d1871fc);
+            
+        
+
+        poly_line_4e6d80bcd7bd41e826e0a9c55c2ed6ec.bindPopup(popup_191a456bd20905a334bebadd5621f73e)
+        ;
+
+        
+    
+    
+            poly_line_4e6d80bcd7bd41e826e0a9c55c2ed6ec.bindTooltip(
+                `<div>
+                     Pipeline PIPE_011 (2.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_91cd6845a33508f033b3fe3f69e4dbcd = L.polyline(
+                [[19.16, 76.08], [18.859196, 76.178709]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_adffb616c7bf919deb35c039f4859db2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c294cfc86fe053f9973781a430c20653 = $(`<div id="html_c294cfc86fe053f9973781a430c20653" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_016<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_006<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 34.96 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_adffb616c7bf919deb35c039f4859db2.setContent(html_c294cfc86fe053f9973781a430c20653);
+            
+        
+
+        poly_line_91cd6845a33508f033b3fe3f69e4dbcd.bindPopup(popup_adffb616c7bf919deb35c039f4859db2)
+        ;
+
+        
+    
+    
+            poly_line_91cd6845a33508f033b3fe3f69e4dbcd.bindTooltip(
+                `<div>
+                     Pipeline PIPE_016 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f4327dff9bd2c3a5d7a07d7978999ed9 = L.polyline(
+                [[19.16, 76.08], [19.356323, 76.157649]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_3ea7fb6eebd3c311b6473eddce30c950 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e719fdfad85e79ecaa779f2db074f0ec = $(`<div id="html_e719fdfad85e79ecaa779f2db074f0ec" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_019<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_008<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 23.27 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_3ea7fb6eebd3c311b6473eddce30c950.setContent(html_e719fdfad85e79ecaa779f2db074f0ec);
+            
+        
+
+        poly_line_f4327dff9bd2c3a5d7a07d7978999ed9.bindPopup(popup_3ea7fb6eebd3c311b6473eddce30c950)
+        ;
+
+        
+    
+    
+            poly_line_f4327dff9bd2c3a5d7a07d7978999ed9.bindTooltip(
+                `<div>
+                     Pipeline PIPE_019 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_907d7a4f9ca750f94aa17e4cb04eb786 = L.polyline(
+                [[19.16, 76.08], [19.170781, 76.126379]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_ec0bebd0cf90897a20fe7c9416458289 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_36fe419d961a535ca26bea62290cd51f = $(`<div id="html_36fe419d961a535ca26bea62290cd51f" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_020<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_009<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 5.01 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_ec0bebd0cf90897a20fe7c9416458289.setContent(html_36fe419d961a535ca26bea62290cd51f);
+            
+        
+
+        poly_line_907d7a4f9ca750f94aa17e4cb04eb786.bindPopup(popup_ec0bebd0cf90897a20fe7c9416458289)
+        ;
+
+        
+    
+    
+            poly_line_907d7a4f9ca750f94aa17e4cb04eb786.bindTooltip(
+                `<div>
+                     Pipeline PIPE_020 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ba4255f0b3dc888e80e74b160d259a36 = L.polyline(
+                [[19.16, 76.08], [18.764409, 76.145312]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_fedb51420b7a8ace199e68557f3e77c4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51fb770dfc225153659ffefaf8af58ea = $(`<div id="html_51fb770dfc225153659ffefaf8af58ea" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_023<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_011<br>             <b>Capacity:</b> 2.5 M Litres/day<br>             <b>Length:</b> 44.44 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_fedb51420b7a8ace199e68557f3e77c4.setContent(html_51fb770dfc225153659ffefaf8af58ea);
+            
+        
+
+        poly_line_ba4255f0b3dc888e80e74b160d259a36.bindPopup(popup_fedb51420b7a8ace199e68557f3e77c4)
+        ;
+
+        
+    
+    
+            poly_line_ba4255f0b3dc888e80e74b160d259a36.bindTooltip(
+                `<div>
+                     Pipeline PIPE_023 (2.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_feb29b834a7f57a3dde181e012e185c0 = L.polyline(
+                [[19.16, 76.08], [19.11733, 76.080116]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_c467a2053ef64f1c4669e0aa4a76df66 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b05e40c1f74f7192066427a4a2043f26 = $(`<div id="html_b05e40c1f74f7192066427a4a2043f26" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_031<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_018<br>             <b>Capacity:</b> 8.0 M Litres/day<br>             <b>Length:</b> 4.74 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_c467a2053ef64f1c4669e0aa4a76df66.setContent(html_b05e40c1f74f7192066427a4a2043f26);
+            
+        
+
+        poly_line_feb29b834a7f57a3dde181e012e185c0.bindPopup(popup_c467a2053ef64f1c4669e0aa4a76df66)
+        ;
+
+        
+    
+    
+            poly_line_feb29b834a7f57a3dde181e012e185c0.bindTooltip(
+                `<div>
+                     Pipeline PIPE_031 (8.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cc732e444120a98506d619e5939aacb8 = L.polyline(
+                [[19.16, 76.08], [19.178297, 75.879887]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_69fa0d9997b9ff7d218ae5690bae61ef = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ecfe706c75a76972d73db53474803f95 = $(`<div id="html_ecfe706c75a76972d73db53474803f95" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_035<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_021<br>             <b>Capacity:</b> 2.5 M Litres/day<br>             <b>Length:</b> 21.11 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_69fa0d9997b9ff7d218ae5690bae61ef.setContent(html_ecfe706c75a76972d73db53474803f95);
+            
+        
+
+        poly_line_cc732e444120a98506d619e5939aacb8.bindPopup(popup_69fa0d9997b9ff7d218ae5690bae61ef)
+        ;
+
+        
+    
+    
+            poly_line_cc732e444120a98506d619e5939aacb8.bindTooltip(
+                `<div>
+                     Pipeline PIPE_035 (2.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1a74b11133fbc7fd240c151017556bed = L.polyline(
+                [[19.16, 76.08], [18.954501, 76.061538]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_e34b3d576ba3a51fca4653ca22804526 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2815b8c93410e0a0cb7d9588099cdc49 = $(`<div id="html_2815b8c93410e0a0cb7d9588099cdc49" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_037<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_023<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 22.89 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_e34b3d576ba3a51fca4653ca22804526.setContent(html_2815b8c93410e0a0cb7d9588099cdc49);
+            
+        
+
+        poly_line_1a74b11133fbc7fd240c151017556bed.bindPopup(popup_e34b3d576ba3a51fca4653ca22804526)
+        ;
+
+        
+    
+    
+            poly_line_1a74b11133fbc7fd240c151017556bed.bindTooltip(
+                `<div>
+                     Pipeline PIPE_037 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_44dd32ccb0c6b8f418ea16b9b667e073 = L.polyline(
+                [[19.16, 76.08], [19.069249, 76.190821]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_35660af73e3c152b4a38ef5682cfc0a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a42f03935306062eb4d433dd544a981d = $(`<div id="html_a42f03935306062eb4d433dd544a981d" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_039<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_025<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 15.39 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_35660af73e3c152b4a38ef5682cfc0a5.setContent(html_a42f03935306062eb4d433dd544a981d);
+            
+        
+
+        poly_line_44dd32ccb0c6b8f418ea16b9b667e073.bindPopup(popup_35660af73e3c152b4a38ef5682cfc0a5)
+        ;
+
+        
+    
+    
+            poly_line_44dd32ccb0c6b8f418ea16b9b667e073.bindTooltip(
+                `<div>
+                     Pipeline PIPE_039 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_123b2ba1cf7cd7b88fc84b0cb30083d7 = L.polyline(
+                [[19.16, 76.08], [19.299623, 76.040571]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_5b50dff9c101459c5ba3be15e2bfc72c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_84a135d40913916762d68bd453120afd = $(`<div id="html_84a135d40913916762d68bd453120afd" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_040<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_026<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 16.04 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_5b50dff9c101459c5ba3be15e2bfc72c.setContent(html_84a135d40913916762d68bd453120afd);
+            
+        
+
+        poly_line_123b2ba1cf7cd7b88fc84b0cb30083d7.bindPopup(popup_5b50dff9c101459c5ba3be15e2bfc72c)
+        ;
+
+        
+    
+    
+            poly_line_123b2ba1cf7cd7b88fc84b0cb30083d7.bindTooltip(
+                `<div>
+                     Pipeline PIPE_040 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_53fc24eb7564cd303f70c7e606ad7cb1 = L.polyline(
+                [[19.16, 76.08], [19.16469, 76.070823]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_eb406c46fb759cf437f8d7e56036b51b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c0a37d44f1d175c99613bad8ef887ef3 = $(`<div id="html_c0a37d44f1d175c99613bad8ef887ef3" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_044<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_029<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 2.5 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_eb406c46fb759cf437f8d7e56036b51b.setContent(html_c0a37d44f1d175c99613bad8ef887ef3);
+            
+        
+
+        poly_line_53fc24eb7564cd303f70c7e606ad7cb1.bindPopup(popup_eb406c46fb759cf437f8d7e56036b51b)
+        ;
+
+        
+    
+    
+            poly_line_53fc24eb7564cd303f70c7e606ad7cb1.bindTooltip(
+                `<div>
+                     Pipeline PIPE_044 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f160067094d1592b70bd3448b928512a = L.polyline(
+                [[19.16, 76.08], [19.175281, 76.010305]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_336cd715075450f6711dc0d9b7196e8f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_669a504eabe5489c482ae261dfa4a019 = $(`<div id="html_669a504eabe5489c482ae261dfa4a019" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_046<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_031<br>             <b>Capacity:</b> 8.0 M Litres/day<br>             <b>Length:</b> 7.51 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_336cd715075450f6711dc0d9b7196e8f.setContent(html_669a504eabe5489c482ae261dfa4a019);
+            
+        
+
+        poly_line_f160067094d1592b70bd3448b928512a.bindPopup(popup_336cd715075450f6711dc0d9b7196e8f)
+        ;
+
+        
+    
+    
+            poly_line_f160067094d1592b70bd3448b928512a.bindTooltip(
+                `<div>
+                     Pipeline PIPE_046 (8.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3a5f72c808478cbb3eb532bf2064497a = L.polyline(
+                [[19.16, 76.08], [19.315878, 76.104172]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_7f9fb7036365f69008e96e557039dfb7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5b48c77744090283323da5286aa75e85 = $(`<div id="html_5b48c77744090283323da5286aa75e85" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_052<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_036<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 17.49 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_7f9fb7036365f69008e96e557039dfb7.setContent(html_5b48c77744090283323da5286aa75e85);
+            
+        
+
+        poly_line_3a5f72c808478cbb3eb532bf2064497a.bindPopup(popup_7f9fb7036365f69008e96e557039dfb7)
+        ;
+
+        
+    
+    
+            poly_line_3a5f72c808478cbb3eb532bf2064497a.bindTooltip(
+                `<div>
+                     Pipeline PIPE_052 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b7b9232c3fdaefceef7a6e641e3f34c3 = L.polyline(
+                [[19.16, 76.08], [19.096624, 76.010724]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_2bb4b938be407dbe3e34e69a308e16d7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b7054c61219c88c06cf0f9c77ab1928 = $(`<div id="html_1b7054c61219c88c06cf0f9c77ab1928" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_060<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_042<br>             <b>Capacity:</b> 8.0 M Litres/day<br>             <b>Length:</b> 10.12 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_2bb4b938be407dbe3e34e69a308e16d7.setContent(html_1b7054c61219c88c06cf0f9c77ab1928);
+            
+        
+
+        poly_line_b7b9232c3fdaefceef7a6e641e3f34c3.bindPopup(popup_2bb4b938be407dbe3e34e69a308e16d7)
+        ;
+
+        
+    
+    
+            poly_line_b7b9232c3fdaefceef7a6e641e3f34c3.bindTooltip(
+                `<div>
+                     Pipeline PIPE_060 (8.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2005b7291369f638d28bee1651eb39d3 = L.polyline(
+                [[19.16, 76.08], [19.386524, 76.121049]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_9c440df03a9e6c170149041b3baf7ac2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_882c52d48a4d6b9eade9b2c6c96c1156 = $(`<div id="html_882c52d48a4d6b9eade9b2c6c96c1156" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_062<br>             <b>From:</b> TNK_03 &rarr; <b>To:</b> VIL_044<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 25.51 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_9c440df03a9e6c170149041b3baf7ac2.setContent(html_882c52d48a4d6b9eade9b2c6c96c1156);
+            
+        
+
+        poly_line_2005b7291369f638d28bee1651eb39d3.bindPopup(popup_9c440df03a9e6c170149041b3baf7ac2)
+        ;
+
+        
+    
+    
+            poly_line_2005b7291369f638d28bee1651eb39d3.bindTooltip(
+                `<div>
+                     Pipeline PIPE_062 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8abffd459e8bd7d223e529c202638ebc = L.polyline(
+                [[18.98, 75.84], [18.91, 75.65]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_29a5c0752db01cde37a33998f5566d22 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c69908b6b65fc84579f2cc8aa25d252 = $(`<div id="html_1c69908b6b65fc84579f2cc8aa25d252" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_009<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> TNK_05<br>             <b>Capacity:</b> 20.0 M Litres/day<br>             <b>Length:</b> 16.0 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_29a5c0752db01cde37a33998f5566d22.setContent(html_1c69908b6b65fc84579f2cc8aa25d252);
+            
+        
+
+        poly_line_8abffd459e8bd7d223e529c202638ebc.bindPopup(popup_29a5c0752db01cde37a33998f5566d22)
+        ;
+
+        
+    
+    
+            poly_line_8abffd459e8bd7d223e529c202638ebc.bindTooltip(
+                `<div>
+                     Pipeline PIPE_009 (20.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_34f4d5a9c32a5342fab553c6ce625391 = L.polyline(
+                [[18.98, 75.84], [19.012178, 75.963766]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_f9d920d1cebc5350d34617c738b44464 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6f4608cd5e9fcb9d34fef7f16b14db08 = $(`<div id="html_6f4608cd5e9fcb9d34fef7f16b14db08" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_010<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_001<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 13.48 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_f9d920d1cebc5350d34617c738b44464.setContent(html_6f4608cd5e9fcb9d34fef7f16b14db08);
+            
+        
+
+        poly_line_34f4d5a9c32a5342fab553c6ce625391.bindPopup(popup_f9d920d1cebc5350d34617c738b44464)
+        ;
+
+        
+    
+    
+            poly_line_34f4d5a9c32a5342fab553c6ce625391.bindTooltip(
+                `<div>
+                     Pipeline PIPE_010 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_dbdbd3609623dd2675247420d02f9fa4 = L.polyline(
+                [[18.98, 75.84], [18.859196, 76.178709]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_2cc47e1473e06c126952b93ec8e974e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f5d5c169f82a2b717589c8fa5da66bff = $(`<div id="html_f5d5c169f82a2b717589c8fa5da66bff" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_017<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_006<br>             <b>Capacity:</b> 2.5 M Litres/day<br>             <b>Length:</b> 38.01 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_2cc47e1473e06c126952b93ec8e974e2.setContent(html_f5d5c169f82a2b717589c8fa5da66bff);
+            
+        
+
+        poly_line_dbdbd3609623dd2675247420d02f9fa4.bindPopup(popup_2cc47e1473e06c126952b93ec8e974e2)
+        ;
+
+        
+    
+    
+            poly_line_dbdbd3609623dd2675247420d02f9fa4.bindTooltip(
+                `<div>
+                     Pipeline PIPE_017 (2.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_70f65efa99fc084fd222b1da9afe33e8 = L.polyline(
+                [[18.98, 75.84], [18.790659, 76.042593]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_c2a8a7dadee4a20d6370992fcd0d5c44 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c980ee31ed1222e095e7aed5421b1eaa = $(`<div id="html_c980ee31ed1222e095e7aed5421b1eaa" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_018<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_007<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 29.9 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_c2a8a7dadee4a20d6370992fcd0d5c44.setContent(html_c980ee31ed1222e095e7aed5421b1eaa);
+            
+        
+
+        poly_line_70f65efa99fc084fd222b1da9afe33e8.bindPopup(popup_c2a8a7dadee4a20d6370992fcd0d5c44)
+        ;
+
+        
+    
+    
+            poly_line_70f65efa99fc084fd222b1da9afe33e8.bindTooltip(
+                `<div>
+                     Pipeline PIPE_018 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a9ef635a2df2613a082960636686e1e1 = L.polyline(
+                [[18.98, 75.84], [18.764409, 76.145312]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_7da5469de20aac75ea192ae7a236919a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5d8a74dff4bf337eef41067290ce4237 = $(`<div id="html_5d8a74dff4bf337eef41067290ce4237" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_022<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_011<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 40.0 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_7da5469de20aac75ea192ae7a236919a.setContent(html_5d8a74dff4bf337eef41067290ce4237);
+            
+        
+
+        poly_line_a9ef635a2df2613a082960636686e1e1.bindPopup(popup_7da5469de20aac75ea192ae7a236919a)
+        ;
+
+        
+    
+    
+            poly_line_a9ef635a2df2613a082960636686e1e1.bindTooltip(
+                `<div>
+                     Pipeline PIPE_022 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_157cdef40dc083f85b67368f450dbf3c = L.polyline(
+                [[18.98, 75.84], [18.878383, 75.772074]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_110679ca41600ff127e50e1ef20c6ee8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_27c6ad6b528772e206c9dc392d29edaa = $(`<div id="html_27c6ad6b528772e206c9dc392d29edaa" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_029<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_016<br>             <b>Capacity:</b> 2.5 M Litres/day<br>             <b>Length:</b> 13.35 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_110679ca41600ff127e50e1ef20c6ee8.setContent(html_27c6ad6b528772e206c9dc392d29edaa);
+            
+        
+
+        poly_line_157cdef40dc083f85b67368f450dbf3c.bindPopup(popup_110679ca41600ff127e50e1ef20c6ee8)
+        ;
+
+        
+    
+    
+            poly_line_157cdef40dc083f85b67368f450dbf3c.bindTooltip(
+                `<div>
+                     Pipeline PIPE_029 (2.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d102c85527979ed994433c87f89701e3 = L.polyline(
+                [[18.98, 75.84], [18.782515, 75.9948]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_f9bf121417aac9bde4befffeba7f8915 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8fc05533f35599369945f9dbd8850225 = $(`<div id="html_8fc05533f35599369945f9dbd8850225" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_045<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_030<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 27.29 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_f9bf121417aac9bde4befffeba7f8915.setContent(html_8fc05533f35599369945f9dbd8850225);
+            
+        
+
+        poly_line_d102c85527979ed994433c87f89701e3.bindPopup(popup_f9bf121417aac9bde4befffeba7f8915)
+        ;
+
+        
+    
+    
+            poly_line_d102c85527979ed994433c87f89701e3.bindTooltip(
+                `<div>
+                     Pipeline PIPE_045 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_5216c1a9b2b82000556157e7b17a0c87 = L.polyline(
+                [[18.98, 75.84], [18.869367, 76.039889]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_507d4867fa603e9a1bd24b050a683989 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_329777fb80baf1c5d50597144f5b8b9c = $(`<div id="html_329777fb80baf1c5d50597144f5b8b9c" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_048<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_032<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 24.32 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_507d4867fa603e9a1bd24b050a683989.setContent(html_329777fb80baf1c5d50597144f5b8b9c);
+            
+        
+
+        poly_line_5216c1a9b2b82000556157e7b17a0c87.bindPopup(popup_507d4867fa603e9a1bd24b050a683989)
+        ;
+
+        
+    
+    
+            poly_line_5216c1a9b2b82000556157e7b17a0c87.bindTooltip(
+                `<div>
+                     Pipeline PIPE_048 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_de6a1b7dcf8141a59166de7ac000c948 = L.polyline(
+                [[18.98, 75.84], [18.96323, 75.936309]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_5cf177467db7cbd89b529278239c3de1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_332ec4c809e78b430836ab876fc1eaa7 = $(`<div id="html_332ec4c809e78b430836ab876fc1eaa7" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_054<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_037<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 10.28 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_5cf177467db7cbd89b529278239c3de1.setContent(html_332ec4c809e78b430836ab876fc1eaa7);
+            
+        
+
+        poly_line_de6a1b7dcf8141a59166de7ac000c948.bindPopup(popup_5cf177467db7cbd89b529278239c3de1)
+        ;
+
+        
+    
+    
+            poly_line_de6a1b7dcf8141a59166de7ac000c948.bindTooltip(
+                `<div>
+                     Pipeline PIPE_054 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e02266f63289d6aa2a26986c8aa8f952 = L.polyline(
+                [[18.98, 75.84], [18.835427, 75.727628]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_97a160767a96909f8a0bf917bfb4eb67 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bfab02ee25682b17bcfe96d70cfcb125 = $(`<div id="html_bfab02ee25682b17bcfe96d70cfcb125" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_059<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_041<br>             <b>Capacity:</b> 2.5 M Litres/day<br>             <b>Length:</b> 19.92 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_97a160767a96909f8a0bf917bfb4eb67.setContent(html_bfab02ee25682b17bcfe96d70cfcb125);
+            
+        
+
+        poly_line_e02266f63289d6aa2a26986c8aa8f952.bindPopup(popup_97a160767a96909f8a0bf917bfb4eb67)
+        ;
+
+        
+    
+    
+            poly_line_e02266f63289d6aa2a26986c8aa8f952.bindTooltip(
+                `<div>
+                     Pipeline PIPE_059 (2.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7ddfd69c14b65505caa279861c5841d5 = L.polyline(
+                [[18.98, 75.84], [18.774072, 75.94629]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_0910b60dc3949c485874642bf9c938b4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc233e2761ad22447eb02e4fc17d7410 = $(`<div id="html_dc233e2761ad22447eb02e4fc17d7410" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_061<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_043<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 25.44 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_0910b60dc3949c485874642bf9c938b4.setContent(html_dc233e2761ad22447eb02e4fc17d7410);
+            
+        
+
+        poly_line_7ddfd69c14b65505caa279861c5841d5.bindPopup(popup_0910b60dc3949c485874642bf9c938b4)
+        ;
+
+        
+    
+    
+            poly_line_7ddfd69c14b65505caa279861c5841d5.bindTooltip(
+                `<div>
+                     Pipeline PIPE_061 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1481b95898e050001f03e15715e52b36 = L.polyline(
+                [[18.98, 75.84], [18.931146, 75.83055]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_7b087653797b0697447bfbd09c9662a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee5d641f5ecd2f5ee7a54797dc17ec34 = $(`<div id="html_ee5d641f5ecd2f5ee7a54797dc17ec34" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_063<br>             <b>From:</b> TNK_04 &rarr; <b>To:</b> VIL_045<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 5.51 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_7b087653797b0697447bfbd09c9662a5.setContent(html_ee5d641f5ecd2f5ee7a54797dc17ec34);
+            
+        
+
+        poly_line_1481b95898e050001f03e15715e52b36.bindPopup(popup_7b087653797b0697447bfbd09c9662a5)
+        ;
+
+        
+    
+    
+            poly_line_1481b95898e050001f03e15715e52b36.bindTooltip(
+                `<div>
+                     Pipeline PIPE_063 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d83fc9d0488ab7133825d166155c2d75 = L.polyline(
+                [[18.91, 75.65], [18.859213, 75.629398]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_1813e04649609c0b6377470105639ff4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6780e5dd227cf3016e709570518757ff = $(`<div id="html_6780e5dd227cf3016e709570518757ff" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_015<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_005<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 6.04 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_1813e04649609c0b6377470105639ff4.setContent(html_6780e5dd227cf3016e709570518757ff);
+            
+        
+
+        poly_line_d83fc9d0488ab7133825d166155c2d75.bindPopup(popup_1813e04649609c0b6377470105639ff4)
+        ;
+
+        
+    
+    
+            poly_line_d83fc9d0488ab7133825d166155c2d75.bindTooltip(
+                `<div>
+                     Pipeline PIPE_015 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_054dc327d7cd68362618b093cded92dd = L.polyline(
+                [[18.91, 75.65], [18.898637, 75.531659]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_3782f10dca356c32018ba35c44d9b4a6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fc3217d34cd9771f4bbecfb7f6641272 = $(`<div id="html_fc3217d34cd9771f4bbecfb7f6641272" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_026<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_014<br>             <b>Capacity:</b> 8.0 M Litres/day<br>             <b>Length:</b> 12.49 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_3782f10dca356c32018ba35c44d9b4a6.setContent(html_fc3217d34cd9771f4bbecfb7f6641272);
+            
+        
+
+        poly_line_054dc327d7cd68362618b093cded92dd.bindPopup(popup_3782f10dca356c32018ba35c44d9b4a6)
+        ;
+
+        
+    
+    
+            poly_line_054dc327d7cd68362618b093cded92dd.bindTooltip(
+                `<div>
+                     Pipeline PIPE_026 (8.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f0d55783b8d1b0b86c4c66567eeedfe7 = L.polyline(
+                [[18.91, 75.65], [18.877277, 75.727731]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_5f81adedaba2225d4542f77e2ddc5996 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5da3ef23db94391b14d5b23417fe0b9e = $(`<div id="html_5da3ef23db94391b14d5b23417fe0b9e" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_027<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_015<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 8.93 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_5f81adedaba2225d4542f77e2ddc5996.setContent(html_5da3ef23db94391b14d5b23417fe0b9e);
+            
+        
+
+        poly_line_f0d55783b8d1b0b86c4c66567eeedfe7.bindPopup(popup_5f81adedaba2225d4542f77e2ddc5996)
+        ;
+
+        
+    
+    
+            poly_line_f0d55783b8d1b0b86c4c66567eeedfe7.bindTooltip(
+                `<div>
+                     Pipeline PIPE_027 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0e3c1faab36cd2ce96db82046ef86eb0 = L.polyline(
+                [[18.91, 75.65], [18.878383, 75.772074]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_514002059feb0eb7f3232573920fbcd8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_edc04d0e158db8306694753eac3b352d = $(`<div id="html_edc04d0e158db8306694753eac3b352d" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_028<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_016<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 13.29 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_514002059feb0eb7f3232573920fbcd8.setContent(html_edc04d0e158db8306694753eac3b352d);
+            
+        
+
+        poly_line_0e3c1faab36cd2ce96db82046ef86eb0.bindPopup(popup_514002059feb0eb7f3232573920fbcd8)
+        ;
+
+        
+    
+    
+            poly_line_0e3c1faab36cd2ce96db82046ef86eb0.bindTooltip(
+                `<div>
+                     Pipeline PIPE_028 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d21e4a2fd5d137480d623e7202bcf0f4 = L.polyline(
+                [[18.91, 75.65], [18.96297, 75.689944]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_c100e8e90b6effe88a9c15024d7abafb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_608b07cd0a53d2dd2ce3d86fed54e412 = $(`<div id="html_608b07cd0a53d2dd2ce3d86fed54e412" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_030<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_017<br>             <b>Capacity:</b> 4.5 M Litres/day<br>             <b>Length:</b> 7.22 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_c100e8e90b6effe88a9c15024d7abafb.setContent(html_608b07cd0a53d2dd2ce3d86fed54e412);
+            
+        
+
+        poly_line_d21e4a2fd5d137480d623e7202bcf0f4.bindPopup(popup_c100e8e90b6effe88a9c15024d7abafb)
+        ;
+
+        
+    
+    
+            poly_line_d21e4a2fd5d137480d623e7202bcf0f4.bindTooltip(
+                `<div>
+                     Pipeline PIPE_030 (4.5 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2cf732f51067fceb3eab1ab846d8fd11 = L.polyline(
+                [[18.91, 75.65], [18.95386, 75.696654]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_99ce5da69036784acdc1eb4b85d4d868 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b0a56dc8f272528a5fb3efb64f50ed0 = $(`<div id="html_8b0a56dc8f272528a5fb3efb64f50ed0" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_033<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_020<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 6.91 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_99ce5da69036784acdc1eb4b85d4d868.setContent(html_8b0a56dc8f272528a5fb3efb64f50ed0);
+            
+        
+
+        poly_line_2cf732f51067fceb3eab1ab846d8fd11.bindPopup(popup_99ce5da69036784acdc1eb4b85d4d868)
+        ;
+
+        
+    
+    
+            poly_line_2cf732f51067fceb3eab1ab846d8fd11.bindTooltip(
+                `<div>
+                     Pipeline PIPE_033 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e66bf0ebe26de4922186339412b7bfcf = L.polyline(
+                [[18.91, 75.65], [18.847646, 75.598647]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_cd6011ba65963e36ec73a041c867d913 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f76382e57abae6668806750430986fd1 = $(`<div id="html_f76382e57abae6668806750430986fd1" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_036<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_022<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 8.77 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_cd6011ba65963e36ec73a041c867d913.setContent(html_f76382e57abae6668806750430986fd1);
+            
+        
+
+        poly_line_e66bf0ebe26de4922186339412b7bfcf.bindPopup(popup_cd6011ba65963e36ec73a041c867d913)
+        ;
+
+        
+    
+    
+            poly_line_e66bf0ebe26de4922186339412b7bfcf.bindTooltip(
+                `<div>
+                     Pipeline PIPE_036 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_241bae9a78082e1e5b22f31859baf745 = L.polyline(
+                [[18.91, 75.65], [19.006453, 75.552185]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_7d76c40461fc0b41bd83339c1f61e6dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dffccb6e6bd2e7104e04d3a627dfa249 = $(`<div id="html_dffccb6e6bd2e7104e04d3a627dfa249" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_038<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_024<br>             <b>Capacity:</b> 6.1 M Litres/day<br>             <b>Length:</b> 14.84 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_7d76c40461fc0b41bd83339c1f61e6dd.setContent(html_dffccb6e6bd2e7104e04d3a627dfa249);
+            
+        
+
+        poly_line_241bae9a78082e1e5b22f31859baf745.bindPopup(popup_7d76c40461fc0b41bd83339c1f61e6dd)
+        ;
+
+        
+    
+    
+            poly_line_241bae9a78082e1e5b22f31859baf745.bindTooltip(
+                `<div>
+                     Pipeline PIPE_038 (6.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_316a21638c4a5927dcb32047d93e27a2 = L.polyline(
+                [[18.91, 75.65], [18.889772, 75.639101]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_e810181513af743642efe081244cb42a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28c812bcad06430312ce68fba7ac863d = $(`<div id="html_28c812bcad06430312ce68fba7ac863d" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_042<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_027<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 2.52 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_e810181513af743642efe081244cb42a.setContent(html_28c812bcad06430312ce68fba7ac863d);
+            
+        
+
+        poly_line_316a21638c4a5927dcb32047d93e27a2.bindPopup(popup_e810181513af743642efe081244cb42a)
+        ;
+
+        
+    
+    
+            poly_line_316a21638c4a5927dcb32047d93e27a2.bindTooltip(
+                `<div>
+                     Pipeline PIPE_042 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_15e09d7571ad36464f0ce2ef9a9d7202 = L.polyline(
+                [[18.91, 75.65], [19.109964, 75.503865]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_9a90bd99ee508a70d5d6080aa5afcd50 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ebe984ca9271751b0c342cae096c2b03 = $(`<div id="html_ebe984ca9271751b0c342cae096c2b03" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_043<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_028<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 26.98 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_9a90bd99ee508a70d5d6080aa5afcd50.setContent(html_ebe984ca9271751b0c342cae096c2b03);
+            
+        
+
+        poly_line_15e09d7571ad36464f0ce2ef9a9d7202.bindPopup(popup_9a90bd99ee508a70d5d6080aa5afcd50)
+        ;
+
+        
+    
+    
+            poly_line_15e09d7571ad36464f0ce2ef9a9d7202.bindTooltip(
+                `<div>
+                     Pipeline PIPE_043 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9be9741bcba4f3168bcb914de319fa0b = L.polyline(
+                [[18.91, 75.65], [18.795536, 75.551831]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_1f6e714a0c4b0a696250bd9cfa834d3c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_39bd3b57ed9740956e45a4dd289ea6cb = $(`<div id="html_39bd3b57ed9740956e45a4dd289ea6cb" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_049<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_033<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 16.36 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_1f6e714a0c4b0a696250bd9cfa834d3c.setContent(html_39bd3b57ed9740956e45a4dd289ea6cb);
+            
+        
+
+        poly_line_9be9741bcba4f3168bcb914de319fa0b.bindPopup(popup_1f6e714a0c4b0a696250bd9cfa834d3c)
+        ;
+
+        
+    
+    
+            poly_line_9be9741bcba4f3168bcb914de319fa0b.bindTooltip(
+                `<div>
+                     Pipeline PIPE_049 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_355a4af268f8581cef9864268d8fd122 = L.polyline(
+                [[18.91, 75.65], [18.81837, 75.731629]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_e12efcc4697e3cab371912aeb40e661d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_297de0b640c1effa9019ba445ac589c0 = $(`<div id="html_297de0b640c1effa9019ba445ac589c0" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_055<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_038<br>             <b>Capacity:</b> 3.1 M Litres/day<br>             <b>Length:</b> 13.3 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_e12efcc4697e3cab371912aeb40e661d.setContent(html_297de0b640c1effa9019ba445ac589c0);
+            
+        
+
+        poly_line_355a4af268f8581cef9864268d8fd122.bindPopup(popup_e12efcc4697e3cab371912aeb40e661d)
+        ;
+
+        
+    
+    
+            poly_line_355a4af268f8581cef9864268d8fd122.bindTooltip(
+                `<div>
+                     Pipeline PIPE_055 (3.1 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_a2dfd22d411d09d8e9a7567d3c133e5f = L.polyline(
+                [[18.91, 75.65], [18.835427, 75.727628]],
+                {"bubblingMouseEvents": true, "color": "#1E88E5", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1E88E5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_0d478b4322ca1b98857458633e363cc6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f894e9f30470eb28d2c9cd18934370a0 = $(`<div id="html_f894e9f30470eb28d2c9cd18934370a0" style="width: 100.0%; height: 100.0%;">             <b>Pipeline:</b> PIPE_058<br>             <b>From:</b> TNK_05 &rarr; <b>To:</b> VIL_041<br>             <b>Capacity:</b> 8.0 M Litres/day<br>             <b>Length:</b> 11.62 km<br>             <b>Status:</b> Working             </div>`)[0];
+                popup_0d478b4322ca1b98857458633e363cc6.setContent(html_f894e9f30470eb28d2c9cd18934370a0);
+            
+        
+
+        poly_line_a2dfd22d411d09d8e9a7567d3c133e5f.bindPopup(popup_0d478b4322ca1b98857458633e363cc6)
+        ;
+
+        
+    
+    
+            poly_line_a2dfd22d411d09d8e9a7567d3c133e5f.bindTooltip(
+                `<div>
+                     Pipeline PIPE_058 (8.0 ML/day)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_af439e0b2f9a322a3510bb09b65d1b61 = L.marker(
+                [19.35, 75.62],
+                {
+}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+            var icon_c48dd3881216cd78ebb7b76e73518125 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2c2ef38f12a198d3979e1b31b672d9ba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_530198d128aecf2077244ed0cd65170f = $(`<div id="html_530198d128aecf2077244ed0cd65170f" style="width: 100.0%; height: 100.0%;"><b>Water Source:</b> Godavari Major Reservoir<br><b>Capacity:</b> 125.0 Billion Litres</div>`)[0];
+                popup_2c2ef38f12a198d3979e1b31b672d9ba.setContent(html_530198d128aecf2077244ed0cd65170f);
+            
+        
+
+        marker_af439e0b2f9a322a3510bb09b65d1b61.bindPopup(popup_2c2ef38f12a198d3979e1b31b672d9ba)
+        ;
+
+        
+    
+    
+            marker_af439e0b2f9a322a3510bb09b65d1b61.bindTooltip(
+                `<div>
+                     Source: Godavari Major Reservoir
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_af439e0b2f9a322a3510bb09b65d1b61.setIcon(icon_c48dd3881216cd78ebb7b76e73518125);
+            
+    
+            var marker_d469c434e95cc8ba305c7dfd9c412922 = L.marker(
+                [19.18, 75.92],
+                {
+}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+            var icon_18862e30241ed5bea0550603cf4140bf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b41fafef44fae4b8227e577e545f805 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c705903182d6e02e951baf2e9a409ae = $(`<div id="html_3c705903182d6e02e951baf2e9a409ae" style="width: 100.0%; height: 100.0%;"><b>Water Source:</b> Jayakwadi Canal Intake<br><b>Capacity:</b> 45.0 Billion Litres</div>`)[0];
+                popup_4b41fafef44fae4b8227e577e545f805.setContent(html_3c705903182d6e02e951baf2e9a409ae);
+            
+        
+
+        marker_d469c434e95cc8ba305c7dfd9c412922.bindPopup(popup_4b41fafef44fae4b8227e577e545f805)
+        ;
+
+        
+    
+    
+            marker_d469c434e95cc8ba305c7dfd9c412922.bindTooltip(
+                `<div>
+                     Source: Jayakwadi Canal Intake
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d469c434e95cc8ba305c7dfd9c412922.setIcon(icon_18862e30241ed5bea0550603cf4140bf);
+            
+    
+            var marker_ac88f1ccfd3f527516ea94a5ad90746c = L.marker(
+                [18.88, 75.75],
+                {
+}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+            var icon_56b65e0b61ddde2dd4ea54b964eeea0d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_75164ec19bbaa3af619848b9fbf9df3a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58fab296d28c43291d53706161c055a5 = $(`<div id="html_58fab296d28c43291d53706161c055a5" style="width: 100.0%; height: 100.0%;"><b>Water Source:</b> Kashti Deep Aquifer Wellfield<br><b>Capacity:</b> 15.0 Billion Litres</div>`)[0];
+                popup_75164ec19bbaa3af619848b9fbf9df3a.setContent(html_58fab296d28c43291d53706161c055a5);
+            
+        
+
+        marker_ac88f1ccfd3f527516ea94a5ad90746c.bindPopup(popup_75164ec19bbaa3af619848b9fbf9df3a)
+        ;
+
+        
+    
+    
+            marker_ac88f1ccfd3f527516ea94a5ad90746c.bindTooltip(
+                `<div>
+                     Source: Kashti Deep Aquifer Wellfield
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ac88f1ccfd3f527516ea94a5ad90746c.setIcon(icon_56b65e0b61ddde2dd4ea54b964eeea0d);
+            
+    
+            var marker_5c50b744da8f839ec10720b98fd71acb = L.marker(
+                [19.28, 75.71],
+                {
+}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+            var icon_03cd3c59ccd690d4ff9cb9e0d0578c74 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "database",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6f4d07d8a0c5f4ac04001759ebebfe76 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2d735a08f90e5530f9efedb72363a8e7 = $(`<div id="html_2d735a08f90e5530f9efedb72363a8e7" style="width: 100.0%; height: 100.0%;"><b>Storage Tank:</b> North Master Balancing Reservoir<br><b>Capacity:</b> 8.5 M Litres</div>`)[0];
+                popup_6f4d07d8a0c5f4ac04001759ebebfe76.setContent(html_2d735a08f90e5530f9efedb72363a8e7);
+            
+        
+
+        marker_5c50b744da8f839ec10720b98fd71acb.bindPopup(popup_6f4d07d8a0c5f4ac04001759ebebfe76)
+        ;
+
+        
+    
+    
+            marker_5c50b744da8f839ec10720b98fd71acb.bindTooltip(
+                `<div>
+                     Tank: North Master Balancing Reservoir
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5c50b744da8f839ec10720b98fd71acb.setIcon(icon_03cd3c59ccd690d4ff9cb9e0d0578c74);
+            
+    
+            var marker_d20a63e4d15c30fd361e3cb7b1a486d4 = L.marker(
+                [19.14, 75.82],
+                {
+}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+            var icon_cd64404f6e5285e01a6d90b596f6237b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "database",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_703231f22c8d798c9334cc4aad62d0de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_386fd35629e4db438e66e51b6a1f231e = $(`<div id="html_386fd35629e4db438e66e51b6a1f231e" style="width: 100.0%; height: 100.0%;"><b>Storage Tank:</b> Central Elevated Storage Reservoir<br><b>Capacity:</b> 6.2 M Litres</div>`)[0];
+                popup_703231f22c8d798c9334cc4aad62d0de.setContent(html_386fd35629e4db438e66e51b6a1f231e);
+            
+        
+
+        marker_d20a63e4d15c30fd361e3cb7b1a486d4.bindPopup(popup_703231f22c8d798c9334cc4aad62d0de)
+        ;
+
+        
+    
+    
+            marker_d20a63e4d15c30fd361e3cb7b1a486d4.bindTooltip(
+                `<div>
+                     Tank: Central Elevated Storage Reservoir
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d20a63e4d15c30fd361e3cb7b1a486d4.setIcon(icon_cd64404f6e5285e01a6d90b596f6237b);
+            
+    
+            var marker_a7b02d969c7e9df62581e78e4df1abd4 = L.marker(
+                [19.16, 76.08],
+                {
+}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+            var icon_fd3f7b998c8a58c2183e48a51b023725 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "database",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fe71ade83f1cd40aa95655912fd36de9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ff046cf0a961b25c63c7e7c16d95a831 = $(`<div id="html_ff046cf0a961b25c63c7e7c16d95a831" style="width: 100.0%; height: 100.0%;"><b>Storage Tank:</b> East Regional Balancing Tank<br><b>Capacity:</b> 5.5 M Litres</div>`)[0];
+                popup_fe71ade83f1cd40aa95655912fd36de9.setContent(html_ff046cf0a961b25c63c7e7c16d95a831);
+            
+        
+
+        marker_a7b02d969c7e9df62581e78e4df1abd4.bindPopup(popup_fe71ade83f1cd40aa95655912fd36de9)
+        ;
+
+        
+    
+    
+            marker_a7b02d969c7e9df62581e78e4df1abd4.bindTooltip(
+                `<div>
+                     Tank: East Regional Balancing Tank
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a7b02d969c7e9df62581e78e4df1abd4.setIcon(icon_fd3f7b998c8a58c2183e48a51b023725);
+            
+    
+            var marker_960123f97af0f634e255955178761831 = L.marker(
+                [18.98, 75.84],
+                {
+}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+            var icon_bbf11aa595b9e00d5f19e8523e7280ae = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "database",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d029afdcd470567ef6259f0eedec4d84 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_12676389f650b5fd10376bb38a5a2335 = $(`<div id="html_12676389f650b5fd10376bb38a5a2335" style="width: 100.0%; height: 100.0%;"><b>Storage Tank:</b> South Junction Master Reservoir<br><b>Capacity:</b> 7.0 M Litres</div>`)[0];
+                popup_d029afdcd470567ef6259f0eedec4d84.setContent(html_12676389f650b5fd10376bb38a5a2335);
+            
+        
+
+        marker_960123f97af0f634e255955178761831.bindPopup(popup_d029afdcd470567ef6259f0eedec4d84)
+        ;
+
+        
+    
+    
+            marker_960123f97af0f634e255955178761831.bindTooltip(
+                `<div>
+                     Tank: South Junction Master Reservoir
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_960123f97af0f634e255955178761831.setIcon(icon_bbf11aa595b9e00d5f19e8523e7280ae);
+            
+    
+            var marker_178780ac5e92140fc0a4bc2a20ff2ebf = L.marker(
+                [18.91, 75.65],
+                {
+}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+            var icon_f8de4816b1ea4bb965701923bb425f05 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "database",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4f6dfc417ce86ee33a83584bfa14f007 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_87d2f83cc6f9c2bae0802d9860c5ea4b = $(`<div id="html_87d2f83cc6f9c2bae0802d9860c5ea4b" style="width: 100.0%; height: 100.0%;"><b>Storage Tank:</b> Southwest Booster Staging Tank<br><b>Capacity:</b> 4.2 M Litres</div>`)[0];
+                popup_4f6dfc417ce86ee33a83584bfa14f007.setContent(html_87d2f83cc6f9c2bae0802d9860c5ea4b);
+            
+        
+
+        marker_178780ac5e92140fc0a4bc2a20ff2ebf.bindPopup(popup_4f6dfc417ce86ee33a83584bfa14f007)
+        ;
+
+        
+    
+    
+            marker_178780ac5e92140fc0a4bc2a20ff2ebf.bindTooltip(
+                `<div>
+                     Tank: Southwest Booster Staging Tank
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_178780ac5e92140fc0a4bc2a20ff2ebf.setIcon(icon_f8de4816b1ea4bb965701923bb425f05);
+            
+    
+            var circle_marker_563d653156cb4a73f266beec0dc75139 = L.circleMarker(
+                [19.012178, 75.963766],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_b65f039bed84d06abca5c19e19b73316 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ae28573801ff45cfab6f4469b70584fa = $(`<div id="html_ae28573801ff45cfab6f4469b70584fa" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Khadki (VIL_001)<br><b>Population:</b> 7956<br><b>Vulnerability Score:</b> 0.84</div>`)[0];
+                popup_b65f039bed84d06abca5c19e19b73316.setContent(html_ae28573801ff45cfab6f4469b70584fa);
+            
+        
+
+        circle_marker_563d653156cb4a73f266beec0dc75139.bindPopup(popup_b65f039bed84d06abca5c19e19b73316)
+        ;
+
+        
+    
+    
+            circle_marker_563d653156cb4a73f266beec0dc75139.bindTooltip(
+                `<div>
+                     Khadki (Pop: 7956)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_192f660804ae65e53d7f9d382caae518 = L.circleMarker(
+                [19.4155, 75.718198],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_f4e60b5ad4e74f0b1cda783092167ac9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_116f82d44b229317e1654388a3ceaf75 = $(`<div id="html_116f82d44b229317e1654388a3ceaf75" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Pipri (VIL_002)<br><b>Population:</b> 6781<br><b>Vulnerability Score:</b> 0.44</div>`)[0];
+                popup_f4e60b5ad4e74f0b1cda783092167ac9.setContent(html_116f82d44b229317e1654388a3ceaf75);
+            
+        
+
+        circle_marker_192f660804ae65e53d7f9d382caae518.bindPopup(popup_f4e60b5ad4e74f0b1cda783092167ac9)
+        ;
+
+        
+    
+    
+            circle_marker_192f660804ae65e53d7f9d382caae518.bindTooltip(
+                `<div>
+                     Pipri (Pop: 6781)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7952b956cd2e91efe64105efb642db6 = L.circleMarker(
+                [19.262396, 75.864048],
+                {"bubblingMouseEvents": true, "color": "#43A047", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43A047", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_ffbccc8b49712bbcd1134a45a470d5e9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ea9e12d65d874fd47c8dd53a82c82ee4 = $(`<div id="html_ea9e12d65d874fd47c8dd53a82c82ee4" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Shirur (VIL_003)<br><b>Population:</b> 3890<br><b>Vulnerability Score:</b> 0.33</div>`)[0];
+                popup_ffbccc8b49712bbcd1134a45a470d5e9.setContent(html_ea9e12d65d874fd47c8dd53a82c82ee4);
+            
+        
+
+        circle_marker_c7952b956cd2e91efe64105efb642db6.bindPopup(popup_ffbccc8b49712bbcd1134a45a470d5e9)
+        ;
+
+        
+    
+    
+            circle_marker_c7952b956cd2e91efe64105efb642db6.bindTooltip(
+                `<div>
+                     Shirur (Pop: 3890)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_815230f750adb597a57cb34445681448 = L.circleMarker(
+                [19.169061, 75.882697],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_06e91d9d49ebc9be9681c8a4677c811a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a04e23834b287b31c9d80a89beeeadf9 = $(`<div id="html_a04e23834b287b31c9d80a89beeeadf9" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Nandur (VIL_004)<br><b>Population:</b> 5040<br><b>Vulnerability Score:</b> 0.62</div>`)[0];
+                popup_06e91d9d49ebc9be9681c8a4677c811a.setContent(html_a04e23834b287b31c9d80a89beeeadf9);
+            
+        
+
+        circle_marker_815230f750adb597a57cb34445681448.bindPopup(popup_06e91d9d49ebc9be9681c8a4677c811a)
+        ;
+
+        
+    
+    
+            circle_marker_815230f750adb597a57cb34445681448.bindTooltip(
+                `<div>
+                     Nandur (Pop: 5040)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1226aae9db9723177e2708892916a34a = L.circleMarker(
+                [18.859213, 75.629398],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_610f6c17bdc9629c321b1227c613a8da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_78190f21410681f150cbc1eda295c1ce = $(`<div id="html_78190f21410681f150cbc1eda295c1ce" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Wadgaon (VIL_005)<br><b>Population:</b> 2228<br><b>Vulnerability Score:</b> 0.90</div>`)[0];
+                popup_610f6c17bdc9629c321b1227c613a8da.setContent(html_78190f21410681f150cbc1eda295c1ce);
+            
+        
+
+        circle_marker_1226aae9db9723177e2708892916a34a.bindPopup(popup_610f6c17bdc9629c321b1227c613a8da)
+        ;
+
+        
+    
+    
+            circle_marker_1226aae9db9723177e2708892916a34a.bindTooltip(
+                `<div>
+                     Wadgaon (Pop: 2228)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_888f2d2daf02175d98d3bd4aa1c8099d = L.circleMarker(
+                [18.859196, 76.178709],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_be372424917a79c204b4d4736e6a82cb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6f728535be8186024497cc079468a85a = $(`<div id="html_6f728535be8186024497cc079468a85a" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Dhamangaon (VIL_006)<br><b>Population:</b> 1702<br><b>Vulnerability Score:</b> 0.72</div>`)[0];
+                popup_be372424917a79c204b4d4736e6a82cb.setContent(html_6f728535be8186024497cc079468a85a);
+            
+        
+
+        circle_marker_888f2d2daf02175d98d3bd4aa1c8099d.bindPopup(popup_be372424917a79c204b4d4736e6a82cb)
+        ;
+
+        
+    
+    
+            circle_marker_888f2d2daf02175d98d3bd4aa1c8099d.bindTooltip(
+                `<div>
+                     Dhamangaon (Pop: 1702)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_11afcaf3ffb715951fcb20c82b4187fe = L.circleMarker(
+                [18.790659, 76.042593],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_500040f809bb0515e5f13e928b5ebeb2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_36a049c4a4a8191e9b16b3ca71f3cc19 = $(`<div id="html_36a049c4a4a8191e9b16b3ca71f3cc19" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Chincholi (VIL_007)<br><b>Population:</b> 8110<br><b>Vulnerability Score:</b> 0.63</div>`)[0];
+                popup_500040f809bb0515e5f13e928b5ebeb2.setContent(html_36a049c4a4a8191e9b16b3ca71f3cc19);
+            
+        
+
+        circle_marker_11afcaf3ffb715951fcb20c82b4187fe.bindPopup(popup_500040f809bb0515e5f13e928b5ebeb2)
+        ;
+
+        
+    
+    
+            circle_marker_11afcaf3ffb715951fcb20c82b4187fe.bindTooltip(
+                `<div>
+                     Chincholi (Pop: 8110)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_64792a7952692a51e0a029e8328dc7f7 = L.circleMarker(
+                [19.356323, 76.157649],
+                {"bubblingMouseEvents": true, "color": "#43A047", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43A047", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_4459028da2f5c8add00fdb68c0169119 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_edeafa475ec872c98eda192fd42d4bd4 = $(`<div id="html_edeafa475ec872c98eda192fd42d4bd4" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Babhulgaon (VIL_008)<br><b>Population:</b> 5693<br><b>Vulnerability Score:</b> 0.27</div>`)[0];
+                popup_4459028da2f5c8add00fdb68c0169119.setContent(html_edeafa475ec872c98eda192fd42d4bd4);
+            
+        
+
+        circle_marker_64792a7952692a51e0a029e8328dc7f7.bindPopup(popup_4459028da2f5c8add00fdb68c0169119)
+        ;
+
+        
+    
+    
+            circle_marker_64792a7952692a51e0a029e8328dc7f7.bindTooltip(
+                `<div>
+                     Babhulgaon (Pop: 5693)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f65e842a761b5d047169371d3aadd2e5 = L.circleMarker(
+                [19.170781, 76.126379],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_d3099d7e5e4d649ce0ade963e38d15d9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d0f7ef046f1cbdc4da78ea3dccaec8de = $(`<div id="html_d0f7ef046f1cbdc4da78ea3dccaec8de" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Ambegaon (VIL_009)<br><b>Population:</b> 2070<br><b>Vulnerability Score:</b> 0.66</div>`)[0];
+                popup_d3099d7e5e4d649ce0ade963e38d15d9.setContent(html_d0f7ef046f1cbdc4da78ea3dccaec8de);
+            
+        
+
+        circle_marker_f65e842a761b5d047169371d3aadd2e5.bindPopup(popup_d3099d7e5e4d649ce0ade963e38d15d9)
+        ;
+
+        
+    
+    
+            circle_marker_f65e842a761b5d047169371d3aadd2e5.bindTooltip(
+                `<div>
+                     Ambegaon (Pop: 2070)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_98157f744977bb3ef20d497eac7d172e = L.circleMarker(
+                [19.245651, 75.91853],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_0779924a1bf1390d1e7a82e3ecb86719 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_83d2873fbf2ebb82da7f1d015f0c3210 = $(`<div id="html_83d2873fbf2ebb82da7f1d015f0c3210" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Kashti (VIL_010)<br><b>Population:</b> 8138<br><b>Vulnerability Score:</b> 0.94</div>`)[0];
+                popup_0779924a1bf1390d1e7a82e3ecb86719.setContent(html_83d2873fbf2ebb82da7f1d015f0c3210);
+            
+        
+
+        circle_marker_98157f744977bb3ef20d497eac7d172e.bindPopup(popup_0779924a1bf1390d1e7a82e3ecb86719)
+        ;
+
+        
+    
+    
+            circle_marker_98157f744977bb3ef20d497eac7d172e.bindTooltip(
+                `<div>
+                     Kashti (Pop: 8138)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_970c991f6392199abe518541399cc123 = L.circleMarker(
+                [18.764409, 76.145312],
+                {"bubblingMouseEvents": true, "color": "#43A047", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43A047", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_bd5e5d1150c9a0e5c2e3f2356a536ebe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28f589b600fbb17e649c9cb96bf9e920 = $(`<div id="html_28f589b600fbb17e649c9cb96bf9e920" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Belwandi (VIL_011)<br><b>Population:</b> 5688<br><b>Vulnerability Score:</b> 0.31</div>`)[0];
+                popup_bd5e5d1150c9a0e5c2e3f2356a536ebe.setContent(html_28f589b600fbb17e649c9cb96bf9e920);
+            
+        
+
+        circle_marker_970c991f6392199abe518541399cc123.bindPopup(popup_bd5e5d1150c9a0e5c2e3f2356a536ebe)
+        ;
+
+        
+    
+    
+            circle_marker_970c991f6392199abe518541399cc123.bindTooltip(
+                `<div>
+                     Belwandi (Pop: 5688)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_33dc1476252441385b6556405613d950 = L.circleMarker(
+                [19.428937, 75.561945],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_7ffee8895b92c09e7bac9e50e0036ec0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3593ebbed2862f53bc7bb2b65251beee = $(`<div id="html_3593ebbed2862f53bc7bb2b65251beee" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Mandavgan (VIL_012)<br><b>Population:</b> 1406<br><b>Vulnerability Score:</b> 0.59</div>`)[0];
+                popup_7ffee8895b92c09e7bac9e50e0036ec0.setContent(html_3593ebbed2862f53bc7bb2b65251beee);
+            
+        
+
+        circle_marker_33dc1476252441385b6556405613d950.bindPopup(popup_7ffee8895b92c09e7bac9e50e0036ec0)
+        ;
+
+        
+    
+    
+            circle_marker_33dc1476252441385b6556405613d950.bindTooltip(
+                `<div>
+                     Mandavgan (Pop: 1406)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1c220033fbedd688b77d28015e1ba391 = L.circleMarker(
+                [19.33271, 75.637188],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_8d069f9ad295abc59ca3438dfa89e9a1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8ea72eb602f28039d5d4b20e5424bd91 = $(`<div id="html_8ea72eb602f28039d5d4b20e5424bd91" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Koregaon (VIL_013)<br><b>Population:</b> 6334<br><b>Vulnerability Score:</b> 0.86</div>`)[0];
+                popup_8d069f9ad295abc59ca3438dfa89e9a1.setContent(html_8ea72eb602f28039d5d4b20e5424bd91);
+            
+        
+
+        circle_marker_1c220033fbedd688b77d28015e1ba391.bindPopup(popup_8d069f9ad295abc59ca3438dfa89e9a1)
+        ;
+
+        
+    
+    
+            circle_marker_1c220033fbedd688b77d28015e1ba391.bindTooltip(
+                `<div>
+                     Koregaon (Pop: 6334)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5dde045ead13ba18a25e4e5eb04ae285 = L.circleMarker(
+                [18.898637, 75.531659],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_eba26fb06e2ec47086471c556b87def3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_afe1fc46cd83b631003e9860e0d441bd = $(`<div id="html_afe1fc46cd83b631003e9860e0d441bd" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Loni (VIL_014)<br><b>Population:</b> 7177<br><b>Vulnerability Score:</b> 0.76</div>`)[0];
+                popup_eba26fb06e2ec47086471c556b87def3.setContent(html_afe1fc46cd83b631003e9860e0d441bd);
+            
+        
+
+        circle_marker_5dde045ead13ba18a25e4e5eb04ae285.bindPopup(popup_eba26fb06e2ec47086471c556b87def3)
+        ;
+
+        
+    
+    
+            circle_marker_5dde045ead13ba18a25e4e5eb04ae285.bindTooltip(
+                `<div>
+                     Loni (Pop: 7177)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6dcd34c021aefa1f5fc674d216966ab1 = L.circleMarker(
+                [18.877277, 75.727731],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_06dd20509663041759c7013fef6723c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c4d4ded30092f742edaea0fdb2f32d2d = $(`<div id="html_c4d4ded30092f742edaea0fdb2f32d2d" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Rahata (VIL_015)<br><b>Population:</b> 8235<br><b>Vulnerability Score:</b> 0.72</div>`)[0];
+                popup_06dd20509663041759c7013fef6723c0.setContent(html_c4d4ded30092f742edaea0fdb2f32d2d);
+            
+        
+
+        circle_marker_6dcd34c021aefa1f5fc674d216966ab1.bindPopup(popup_06dd20509663041759c7013fef6723c0)
+        ;
+
+        
+    
+    
+            circle_marker_6dcd34c021aefa1f5fc674d216966ab1.bindTooltip(
+                `<div>
+                     Rahata (Pop: 8235)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a0893e3580a0ec44defb77b142c510bf = L.circleMarker(
+                [18.878383, 75.772074],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_c9d18ecd4ea11b48f326f606bf5fabbe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3a38d7e8aa3b45c3121e7c41c976ad9a = $(`<div id="html_3a38d7e8aa3b45c3121e7c41c976ad9a" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Walki (VIL_016)<br><b>Population:</b> 2684<br><b>Vulnerability Score:</b> 0.73</div>`)[0];
+                popup_c9d18ecd4ea11b48f326f606bf5fabbe.setContent(html_3a38d7e8aa3b45c3121e7c41c976ad9a);
+            
+        
+
+        circle_marker_a0893e3580a0ec44defb77b142c510bf.bindPopup(popup_c9d18ecd4ea11b48f326f606bf5fabbe)
+        ;
+
+        
+    
+    
+            circle_marker_a0893e3580a0ec44defb77b142c510bf.bindTooltip(
+                `<div>
+                     Walki (Pop: 2684)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_49cbade73cf29eb05c40aeb3c80c5ce5 = L.circleMarker(
+                [18.96297, 75.689944],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_e38b0d463bb4845532acb79d4a371447 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_79dca4fc934dc3277dedae39f7911216 = $(`<div id="html_79dca4fc934dc3277dedae39f7911216" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Deolali (VIL_017)<br><b>Population:</b> 2063<br><b>Vulnerability Score:</b> 0.47</div>`)[0];
+                popup_e38b0d463bb4845532acb79d4a371447.setContent(html_79dca4fc934dc3277dedae39f7911216);
+            
+        
+
+        circle_marker_49cbade73cf29eb05c40aeb3c80c5ce5.bindPopup(popup_e38b0d463bb4845532acb79d4a371447)
+        ;
+
+        
+    
+    
+            circle_marker_49cbade73cf29eb05c40aeb3c80c5ce5.bindTooltip(
+                `<div>
+                     Deolali (Pop: 2063)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dbf0548d841cbb301e89f8cb7e47c1be = L.circleMarker(
+                [19.11733, 76.080116],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_2b7b5e8250ae4fb605473bcb11fcabc7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9bdd079cd50faddb953e92f966cc1a57 = $(`<div id="html_9bdd079cd50faddb953e92f966cc1a57" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Takli (VIL_018)<br><b>Population:</b> 3990<br><b>Vulnerability Score:</b> 0.42</div>`)[0];
+                popup_2b7b5e8250ae4fb605473bcb11fcabc7.setContent(html_9bdd079cd50faddb953e92f966cc1a57);
+            
+        
+
+        circle_marker_dbf0548d841cbb301e89f8cb7e47c1be.bindPopup(popup_2b7b5e8250ae4fb605473bcb11fcabc7)
+        ;
+
+        
+    
+    
+            circle_marker_dbf0548d841cbb301e89f8cb7e47c1be.bindTooltip(
+                `<div>
+                     Takli (Pop: 3990)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_da7fe48e805500defcf9399895667a37 = L.circleMarker(
+                [19.052362, 75.749727],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_7caf3a44622ff4af377ded1760ecb4a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_08d6f1e0be9d450b80bbd6e49378108b = $(`<div id="html_08d6f1e0be9d450b80bbd6e49378108b" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Nimgaon (VIL_019)<br><b>Population:</b> 1763<br><b>Vulnerability Score:</b> 0.81</div>`)[0];
+                popup_7caf3a44622ff4af377ded1760ecb4a9.setContent(html_08d6f1e0be9d450b80bbd6e49378108b);
+            
+        
+
+        circle_marker_da7fe48e805500defcf9399895667a37.bindPopup(popup_7caf3a44622ff4af377ded1760ecb4a9)
+        ;
+
+        
+    
+    
+            circle_marker_da7fe48e805500defcf9399895667a37.bindTooltip(
+                `<div>
+                     Nimgaon (Pop: 1763)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_60a2b65dcb21d5ab01a6c28e1848fbe4 = L.circleMarker(
+                [18.95386, 75.696654],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_ff754bf3948fa8ce713db8ae4daa03fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cc26982e20f8d7488f771e53db1894a2 = $(`<div id="html_cc26982e20f8d7488f771e53db1894a2" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Sawargaon (VIL_020)<br><b>Population:</b> 6316<br><b>Vulnerability Score:</b> 0.81</div>`)[0];
+                popup_ff754bf3948fa8ce713db8ae4daa03fd.setContent(html_cc26982e20f8d7488f771e53db1894a2);
+            
+        
+
+        circle_marker_60a2b65dcb21d5ab01a6c28e1848fbe4.bindPopup(popup_ff754bf3948fa8ce713db8ae4daa03fd)
+        ;
+
+        
+    
+    
+            circle_marker_60a2b65dcb21d5ab01a6c28e1848fbe4.bindTooltip(
+                `<div>
+                     Sawargaon (Pop: 6316)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4702cc327c2fc20e17f204567169a74b = L.circleMarker(
+                [19.178297, 75.879887],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_021f824379587f6aaa53b30879603431 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d7d7fa4d3498f488558dbb2cf12f787f = $(`<div id="html_d7d7fa4d3498f488558dbb2cf12f787f" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Pangri (VIL_021)<br><b>Population:</b> 5391<br><b>Vulnerability Score:</b> 0.85</div>`)[0];
+                popup_021f824379587f6aaa53b30879603431.setContent(html_d7d7fa4d3498f488558dbb2cf12f787f);
+            
+        
+
+        circle_marker_4702cc327c2fc20e17f204567169a74b.bindPopup(popup_021f824379587f6aaa53b30879603431)
+        ;
+
+        
+    
+    
+            circle_marker_4702cc327c2fc20e17f204567169a74b.bindTooltip(
+                `<div>
+                     Pangri (Pop: 5391)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_29c86bb9d097bbb6847b37d407ad1aac = L.circleMarker(
+                [18.847646, 75.598647],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_55e3fb27d81f58bba52f7b6369eadc4f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_49f384fc78af4ecaa93dc7447849ddd0 = $(`<div id="html_49f384fc78af4ecaa93dc7447849ddd0" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Khamgaon (VIL_022)<br><b>Population:</b> 7219<br><b>Vulnerability Score:</b> 0.88</div>`)[0];
+                popup_55e3fb27d81f58bba52f7b6369eadc4f.setContent(html_49f384fc78af4ecaa93dc7447849ddd0);
+            
+        
+
+        circle_marker_29c86bb9d097bbb6847b37d407ad1aac.bindPopup(popup_55e3fb27d81f58bba52f7b6369eadc4f)
+        ;
+
+        
+    
+    
+            circle_marker_29c86bb9d097bbb6847b37d407ad1aac.bindTooltip(
+                `<div>
+                     Khamgaon (Pop: 7219)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6427afea47d0c101cad9d8e9a5dc6730 = L.circleMarker(
+                [18.954501, 76.061538],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_79f3417ca35fb6bebf3381143902f0d2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ad80950070b61d6fde565bed201a9f7b = $(`<div id="html_ad80950070b61d6fde565bed201a9f7b" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Jategaon (VIL_023)<br><b>Population:</b> 2957<br><b>Vulnerability Score:</b> 0.58</div>`)[0];
+                popup_79f3417ca35fb6bebf3381143902f0d2.setContent(html_ad80950070b61d6fde565bed201a9f7b);
+            
+        
+
+        circle_marker_6427afea47d0c101cad9d8e9a5dc6730.bindPopup(popup_79f3417ca35fb6bebf3381143902f0d2)
+        ;
+
+        
+    
+    
+            circle_marker_6427afea47d0c101cad9d8e9a5dc6730.bindTooltip(
+                `<div>
+                     Jategaon (Pop: 2957)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b32cf7da10322f8acfb85e89da6b4b18 = L.circleMarker(
+                [19.006453, 75.552185],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_7b387ddab26252cc971ec0697cf22d72 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_96dbdbe73fc189038139511817dd7abe = $(`<div id="html_96dbdbe73fc189038139511817dd7abe" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Ghanegaon (VIL_024)<br><b>Population:</b> 7828<br><b>Vulnerability Score:</b> 0.58</div>`)[0];
+                popup_7b387ddab26252cc971ec0697cf22d72.setContent(html_96dbdbe73fc189038139511817dd7abe);
+            
+        
+
+        circle_marker_b32cf7da10322f8acfb85e89da6b4b18.bindPopup(popup_7b387ddab26252cc971ec0697cf22d72)
+        ;
+
+        
+    
+    
+            circle_marker_b32cf7da10322f8acfb85e89da6b4b18.bindTooltip(
+                `<div>
+                     Ghanegaon (Pop: 7828)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b9729887eb6343780d2a1af1cca6eb4 = L.circleMarker(
+                [19.069249, 76.190821],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_17bb1d4322c7eca0cacdb43204aade5a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0e4f4020ef3a0757573f2690be68141a = $(`<div id="html_0e4f4020ef3a0757573f2690be68141a" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Malegaon (VIL_025)<br><b>Population:</b> 7574<br><b>Vulnerability Score:</b> 0.80</div>`)[0];
+                popup_17bb1d4322c7eca0cacdb43204aade5a.setContent(html_0e4f4020ef3a0757573f2690be68141a);
+            
+        
+
+        circle_marker_2b9729887eb6343780d2a1af1cca6eb4.bindPopup(popup_17bb1d4322c7eca0cacdb43204aade5a)
+        ;
+
+        
+    
+    
+            circle_marker_2b9729887eb6343780d2a1af1cca6eb4.bindTooltip(
+                `<div>
+                     Malegaon (Pop: 7574)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7735e893db5822e946a019aeb88ba185 = L.circleMarker(
+                [19.299623, 76.040571],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_18153af48b472c78bf36722c0818bdcf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9bf47b829666ba711d5004994fe02a38 = $(`<div id="html_9bf47b829666ba711d5004994fe02a38" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Supa (VIL_026)<br><b>Population:</b> 8092<br><b>Vulnerability Score:</b> 0.69</div>`)[0];
+                popup_18153af48b472c78bf36722c0818bdcf.setContent(html_9bf47b829666ba711d5004994fe02a38);
+            
+        
+
+        circle_marker_7735e893db5822e946a019aeb88ba185.bindPopup(popup_18153af48b472c78bf36722c0818bdcf)
+        ;
+
+        
+    
+    
+            circle_marker_7735e893db5822e946a019aeb88ba185.bindTooltip(
+                `<div>
+                     Supa (Pop: 8092)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_576b27486924ac479982ca7c670a06a4 = L.circleMarker(
+                [18.889772, 75.639101],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_0fa4de11e4e34116ea320e5108bb62c3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6ed2a4074b5ad73f5cf6e38bbae45c28 = $(`<div id="html_6ed2a4074b5ad73f5cf6e38bbae45c28" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Khandala (VIL_027)<br><b>Population:</b> 2878<br><b>Vulnerability Score:</b> 0.73</div>`)[0];
+                popup_0fa4de11e4e34116ea320e5108bb62c3.setContent(html_6ed2a4074b5ad73f5cf6e38bbae45c28);
+            
+        
+
+        circle_marker_576b27486924ac479982ca7c670a06a4.bindPopup(popup_0fa4de11e4e34116ea320e5108bb62c3)
+        ;
+
+        
+    
+    
+            circle_marker_576b27486924ac479982ca7c670a06a4.bindTooltip(
+                `<div>
+                     Khandala (Pop: 2878)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ca3ff25f8f0d0ce18ab368314748c5a2 = L.circleMarker(
+                [19.109964, 75.503865],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_4ea52b1683eb3a97a450c0a763ed8750 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98e379717ec3a8ac84e20d76a76537f4 = $(`<div id="html_98e379717ec3a8ac84e20d76a76537f4" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Chikalthana (VIL_028)<br><b>Population:</b> 4442<br><b>Vulnerability Score:</b> 0.80</div>`)[0];
+                popup_4ea52b1683eb3a97a450c0a763ed8750.setContent(html_98e379717ec3a8ac84e20d76a76537f4);
+            
+        
+
+        circle_marker_ca3ff25f8f0d0ce18ab368314748c5a2.bindPopup(popup_4ea52b1683eb3a97a450c0a763ed8750)
+        ;
+
+        
+    
+    
+            circle_marker_ca3ff25f8f0d0ce18ab368314748c5a2.bindTooltip(
+                `<div>
+                     Chikalthana (Pop: 4442)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4647b75d628e0b8c68c4788537111ca0 = L.circleMarker(
+                [19.16469, 76.070823],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_6d424c462763fa241d9449c0e776b972 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f86f2483416e2edac9fd4e1e1d09d988 = $(`<div id="html_f86f2483416e2edac9fd4e1e1d09d988" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Dahigaon (VIL_029)<br><b>Population:</b> 5836<br><b>Vulnerability Score:</b> 0.87</div>`)[0];
+                popup_6d424c462763fa241d9449c0e776b972.setContent(html_f86f2483416e2edac9fd4e1e1d09d988);
+            
+        
+
+        circle_marker_4647b75d628e0b8c68c4788537111ca0.bindPopup(popup_6d424c462763fa241d9449c0e776b972)
+        ;
+
+        
+    
+    
+            circle_marker_4647b75d628e0b8c68c4788537111ca0.bindTooltip(
+                `<div>
+                     Dahigaon (Pop: 5836)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_49e5d16bb8572b5ad05ae5f91b14f181 = L.circleMarker(
+                [18.782515, 75.9948],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_c0e7bd369acca6948a8928884a24d9fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_194032849651b0372443f63c20571457 = $(`<div id="html_194032849651b0372443f63c20571457" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Ranjangaon (VIL_030)<br><b>Population:</b> 2259<br><b>Vulnerability Score:</b> 0.45</div>`)[0];
+                popup_c0e7bd369acca6948a8928884a24d9fc.setContent(html_194032849651b0372443f63c20571457);
+            
+        
+
+        circle_marker_49e5d16bb8572b5ad05ae5f91b14f181.bindPopup(popup_c0e7bd369acca6948a8928884a24d9fc)
+        ;
+
+        
+    
+    
+            circle_marker_49e5d16bb8572b5ad05ae5f91b14f181.bindTooltip(
+                `<div>
+                     Ranjangaon (Pop: 2259)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3a73a57f1634d62564a5b6ed7d83cc9 = L.circleMarker(
+                [19.175281, 76.010305],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_d7fa032562094267b41d9f675227962b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_946c1c3146daf889d8806d83e28bc586 = $(`<div id="html_946c1c3146daf889d8806d83e28bc586" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Alandi (VIL_031)<br><b>Population:</b> 7868<br><b>Vulnerability Score:</b> 0.48</div>`)[0];
+                popup_d7fa032562094267b41d9f675227962b.setContent(html_946c1c3146daf889d8806d83e28bc586);
+            
+        
+
+        circle_marker_b3a73a57f1634d62564a5b6ed7d83cc9.bindPopup(popup_d7fa032562094267b41d9f675227962b)
+        ;
+
+        
+    
+    
+            circle_marker_b3a73a57f1634d62564a5b6ed7d83cc9.bindTooltip(
+                `<div>
+                     Alandi (Pop: 7868)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e56ea0e112957284c6ea74b466a9fc2 = L.circleMarker(
+                [18.869367, 76.039889],
+                {"bubblingMouseEvents": true, "color": "#43A047", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43A047", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_6cae9940075b1086198fd3fdab42adb1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b8c4dc09fc575fa3e6c2b23580523b2 = $(`<div id="html_0b8c4dc09fc575fa3e6c2b23580523b2" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Varvand (VIL_032)<br><b>Population:</b> 6479<br><b>Vulnerability Score:</b> 0.27</div>`)[0];
+                popup_6cae9940075b1086198fd3fdab42adb1.setContent(html_0b8c4dc09fc575fa3e6c2b23580523b2);
+            
+        
+
+        circle_marker_8e56ea0e112957284c6ea74b466a9fc2.bindPopup(popup_6cae9940075b1086198fd3fdab42adb1)
+        ;
+
+        
+    
+    
+            circle_marker_8e56ea0e112957284c6ea74b466a9fc2.bindTooltip(
+                `<div>
+                     Varvand (Pop: 6479)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1432cee1da1103df2e8aacd76147fb27 = L.circleMarker(
+                [18.795536, 75.551831],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_9fa96606897b9c6294d3bb4fb35bd089 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aafa1468697fe745429c36978dcce881 = $(`<div id="html_aafa1468697fe745429c36978dcce881" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Kedgaon (VIL_033)<br><b>Population:</b> 2922<br><b>Vulnerability Score:</b> 0.63</div>`)[0];
+                popup_9fa96606897b9c6294d3bb4fb35bd089.setContent(html_aafa1468697fe745429c36978dcce881);
+            
+        
+
+        circle_marker_1432cee1da1103df2e8aacd76147fb27.bindPopup(popup_9fa96606897b9c6294d3bb4fb35bd089)
+        ;
+
+        
+    
+    
+            circle_marker_1432cee1da1103df2e8aacd76147fb27.bindTooltip(
+                `<div>
+                     Kedgaon (Pop: 2922)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b378b6059f8454b20afe5d7b2a58f5c9 = L.circleMarker(
+                [19.41422, 75.750926],
+                {"bubblingMouseEvents": true, "color": "#43A047", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43A047", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_f28c8b800edfd6ff7e2933a15919f90e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2617350fd3cc9981d87103112c0e918f = $(`<div id="html_2617350fd3cc9981d87103112c0e918f" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Pargaon (VIL_034)<br><b>Population:</b> 4514<br><b>Vulnerability Score:</b> 0.23</div>`)[0];
+                popup_f28c8b800edfd6ff7e2933a15919f90e.setContent(html_2617350fd3cc9981d87103112c0e918f);
+            
+        
+
+        circle_marker_b378b6059f8454b20afe5d7b2a58f5c9.bindPopup(popup_f28c8b800edfd6ff7e2933a15919f90e)
+        ;
+
+        
+    
+    
+            circle_marker_b378b6059f8454b20afe5d7b2a58f5c9.bindTooltip(
+                `<div>
+                     Pargaon (Pop: 4514)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_583ef277e2f77347a233341b7f9abfd2 = L.circleMarker(
+                [19.425942, 75.581108],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_8345c44fd1d19a6895051e2532dfd94d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_797c065d993c3e00d6fe41d15953d032 = $(`<div id="html_797c065d993c3e00d6fe41d15953d032" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Bori (VIL_035)<br><b>Population:</b> 4357<br><b>Vulnerability Score:</b> 0.55</div>`)[0];
+                popup_8345c44fd1d19a6895051e2532dfd94d.setContent(html_797c065d993c3e00d6fe41d15953d032);
+            
+        
+
+        circle_marker_583ef277e2f77347a233341b7f9abfd2.bindPopup(popup_8345c44fd1d19a6895051e2532dfd94d)
+        ;
+
+        
+    
+    
+            circle_marker_583ef277e2f77347a233341b7f9abfd2.bindTooltip(
+                `<div>
+                     Bori (Pop: 4357)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c4d2d50a4d14064819ab56f24638a0c7 = L.circleMarker(
+                [19.315878, 76.104172],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_09602ece8baac6454b54003ccd7ca352 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a73b10d34ee1c0fdd88a2d3f9b483810 = $(`<div id="html_a73b10d34ee1c0fdd88a2d3f9b483810" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Kasti (VIL_036)<br><b>Population:</b> 7115<br><b>Vulnerability Score:</b> 0.61</div>`)[0];
+                popup_09602ece8baac6454b54003ccd7ca352.setContent(html_a73b10d34ee1c0fdd88a2d3f9b483810);
+            
+        
+
+        circle_marker_c4d2d50a4d14064819ab56f24638a0c7.bindPopup(popup_09602ece8baac6454b54003ccd7ca352)
+        ;
+
+        
+    
+    
+            circle_marker_c4d2d50a4d14064819ab56f24638a0c7.bindTooltip(
+                `<div>
+                     Kasti (Pop: 7115)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6bef342173b93e3aecf051e746228aea = L.circleMarker(
+                [18.96323, 75.936309],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_49e932e90a0a6a2593378ca87249fd3c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51df1aca9e30f2a504efe87069931ddb = $(`<div id="html_51df1aca9e30f2a504efe87069931ddb" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Manjargaon (VIL_037)<br><b>Population:</b> 3825<br><b>Vulnerability Score:</b> 0.41</div>`)[0];
+                popup_49e932e90a0a6a2593378ca87249fd3c.setContent(html_51df1aca9e30f2a504efe87069931ddb);
+            
+        
+
+        circle_marker_6bef342173b93e3aecf051e746228aea.bindPopup(popup_49e932e90a0a6a2593378ca87249fd3c)
+        ;
+
+        
+    
+    
+            circle_marker_6bef342173b93e3aecf051e746228aea.bindTooltip(
+                `<div>
+                     Manjargaon (Pop: 3825)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_110305b5986a17973f0e4ba6cd45fbd8 = L.circleMarker(
+                [18.81837, 75.731629],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_93840971aeb663ae3532d8ebd8fc098f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8073127364b1dd38d13f4dbbd4ed47da = $(`<div id="html_8073127364b1dd38d13f4dbbd4ed47da" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Padali (VIL_038)<br><b>Population:</b> 3929<br><b>Vulnerability Score:</b> 0.64</div>`)[0];
+                popup_93840971aeb663ae3532d8ebd8fc098f.setContent(html_8073127364b1dd38d13f4dbbd4ed47da);
+            
+        
+
+        circle_marker_110305b5986a17973f0e4ba6cd45fbd8.bindPopup(popup_93840971aeb663ae3532d8ebd8fc098f)
+        ;
+
+        
+    
+    
+            circle_marker_110305b5986a17973f0e4ba6cd45fbd8.bindTooltip(
+                `<div>
+                     Padali (Pop: 3929)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dc1cc275bab1912dd9d43b305fed3778 = L.circleMarker(
+                [19.228963, 75.544491],
+                {"bubblingMouseEvents": true, "color": "#43A047", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43A047", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_6669cb854cb90c0f248563be7cdbe173 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ab0947b95b3a913f60ea84708305c2f3 = $(`<div id="html_ab0947b95b3a913f60ea84708305c2f3" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Wategaon (VIL_039)<br><b>Population:</b> 7900<br><b>Vulnerability Score:</b> 0.22</div>`)[0];
+                popup_6669cb854cb90c0f248563be7cdbe173.setContent(html_ab0947b95b3a913f60ea84708305c2f3);
+            
+        
+
+        circle_marker_dc1cc275bab1912dd9d43b305fed3778.bindPopup(popup_6669cb854cb90c0f248563be7cdbe173)
+        ;
+
+        
+    
+    
+            circle_marker_dc1cc275bab1912dd9d43b305fed3778.bindTooltip(
+                `<div>
+                     Wategaon (Pop: 7900)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a5b046e7cb0f2bcff3eab4082475e677 = L.circleMarker(
+                [19.058107, 75.717688],
+                {"bubblingMouseEvents": true, "color": "#43A047", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43A047", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_e6fd4e4f1c9867a6f8e88ffbf6d83924 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0270d4e82ecf27afce95204802619a89 = $(`<div id="html_0270d4e82ecf27afce95204802619a89" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Hingoni (VIL_040)<br><b>Population:</b> 2797<br><b>Vulnerability Score:</b> 0.23</div>`)[0];
+                popup_e6fd4e4f1c9867a6f8e88ffbf6d83924.setContent(html_0270d4e82ecf27afce95204802619a89);
+            
+        
+
+        circle_marker_a5b046e7cb0f2bcff3eab4082475e677.bindPopup(popup_e6fd4e4f1c9867a6f8e88ffbf6d83924)
+        ;
+
+        
+    
+    
+            circle_marker_a5b046e7cb0f2bcff3eab4082475e677.bindTooltip(
+                `<div>
+                     Hingoni (Pop: 2797)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b90421c6e9835b2dab68e1bd06f44c53 = L.circleMarker(
+                [18.835427, 75.727628],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_8932dc9e4ad9862f4f88dbc8942a7d99 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_03af4a14a3d17bbf39cfee68b38746d0 = $(`<div id="html_03af4a14a3d17bbf39cfee68b38746d0" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Gondhavale (VIL_041)<br><b>Population:</b> 4260<br><b>Vulnerability Score:</b> 0.82</div>`)[0];
+                popup_8932dc9e4ad9862f4f88dbc8942a7d99.setContent(html_03af4a14a3d17bbf39cfee68b38746d0);
+            
+        
+
+        circle_marker_b90421c6e9835b2dab68e1bd06f44c53.bindPopup(popup_8932dc9e4ad9862f4f88dbc8942a7d99)
+        ;
+
+        
+    
+    
+            circle_marker_b90421c6e9835b2dab68e1bd06f44c53.bindTooltip(
+                `<div>
+                     Gondhavale (Pop: 4260)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1cfa46548c1deeb25a5d7c2cdb4e384 = L.circleMarker(
+                [19.096624, 76.010724],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_df741d1e659192b8ab12e85c583ce2b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9534960cfb5bcd3b482adec5d4e2b66d = $(`<div id="html_9534960cfb5bcd3b482adec5d4e2b66d" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Bhenda (VIL_042)<br><b>Population:</b> 3893<br><b>Vulnerability Score:</b> 0.47</div>`)[0];
+                popup_df741d1e659192b8ab12e85c583ce2b8.setContent(html_9534960cfb5bcd3b482adec5d4e2b66d);
+            
+        
+
+        circle_marker_a1cfa46548c1deeb25a5d7c2cdb4e384.bindPopup(popup_df741d1e659192b8ab12e85c583ce2b8)
+        ;
+
+        
+    
+    
+            circle_marker_a1cfa46548c1deeb25a5d7c2cdb4e384.bindTooltip(
+                `<div>
+                     Bhenda (Pop: 3893)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8abd58de63b4db6089051017e0231fe7 = L.circleMarker(
+                [18.774072, 75.94629],
+                {"bubblingMouseEvents": true, "color": "#43A047", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#43A047", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_fac3b09d4216ea613a632891905d4ff6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1ac09cbc3beb7242a05d0147fc752cb5 = $(`<div id="html_1ac09cbc3beb7242a05d0147fc752cb5" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Kukana (VIL_043)<br><b>Population:</b> 6091<br><b>Vulnerability Score:</b> 0.30</div>`)[0];
+                popup_fac3b09d4216ea613a632891905d4ff6.setContent(html_1ac09cbc3beb7242a05d0147fc752cb5);
+            
+        
+
+        circle_marker_8abd58de63b4db6089051017e0231fe7.bindPopup(popup_fac3b09d4216ea613a632891905d4ff6)
+        ;
+
+        
+    
+    
+            circle_marker_8abd58de63b4db6089051017e0231fe7.bindTooltip(
+                `<div>
+                     Kukana (Pop: 6091)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_698c8851e4e28a604850ade0f004c849 = L.circleMarker(
+                [19.386524, 76.121049],
+                {"bubblingMouseEvents": true, "color": "#FB8C00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FB8C00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_268e0ea62e6ff5f22824bf40ba7865ad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72d0d9fa5b161e92e06db8582015015f = $(`<div id="html_72d0d9fa5b161e92e06db8582015015f" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Pathardi (VIL_044)<br><b>Population:</b> 6347<br><b>Vulnerability Score:</b> 0.59</div>`)[0];
+                popup_268e0ea62e6ff5f22824bf40ba7865ad.setContent(html_72d0d9fa5b161e92e06db8582015015f);
+            
+        
+
+        circle_marker_698c8851e4e28a604850ade0f004c849.bindPopup(popup_268e0ea62e6ff5f22824bf40ba7865ad)
+        ;
+
+        
+    
+    
+            circle_marker_698c8851e4e28a604850ade0f004c849.bindTooltip(
+                `<div>
+                     Pathardi (Pop: 6347)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cb73b395b41575b897eb090b224251a3 = L.circleMarker(
+                [18.931146, 75.83055],
+                {"bubblingMouseEvents": true, "color": "#E53935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E53935", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_feac8e23f74433bba049e44b9df8b3e9);
+        
+    
+        var popup_21478448a66690ddf1803bffa0e835ef = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_507ac5f23aa98cda60e1de8fce98cb2b = $(`<div id="html_507ac5f23aa98cda60e1de8fce98cb2b" style="width: 100.0%; height: 100.0%;"><b>Village:</b> Shevgaon (VIL_045)<br><b>Population:</b> 6939<br><b>Vulnerability Score:</b> 0.78</div>`)[0];
+                popup_21478448a66690ddf1803bffa0e835ef.setContent(html_507ac5f23aa98cda60e1de8fce98cb2b);
+            
+        
+
+        circle_marker_cb73b395b41575b897eb090b224251a3.bindPopup(popup_21478448a66690ddf1803bffa0e835ef)
+        ;
+
+        
+    
+    
+            circle_marker_cb73b395b41575b897eb090b224251a3.bindTooltip(
+                `<div>
+                     Shevgaon (Pop: 6939)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
