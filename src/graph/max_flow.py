@@ -1,3 +1,11 @@
+import sys
+from pathlib import Path
+
+# Add project root to sys.path
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 import networkx as nx
 from sqlalchemy import text
 
@@ -21,14 +29,14 @@ def load_pipeline_network():
     query = text("""
         SELECT
             pipeline_id,
-            from_node,
-            to_node,
-            capacity_liters,
+            source_node AS from_node,
+            destination_node AS to_node,
+            capacity_l_per_day AS capacity_liters,
             status
         FROM public.pipelines
-        WHERE status = 1
-          AND capacity_liters IS NOT NULL
-          AND capacity_liters > 0
+        WHERE LOWER(status) IN ('working', 'operational', '1')
+          AND capacity_l_per_day IS NOT NULL
+          AND capacity_l_per_day > 0
         ORDER BY pipeline_id;
     """)
 
@@ -48,11 +56,11 @@ def load_water_sources():
     query = text("""
         SELECT
             source_id,
-            capacity_liters,
-            current_storage_liters
+            daily_supply_capacity_l AS capacity_liters,
+            current_storage_l AS current_storage_liters
         FROM public.water_sources
-        WHERE capacity_liters IS NOT NULL
-          AND capacity_liters > 0
+        WHERE daily_supply_capacity_l IS NOT NULL
+          AND daily_supply_capacity_l > 0
         ORDER BY source_id;
     """)
 
@@ -73,7 +81,7 @@ def load_village_demands():
         SELECT DISTINCT ON (village_id)
             village_id,
             actual_demand_l
-        FROM public.water_demand
+        FROM public.historical_water_demand
         WHERE actual_demand_l IS NOT NULL
           AND actual_demand_l > 0
         ORDER BY village_id, date DESC;
