@@ -1,42 +1,50 @@
 import os
-from pathlib import Path
+
+from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
+from sqlalchemy.engine import URL
 
-# Load environment variables if python-dotenv is available
-env_path = Path(__file__).resolve().parent.parent.parent / ".env"
-if env_path.exists():
-    with open(env_path, "r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                os.environ[k.strip()] = v.strip().strip('"').strip("'")
+load_dotenv()
 
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
 
-DB_HOST = os.getenv("DB_HOST", "localhost")
-DB_PORT = os.getenv("DB_PORT", "5432")
-DB_NAME = os.getenv("DB_NAME", "jal_dharma")
-DB_USER = os.getenv("DB_USER", "postgres")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "postgres")
+DATABASE_URL = URL.create(
+    drivername="postgresql+psycopg2",
+    username=DB_USER,
+    password=DB_PASSWORD,
+    host=DB_HOST,
+    port=int(DB_PORT),
+    database=DB_NAME
+)
 
-DATABASE_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 def get_engine():
-    """Returns a SQLAlchemy engine connected to the PostgreSQL database."""
+    """Return a SQLAlchemy engine connected to PostgreSQL."""
     return create_engine(DATABASE_URL)
 
+
+# Keep module-level engine for existing project files
+engine = get_engine()
+
+
 def test_connection():
-    """Tests the connection to the PostgreSQL database."""
+    """Test the PostgreSQL database connection."""
     try:
-        engine = get_engine()
-        with engine.connect() as conn:
-            result = conn.execute(text("SELECT version();")).scalar()
-            print("Connected successfully to PostgreSQL:")
-            print(result)
+        with engine.connect() as connection:
+            result = connection.execute(text("SELECT version();"))
+            print("PostgreSQL connected successfully!")
+            print(result.fetchone()[0])
             return True
+
     except Exception as e:
-        print(f"Error connecting to PostgreSQL: {e}")
+        print("Database connection failed!")
+        print(e)
         return False
+
 
 if __name__ == "__main__":
     test_connection()
