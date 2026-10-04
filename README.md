@@ -1,9 +1,9 @@
 # Jal Dharma AI
-### AI-Enabled Water Demand Prediction and Equitable Allocation System
+### AI-Enabled Water Demand Prediction and Equitable Allocation System.
 
 Jal Dharma AI is an AI-driven water management system designed to predict future water demand, model water distribution networks, and allocate limited water resources in an equitable and physically feasible manner.
 
-The system combines **Machine Learning, GIS, Graph Algorithms, Optimization, and Water Justice Metrics** to support data-driven water allocation under conditions such as drought, increasing demand, and infrastructure failures.
+The system combines **Machine Learning, GIS, Graph Algorithms, optimization, and Water Justice Metrics** to support data-driven water allocation under conditions such as drought, increasing demand, and infrastructure failures.
 
 ---
 
