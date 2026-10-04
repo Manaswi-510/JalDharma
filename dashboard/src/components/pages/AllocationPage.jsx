@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SlidersHorizontal,
   Search,
@@ -11,10 +11,30 @@ import {
   Sparkles,
   Droplets
 } from 'lucide-react';
-import { VILLAGES_DATABASE } from '../../data/waterData';
+import { api } from '../../api/client';
+import { useLiveData } from '../../api/useLiveData';
+import DataWrapper from '../DataWrapper';
 
 export default function AllocationPage() {
-  const [villages, setVillages] = useState(VILLAGES_DATABASE);
+  const { data: allocData, loading, error } = useLiveData(api.allocations);
+
+  // Map API response to shape the existing JSX expects
+  const rawVillages = (allocData?.allocations ?? []).map(a => ({
+    id: a.villageId,
+    name: a.villageName,
+    population: a.population,
+    priority: a.priorityScore >= 0.7 ? 'P1 Critical' : a.priorityScore >= 0.4 ? 'P2 High' : 'P3 Standard',
+    demandKL: a.predictedDemandL != null ? +(a.predictedDemandL / 1000).toFixed(1) : 0,
+    allocatedKL: a.allocatedL != null ? +(a.allocatedL / 1000).toFixed(1) : 0,
+    shortageKL: a.shortageL != null ? +(a.shortageL / 1000).toFixed(1) : 0,
+    satisfaction: a.satisfactionPct ?? 0,
+    status: a.status?.includes('High') ? 'High' : a.status?.includes('Medium') ? 'Medium' : 'Low',
+    priorityScore: a.priorityScore,
+  }));
+
+  const [villages, setVillages] = useState([]);
+  useEffect(() => { if (rawVillages.length) setVillages(rawVillages); }, [allocData]);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [priorityFilter, setPriorityFilter] = useState('ALL');
   const [editingVillage, setEditingVillage] = useState(null);
@@ -40,21 +60,15 @@ export default function AllocationPage() {
 
     setVillages(prev => prev.map(v => {
       if (v.id === editingVillage.id) {
-        return {
-          ...v,
-          allocatedKL: sliderAllocated,
-          shortageKL: newShortage,
-          satisfaction: newSatisfaction,
-          status: newStatus,
-        };
+        return { ...v, allocatedKL: sliderAllocated, shortageKL: newShortage, satisfaction: newSatisfaction, status: newStatus };
       }
       return v;
     }));
-
     setEditingVillage(null);
   };
 
   return (
+    <DataWrapper loading={loading} error={error} pageName="allocations">
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       {/* Top Header & Search/Filter Controls */}
       <div className="glass-panel" style={{ padding: '1.5rem 1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
@@ -291,5 +305,6 @@ export default function AllocationPage() {
         </div>
       )}
     </div>
+    </DataWrapper>
   );
 }

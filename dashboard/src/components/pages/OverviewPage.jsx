@@ -21,18 +21,43 @@ import {
   ShieldAlert,
   Info
 } from 'lucide-react';
+import { api } from '../../api/client';
+import { useLiveData } from '../../api/useLiveData';
+import DataWrapper from '../DataWrapper';
 import {
-  SYSTEM_METRICS,
   WEEKLY_COMPARISON,
   SHORTAGE_DISTRIBUTION,
-  VILLAGES_DATABASE
 } from '../../data/waterData';
 
 export default function OverviewPage({ onNavigateToPage }) {
-  // Sort high shortage villages for quick overview
-  const criticalVillages = VILLAGES_DATABASE.filter(v => v.status === 'High');
+  const { data: overview, loading: ovLoading, error: ovError } = useLiveData(api.overview);
+  const { data: villages, loading: vilLoading, error: vilError } = useLiveData(api.villages);
+
+  const loading = ovLoading || vilLoading;
+  const error = ovError || vilError;
+
+  // Derive metrics from live data
+  const totalAvailML = overview ? +(overview.totalPredictedDemandL / 1e6).toFixed(1) : '…';
+  const totalDemandML = overview ? +(overview.totalPredictedDemandL / 1e6).toFixed(1) : '…';
+  const totalAllocML = overview ? +(overview.totalAllocatedL / 1e6).toFixed(1) : '…';
+  const totalShortML = overview ? +(overview.totalShortageL / 1e6).toFixed(2) : '…';
+  const avgSat = overview ? overview.averageSatisfactionPct : '…';
+  const fairness = overview ? overview.fairnessIndex : '…';
+  const fulfillPct = overview && overview.totalPredictedDemandL
+    ? ((overview.totalAllocatedL / overview.totalPredictedDemandL) * 100).toFixed(1)
+    : '…';
+
+  // Build shortage distribution from live village data
+  const liveShortage = villages ? [
+    { category: 'Low Shortage (<10%)',    count: villages.filter(v => v.status === 'Low').length,    color: '#10B981', percent: +((villages.filter(v => v.status === 'Low').length    / villages.length) * 100).toFixed(1) },
+    { category: 'Medium Shortage (10-25%)', count: villages.filter(v => v.status === 'Medium').length, color: '#F59E0B', percent: +((villages.filter(v => v.status === 'Medium').length / villages.length) * 100).toFixed(1) },
+    { category: 'High Shortage (>25%)',   count: villages.filter(v => v.status === 'High').length,   color: '#EF4444', percent: +((villages.filter(v => v.status === 'High').length   / villages.length) * 100).toFixed(1) },
+  ] : SHORTAGE_DISTRIBUTION;
+
+  const criticalVillages = villages ? villages.filter(v => v.status === 'High') : [];
 
   return (
+    <DataWrapper loading={loading} error={error} pageName="overview">
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       {/* Top 6 KPI Cards Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
@@ -45,10 +70,10 @@ export default function OverviewPage({ onNavigateToPage }) {
             </div>
           </div>
           <div className="kpi-value" style={{ color: '#0284c7' }}>
-            {SYSTEM_METRICS.totalWaterAvailableML} <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>ML</span>
+            {totalAvailML} <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>ML</span>
           </div>
           <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            <span>Reservoirs: 82.0 ML • Canal: 26.0 ML</span>
+            <span>{overview?.waterSources?.map(s => `${s.name.split(' ')[0]}: ${+(s.dailySupplyL/1e6).toFixed(0)} ML`).join(' • ') || 'Loading sources…'}</span>
           </div>
         </div>
 
@@ -61,10 +86,10 @@ export default function OverviewPage({ onNavigateToPage }) {
             </div>
           </div>
           <div className="kpi-value" style={{ color: '#0369a1' }}>
-            {SYSTEM_METRICS.totalPredictedDemandML} <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>ML</span>
+            {totalDemandML} <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>ML</span>
           </div>
           <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '0.5rem' }}>
-            Across 45 District Villages (Linear Reg)
+            Across {overview?.totalVillages ?? 45} District Villages (Linear Reg)
           </div>
         </div>
 
@@ -77,10 +102,10 @@ export default function OverviewPage({ onNavigateToPage }) {
             </div>
           </div>
           <div className="kpi-value" style={{ color: '#059669' }}>
-            {SYSTEM_METRICS.totalAllocatedML} <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>ML</span>
+            {totalAllocML} <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>ML</span>
           </div>
           <div style={{ fontSize: '0.78rem', color: '#059669', marginTop: '0.5rem', fontWeight: 600 }}>
-            93.1% Regional Fulfillment
+            {fulfillPct}% Regional Fulfillment
           </div>
         </div>
 
@@ -94,14 +119,14 @@ export default function OverviewPage({ onNavigateToPage }) {
           </div>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
             <div className="kpi-value" style={{ color: '#dc2626' }}>
-              {SYSTEM_METRICS.totalShortageML} <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>ML</span>
+              {totalShortML} <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>ML</span>
             </div>
             <span style={{ fontSize: '0.72rem', background: '#fee2e2', color: '#b91c1c', padding: '0.2rem 0.5rem', borderRadius: '9999px', fontWeight: 700 }}>
               Deficit Active
             </span>
           </div>
           <div style={{ fontSize: '0.78rem', color: '#b91c1c', marginTop: '0.5rem' }}>
-            5 High-Deficit nodes isolated
+            {criticalVillages.length} High-Deficit nodes isolated
           </div>
         </div>
 
@@ -114,7 +139,7 @@ export default function OverviewPage({ onNavigateToPage }) {
             </div>
           </div>
           <div className="kpi-value" style={{ color: '#7c3aed' }}>
-            {SYSTEM_METRICS.averageSatisfactionPct}%
+            {avgSat}%
           </div>
           <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '0.5rem' }}>
             Priority villages protected above 75%
@@ -130,7 +155,7 @@ export default function OverviewPage({ onNavigateToPage }) {
             </div>
           </div>
           <div className="kpi-value" style={{ color: '#d97706' }}>
-            {SYSTEM_METRICS.fairnessIndex} <span style={{ fontSize: '1.05rem', fontWeight: 600, color: '#94a3b8' }}>/ 1.00</span>
+            {fairness} <span style={{ fontSize: '1.05rem', fontWeight: 600, color: '#94a3b8' }}>/ 1.00</span>
           </div>
           <div style={{ fontSize: '0.78rem', color: '#d97706', marginTop: '0.5rem', fontWeight: 600 }}>
             Jain's Index: Optimal Equity Tier
@@ -193,7 +218,7 @@ export default function OverviewPage({ onNavigateToPage }) {
 
             {/* Categorical Progress Cards */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
-              {SHORTAGE_DISTRIBUTION.map((item, idx) => (
+              {liveShortage.map((item, idx) => (
                 <div key={idx} style={{ background: '#f8fafc', padding: '1rem', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -218,8 +243,8 @@ export default function OverviewPage({ onNavigateToPage }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <ShieldAlert size={22} color="#dc2626" />
               <div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#991b1b' }}>5 High-Shortage Villages Under Lifeline Protection</div>
-                <div style={{ fontSize: '0.75rem', color: '#b91c1c' }}>Kashti, Kalyanpur, Mandavgan, Malegaon, Pedgaon receiving priority booster quotas</div>
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#991b1b' }}>{criticalVillages.length} High-Shortage Villages Under Lifeline Protection</div>
+                <div style={{ fontSize: '0.75rem', color: '#b91c1c' }}>{criticalVillages.slice(0, 5).map(v => v.name).join(', ')} receiving priority booster quotas</div>
               </div>
             </div>
             <button
@@ -242,5 +267,6 @@ export default function OverviewPage({ onNavigateToPage }) {
         </div>
       </div>
     </div>
+    </DataWrapper>
   );
 }

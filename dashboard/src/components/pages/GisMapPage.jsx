@@ -11,16 +11,67 @@ import {
   ShieldAlert,
   Maximize2
 } from 'lucide-react';
+import { api } from '../../api/client';
+import { useLiveData } from '../../api/useLiveData';
+import DataWrapper from '../DataWrapper';
 import {
-  VILLAGES_DATABASE,
   STORAGE_TANKS,
-  WATER_SOURCES,
-  PIPELINES_DATA
 } from '../../data/waterData';
 
 export default function GisMapPage({ onNavigateToPage }) {
   const [selectedVillage, setSelectedVillage] = useState(null);
-  const [filterMode, setFilterMode] = useState('all'); // all, critical, tanks, sources
+  const [filterMode, setFilterMode] = useState('all');
+
+  const { data: villagesRaw, loading: vLoad, error: vErr } = useLiveData(api.villages);
+  const { data: pipelinesRaw, loading: pLoad, error: pErr } = useLiveData(api.pipelines);
+  const { data: sourcesRaw, loading: sLoad, error: sErr } = useLiveData(api.waterSources);
+
+  const loading = vLoad || pLoad || sLoad;
+  const error = vErr || pErr || sErr;
+
+  // Map API villages to shape the existing JSX uses
+  // The GIS map uses x/y canvas coords — we derive them from lat/lon or keep index-based positioning
+  const VILLAGES_DATABASE = (villagesRaw ?? []).map((v, i) => ({
+    id: v.id,
+    name: v.name,
+    population: v.population,
+    priority: v.priorityScore >= 0.7 ? 'P1 Critical' : v.priorityScore >= 0.4 ? 'P2 High' : 'P3 Standard',
+    demandKL: v.demandL != null ? +(v.demandL / 1000).toFixed(1) : 0,
+    allocatedKL: v.allocatedL != null ? +(v.allocatedL / 1000).toFixed(1) : 0,
+    shortageKL: v.shortageL != null ? +(v.shortageL / 1000).toFixed(1) : 0,
+    satisfaction: v.satisfactionPct ?? 0,
+    status: v.status,
+    latitude: v.latitude,
+    longitude: v.longitude,
+    // Map lat/lon to SVG canvas (approx bounds for Ahmednagar district)
+    x: v.longitude != null ? Math.round(((v.longitude - 73.5) / (75.5 - 73.5)) * 700) : (i % 10) * 70 + 30,
+    y: v.latitude != null ? Math.round(((20.5 - v.latitude) / (20.5 - 18.5)) * 520) : Math.floor(i / 10) * 100 + 40,
+  }));
+
+  // Map pipelines
+  const PIPELINES_DATA = (pipelinesRaw ?? []).map(p => ({
+    id: p.id,
+    route: p.route,
+    maxCapacityLPS: p.capacityLPerDay != null ? +(p.capacityLPerDay / 86400).toFixed(1) : 0,
+    currentFlowLPS: p.currentFlowLPerDay != null ? +(p.currentFlowLPerDay / 86400).toFixed(1) : 0,
+    utilization: p.utilizationPct ?? 0,
+    status: p.status,
+    leakDetected: p.leakDetected,
+    source: p.sourceNode,
+    target: p.destinationNode,
+  }));
+
+  // Map water sources
+  const WATER_SOURCES = (sourcesRaw ?? []).map((s, i) => ({
+    id: s.id,
+    name: s.name,
+    type: s.type,
+    capacityML: s.totalCapacityL != null ? +(s.totalCapacityL / 1e6).toFixed(0) : 0,
+    currentML: s.currentStorageL != null ? +(s.currentStorageL / 1e6).toFixed(0) : 0,
+    dailyFlowML: s.dailySupplyL != null ? +(s.dailySupplyL / 1e6).toFixed(1) : 0,
+    x: [220, 680, 30][i] ?? 100,
+    y: [20, 60, 320][i] ?? 100,
+  }));
 
   // Filtered villages
   const visibleVillages = VILLAGES_DATABASE.filter(v => {
@@ -29,6 +80,7 @@ export default function GisMapPage({ onNavigateToPage }) {
   });
 
   return (
+    <DataWrapper loading={loading} error={error} pageName="GIS network">
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       {/* Map Control Bar */}
       <div className="glass-panel" style={{ padding: '1rem 1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
@@ -334,5 +386,6 @@ export default function GisMapPage({ onNavigateToPage }) {
         </div>
       )}
     </div>
+    </DataWrapper>
   );
 }

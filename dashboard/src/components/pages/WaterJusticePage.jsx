@@ -21,19 +21,22 @@ import {
   TrendingDown,
   Info
 } from 'lucide-react';
-import { WATER_JUSTICE_DATA } from '../../data/waterData';
+import { api } from '../../api/client';
+import { useLiveData } from '../../api/useLiveData';
+import DataWrapper from '../DataWrapper';
 
 export default function WaterJusticePage() {
-  const {
-    jainsFairnessIndex,
-    averageSatisfactionPct,
-    weightedShortageKL,
-    chronicDeficitVillages,
-    equityCurve,
-    disparityBars,
-  } = WATER_JUSTICE_DATA;
+  const { data: justice, loading, error } = useLiveData(api.justice);
+
+  const jainsFairnessIndex    = justice?.jainsFairnessIndex    ?? 0;
+  const averageSatisfactionPct = justice?.averageSatisfactionPct ?? 0;
+  const weightedShortageKL    = justice?.weightedShortageL != null ? +(justice.weightedShortageL / 1000).toFixed(1) : 0;
+  const chronicDeficitVillages = justice?.chronicDeficitVillages ?? [];
+  const equityCurve            = justice?.equityCurve            ?? [];
+  const disparityBars          = justice?.disparityBars          ?? [];
 
   return (
+    <DataWrapper loading={loading} error={error} pageName="justice metrics">
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       {/* Top 3 Justice Metrics */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
@@ -218,5 +221,6 @@ export default function WaterJusticePage() {
         </div>
       </div>
     </div>
+    </DataWrapper>
   );
 }
