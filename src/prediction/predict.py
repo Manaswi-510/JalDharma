@@ -1,334 +1,521 @@
 """
-Phase 12: Prediction Service — src/prediction/predict.py
+Jal Dharma AI
+Prediction Service
 
-Accepts:
-  - village_id  (e.g. "VIL_001")
-  - date        (e.g. "2025-07-15")
-  - temperature_c, rainfall_mm, humidity  (weather inputs)
-  - optional: previous_day_demand_l
+This module connects the final Phase 11 prediction model
+with the PostgreSQL database.
 
-Returns:
-  - predicted_demand_l  (litres/day)
+Final model:
+    Linear Regression
 
-How it works:
-  1. Trains a Random Forest model on historical_water_demand from PostgreSQL.
-  2. Features: population, temperature, rainfall, humidity,
-               previous_day_demand, 7-day avg demand, 30-day avg demand,
-               day-of-week, month.
-  3. Runs inference for any village + date + weather combo.
-  4. Stores every prediction in a `predictions` table in PostgreSQL (12.4).
+Features:
+    1. population
+    2. temperature_c
+    3. rainfall_mm
+    4. humidity
+    5. previous_day_demand_l
+    6. demand_7day_avg_l
+    7. demand_30day_avg_l
+
+The model is trained only on the chronological training period:
+    2025-04-01 to 2025-05-15
+
+For prediction:
+    - village information is obtained from PostgreSQL
+    - recent historical demand is obtained from PostgreSQL
+    - weather values are supplied to the prediction service
+    - the trained Linear Regression model predicts demand
+    - the prediction is stored in PostgreSQL
 """
 
 import pandas as pd
-import numpy as np
-from datetime import datetime, date
-from pathlib import Path
 from sqlalchemy import text
 
 from src.database.connection import get_engine
-
-# ------------------------------------------------------------------ #
-#  Step 1: Create the predictions table (12.4)                        #
-# ------------------------------------------------------------------ #
-
-CREATE_PREDICTIONS_TABLE = """
-CREATE TABLE IF NOT EXISTS predictions (
-    prediction_id   SERIAL PRIMARY KEY,
-    village_id      VARCHAR(50)  NOT NULL,
-    village_name    VARCHAR(150),
-    prediction_date DATE         NOT NULL,
-    temperature_c   DOUBLE PRECISION,
-    rainfall_mm     DOUBLE PRECISION,
-    humidity        DOUBLE PRECISION,
-    predicted_demand_l DOUBLE PRECISION NOT NULL,
-    model_used      VARCHAR(100) DEFAULT 'RandomForestRegressor',
-    created_at      TIMESTAMP    DEFAULT NOW()
-);
-"""
-
-def ensure_predictions_table(engine):
-    """Create the predictions table if it does not yet exist."""
-    with engine.begin() as conn:
-        conn.execute(text(CREATE_PREDICTIONS_TABLE))
+from src.prediction.models import (
+    FEATURES,
+    load_dataset,
+    train_final_model,
+    predict_demand,
+)
 
 
-# ------------------------------------------------------------------ #
-#  Step 2: Load training data & train model                           #
-# ------------------------------------------------------------------ #
+# ---------------------------------------------------------
+# DATABASE FUNCTIONS
+# ---------------------------------------------------------
 
-def load_training_data(engine):
-    """Pull historical demand from PostgreSQL for model training."""
-    query = """
-        SELECT
-            d.village_id,
-            d.date,
-            d.population,
-            d.temperature_c,
-            d.rainfall_mm,
-            d.humidity,
-            d.previous_day_demand_l,
-            d.demand_7day_avg_l,
-            d.demand_30day_avg_l,
-            d.actual_demand_l,
-            EXTRACT(DOW   FROM d.date)::int AS day_of_week,
-            EXTRACT(MONTH FROM d.date)::int AS month,
-            v.vulnerability_index
-        FROM historical_water_demand d
-        LEFT JOIN villages v USING (village_id)
-        WHERE d.actual_demand_l IS NOT NULL
+def load_historical_data_from_database(engine):
     """
-    df = pd.read_sql(query, engine)
+    Load historical water-demand data from PostgreSQL.
+
+    The returned DataFrame has the same structure expected
+    by models.py.
+    """
+
+    query = text("""
+        SELECT
+            record_id,
+            village_id,
+            date,
+            population,
+            temperature_c,
+            rainfall_mm,
+            humidity,
+            previous_day_demand_l,
+            demand_7day_avg_l,
+            demand_30day_avg_l,
+            actual_demand_l
+        FROM historical_water_demand
+        ORDER BY village_id, date
+    """)
+
+    with engine.connect() as conn:
+        df = pd.read_sql(query, conn)
+
+    if df.empty:
+        raise ValueError(
+            "No historical water-demand data found "
+            "in the PostgreSQL database."
+        )
+
+    df["date"] = pd.to_datetime(df["date"])
+
+    df = df.sort_values(
+        ["village_id", "date"]
+    ).reset_index(drop=True)
+
     return df
 
 
-def build_features(df):
-    """Return feature matrix X and target vector y."""
-    feature_cols = [
-        "population",
-        "temperature_c",
-        "rainfall_mm",
-        "humidity",
-        "previous_day_demand_l",
-        "demand_7day_avg_l",
-        "demand_30day_avg_l",
-        "day_of_week",
-        "month",
-        "vulnerability_index",
-    ]
-    df = df.dropna(subset=feature_cols + ["actual_demand_l"])
-    X = df[feature_cols].values
-    y = df["actual_demand_l"].values
-    return X, y, feature_cols
+def get_village_information(engine, village_id):
+    """
+    Retrieve basic information about a village.
 
+    Population is taken from the most recent historical
+    demand record instead of depending on an additional
+    column in the villages table.
+    """
 
-def train_model(engine):
-    """Train a Random Forest on historical demand. Returns (model, feature_cols)."""
-    from sklearn.ensemble import RandomForestRegressor
-    from sklearn.model_selection import train_test_split
-    from sklearn.metrics import mean_absolute_error, r2_score
-
-    print("[TRAIN] Loading historical data...")
-    df = load_training_data(engine)
-    X, y, feature_cols = build_features(df)
-
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42
-    )
-
-    print(f"[TRAIN] Training on {len(X_train)} rows, testing on {len(X_test)} rows...")
-    model = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)
-    model.fit(X_train, y_train)
-
-    y_pred = model.predict(X_test)
-    mae  = mean_absolute_error(y_test, y_pred)
-    r2   = r2_score(y_test, y_pred)
-    print(f"[TRAIN] Model ready | MAE = {mae:,.0f} L  |  R2 = {r2:.4f}")
-
-    return model, feature_cols
-
-
-# ------------------------------------------------------------------ #
-#  Step 3: Prediction function                                        #
-# ------------------------------------------------------------------ #
-
-def get_village_stats(engine, village_id):
-    """Fetch population, vulnerability, and recent demand averages for a village."""
     query = text("""
         SELECT
-            v.population,
-            v.vulnerability_index,
-            v.village_name,
-            AVG(d.actual_demand_l)                        AS demand_30day_avg_l,
-            (SELECT d2.actual_demand_l
-             FROM   historical_water_demand d2
-             WHERE  d2.village_id = :vid
-             ORDER  BY d2.date DESC LIMIT 1)              AS previous_day_demand_l,
-            (SELECT AVG(recent.actual_demand_l)
-             FROM   (SELECT actual_demand_l
-                     FROM   historical_water_demand
-                     WHERE  village_id = :vid
-                     ORDER  BY date DESC LIMIT 7) AS recent) AS demand_7day_avg_l
-        FROM villages v
-        LEFT JOIN historical_water_demand d ON d.village_id = v.village_id
-        WHERE v.village_id = :vid
-        GROUP BY v.population, v.vulnerability_index, v.village_name
+            village_id,
+            population
+        FROM historical_water_demand
+        WHERE village_id = :village_id
+        ORDER BY date DESC
+        LIMIT 1
     """)
+
     with engine.connect() as conn:
-        result = conn.execute(query, {"vid": village_id}).mappings().fetchone()
+        result = conn.execute(
+            query,
+            {"village_id": village_id}
+        ).mappings().first()
+
     if result is None:
-        raise ValueError(f"Village '{village_id}' not found in the database.")
+        raise ValueError(
+            f"Village '{village_id}' was not found "
+            "in historical_water_demand."
+        )
+
     return dict(result)
 
 
-def predict(
-    village_id: str,
-    prediction_date: str,
-    temperature_c: float,
-    rainfall_mm: float,
-    humidity: float,
-    model=None,
-    engine=None,
-    store: bool = True,
-) -> dict:
+def get_recent_demand_features(engine, village_id):
     """
-    Predict water demand for a village on a given date.
+    Calculate the historical demand features required
+    by the final prediction model.
 
-    Args:
-        village_id      : e.g. "VIL_001"
-        prediction_date : "YYYY-MM-DD"
-        temperature_c   : forecast temperature
-        rainfall_mm     : forecast rainfall
-        humidity        : forecast humidity (%)
-        model           : pre-trained model (pass to avoid re-training every call)
-        engine          : SQLAlchemy engine (created internally if None)
-        store           : if True, save the prediction to the `predictions` table
+    previous_day_demand_l:
+        Most recent historical demand.
 
-    Returns:
-        dict with village_name, prediction_date, predicted_demand_l, and inputs used
+    demand_7day_avg_l:
+        Average demand over the latest 7 available records.
+
+    demand_30day_avg_l:
+        Average demand over the latest 30 available records.
     """
-    if engine is None:
-        engine = get_engine()
 
-    ensure_predictions_table(engine)
+    query = text("""
+        SELECT
+            date,
+            actual_demand_l
+        FROM historical_water_demand
+        WHERE village_id = :village_id
+        ORDER BY date DESC
+        LIMIT 30
+    """)
 
-    # Train model if not provided
-    if model is None:
-        model, feature_cols = train_model(engine)
-    else:
-        feature_cols = [
-            "population", "temperature_c", "rainfall_mm", "humidity",
-            "previous_day_demand_l", "demand_7day_avg_l", "demand_30day_avg_l",
-            "day_of_week", "month", "vulnerability_index",
-        ]
+    with engine.connect() as conn:
+        rows = conn.execute(
+            query,
+            {"village_id": village_id}
+        ).mappings().all()
 
-    # Get village stats
-    stats = get_village_stats(engine, village_id)
+    if not rows:
+        raise ValueError(
+            f"No historical demand found for village "
+            f"'{village_id}'."
+        )
 
-    # Parse date
-    pred_date = pd.to_datetime(prediction_date)
-    day_of_week = pred_date.dayofweek   # 0=Mon … 6=Sun
-    month       = pred_date.month
+    recent_df = pd.DataFrame(rows)
 
-    # Build feature vector
-    features = np.array([[
-        stats["population"]            or 0,
-        temperature_c,
-        rainfall_mm,
-        humidity,
-        stats["previous_day_demand_l"] or 0,
-        stats["demand_7day_avg_l"]     or 0,
-        stats["demand_30day_avg_l"]    or 0,
-        day_of_week,
-        month,
-        stats["vulnerability_index"]   or 0.5,
-    ]])
+    recent_df["date"] = pd.to_datetime(recent_df["date"])
 
-    predicted_demand = float(model.predict(features)[0])
+    recent_df = recent_df.sort_values("date")
 
-    result = {
-        "village_id"          : village_id,
-        "village_name"        : stats["village_name"],
-        "prediction_date"     : prediction_date,
-        "temperature_c"       : temperature_c,
-        "rainfall_mm"         : rainfall_mm,
-        "humidity"            : humidity,
-        "predicted_demand_l"  : round(predicted_demand, 1),
-        "predicted_demand_fmt": f"{predicted_demand:,.0f} L/day",
+    previous_day_demand = (
+        recent_df["actual_demand_l"].iloc[-1]
+    )
+
+    demand_7day_avg = (
+        recent_df["actual_demand_l"]
+        .tail(7)
+        .mean()
+    )
+
+    demand_30day_avg = (
+        recent_df["actual_demand_l"]
+        .tail(30)
+        .mean()
+    )
+
+    return {
+        "previous_day_demand_l": previous_day_demand,
+        "demand_7day_avg_l": demand_7day_avg,
+        "demand_30day_avg_l": demand_30day_avg,
     }
 
-    # Store in PostgreSQL (12.4)
-    if store:
-        insert_sql = text("""
-            INSERT INTO predictions
-                (village_id, village_name, prediction_date, temperature_c,
-                 rainfall_mm, humidity, predicted_demand_l)
-            VALUES
-                (:village_id, :village_name, :prediction_date, :temperature_c,
-                 :rainfall_mm, :humidity, :predicted_demand_l)
-        """)
-        with engine.begin() as conn:
-            conn.execute(insert_sql, {
-                "village_id"         : village_id,
-                "village_name"       : stats["village_name"],
-                "prediction_date"    : prediction_date,
-                "temperature_c"      : temperature_c,
-                "rainfall_mm"        : rainfall_mm,
-                "humidity"           : humidity,
-                "predicted_demand_l" : predicted_demand,
-            })
 
-    return result
+# ---------------------------------------------------------
+# PREDICTION TABLE
+# ---------------------------------------------------------
 
+def create_predictions_table(engine):
+    """
+    Create the predictions table if it does not already exist.
+    """
 
-def print_result(result: dict):
-    """Pretty-print a prediction result."""
-    print("\n" + "=" * 45)
-    print(f"  Village        : {result['village_name']} ({result['village_id']})")
-    print(f"  Date           : {result['prediction_date']}")
-    print(f"  Weather inputs : Temp={result['temperature_c']}C  "
-          f"Rain={result['rainfall_mm']}mm  Humidity={result['humidity']}%")
-    print(f"  Predicted Demand : {result['predicted_demand_fmt']}")
-    print("=" * 45)
+    query = text("""
+        CREATE TABLE IF NOT EXISTS predictions (
+            prediction_id SERIAL PRIMARY KEY,
+            village_id VARCHAR(50) NOT NULL,
+            prediction_date DATE NOT NULL,
+            predicted_demand_l DOUBLE PRECISION NOT NULL,
+            model_used VARCHAR(100) NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+
+    with engine.begin() as conn:
+        conn.execute(query)
 
 
-# ------------------------------------------------------------------ #
-#  Phase 12.1 – 12.3 Tests                                           #
-# ------------------------------------------------------------------ #
+# ---------------------------------------------------------
+# STORE PREDICTION
+# ---------------------------------------------------------
 
-def run_tests():
+def store_prediction(
+    engine,
+    village_id,
+    prediction_date,
+    predicted_demand,
+):
+    """
+    Store a prediction in PostgreSQL.
+    """
+
+    query = text("""
+        INSERT INTO predictions (
+            village_id,
+            prediction_date,
+            predicted_demand_l,
+            model_used
+        )
+        VALUES (
+            :village_id,
+            :prediction_date,
+            :predicted_demand_l,
+            :model_used
+        )
+    """)
+
+    with engine.begin() as conn:
+        conn.execute(
+            query,
+            {
+                "village_id": village_id,
+                "prediction_date": prediction_date,
+                "predicted_demand_l": float(predicted_demand),
+                "model_used": "LinearRegression",
+            }
+        )
+
+
+# ---------------------------------------------------------
+# TRAIN MODEL
+# ---------------------------------------------------------
+
+def train_prediction_model(engine):
+    """
+    Load historical data from PostgreSQL and train the
+    final Phase 11 Linear Regression model.
+
+    models.py handles:
+
+        - chronological training period
+        - feature selection
+        - scaling
+        - Linear Regression training
+    """
+
+    print("\n==========================================")
+    print("TRAINING PREDICTION MODEL")
+    print("==========================================")
+
+    print("Loading historical data from PostgreSQL...")
+
+    df = load_historical_data_from_database(engine)
+
+    print("Historical records:", len(df))
+    print("Villages:", df["village_id"].nunique())
+
+    model, train_mean, train_std = train_final_model(df)
+
+    return model, train_mean, train_std
+
+
+# ---------------------------------------------------------
+# MAIN PREDICTION FUNCTION
+# ---------------------------------------------------------
+
+def predict(
+    village_id,
+    prediction_date,
+    temperature_c,
+    rainfall_mm,
+    humidity,
+    model,
+    train_mean,
+    train_std,
+    engine,
+):
+    """
+    Predict water demand for a village.
+
+    Parameters
+    ----------
+    village_id : str
+        Village identifier, e.g. VIL_001
+
+    prediction_date : str
+        Date of prediction, e.g. 2025-06-30
+
+    temperature_c : float
+        Temperature in Celsius.
+
+    rainfall_mm : float
+        Rainfall in millimetres.
+
+    humidity : float
+        Relative humidity percentage.
+
+    model :
+        Trained Linear Regression model.
+
+    train_mean :
+        Training feature means from Phase 11.
+
+    train_std :
+        Training feature standard deviations from Phase 11.
+
+    engine :
+        PostgreSQL SQLAlchemy engine.
+    """
+
+    prediction_date = pd.to_datetime(
+        prediction_date
+    )
+
+    # -----------------------------------------------------
+    # 1. Get village information
+    # -----------------------------------------------------
+
+    village = get_village_information(
+        engine,
+        village_id
+    )
+
+    population = village["population"]
+
+    # -----------------------------------------------------
+    # 2. Get recent historical demand features
+    # -----------------------------------------------------
+
+    demand_features = get_recent_demand_features(
+        engine,
+        village_id
+    )
+
+    # -----------------------------------------------------
+    # 3. Construct model input
+    # -----------------------------------------------------
+
+    input_data = {
+        "population": population,
+        "temperature_c": temperature_c,
+        "rainfall_mm": rainfall_mm,
+        "humidity": humidity,
+        "previous_day_demand_l":
+            demand_features["previous_day_demand_l"],
+        "demand_7day_avg_l":
+            demand_features["demand_7day_avg_l"],
+        "demand_30day_avg_l":
+            demand_features["demand_30day_avg_l"],
+    }
+
+    input_df = pd.DataFrame([input_data])
+
+    # Ensure the feature order is exactly the same
+    # as the Phase 11 model.
+    input_df = input_df[FEATURES]
+
+    # -----------------------------------------------------
+    # 4. Generate prediction
+    # -----------------------------------------------------
+
+    prediction = predict_demand(
+        model,
+        input_df,
+        train_mean,
+        train_std,
+    )
+
+    predicted_demand = float(prediction[0])
+
+    # Water demand cannot be negative.
+    predicted_demand = max(
+        0.0,
+        predicted_demand
+    )
+
+    # -----------------------------------------------------
+    # 5. Store prediction
+    # -----------------------------------------------------
+
+    store_prediction(
+        engine,
+        village_id,
+        prediction_date.date(),
+        predicted_demand,
+    )
+
+    # -----------------------------------------------------
+    # 6. Display result
+    # -----------------------------------------------------
+
+    print("\n==========================================")
+    print("WATER DEMAND PREDICTION")
+    print("==========================================")
+
+    print("Village:", village_id)
+    print("Prediction date:", prediction_date.date())
+
+    print("\nInput features:")
+    for feature in FEATURES:
+        print(
+            f"{feature}: "
+            f"{input_df[feature].iloc[0]:.2f}"
+        )
+
+    print(
+        "\nPredicted water demand:",
+        f"{predicted_demand:,.2f}",
+        "L/day"
+    )
+
+    print("Model: Linear Regression")
+    print("Prediction stored in PostgreSQL.")
+
+    return predicted_demand
+
+
+# ---------------------------------------------------------
+# TEST THE SERVICE
+# ---------------------------------------------------------
+
+def main():
+
+    print("\n==========================================")
+    print("JAL DHARMA AI")
+    print("PHASE 12: PREDICTION SERVICE")
+    print("==========================================")
+
+    # -----------------------------------------------------
+    # 1. Connect to PostgreSQL
+    # -----------------------------------------------------
+
+    print("\n[1] Connecting to PostgreSQL...")
+
     engine = get_engine()
-    ensure_predictions_table(engine)
 
-    # Train once, reuse for all tests
-    model, _ = train_model(engine)
-
-    # ---- 12.1  Single village ----
-    print("\n\n--- 12.1  Single Village Test ---")
-    r = predict("VIL_001", "2025-07-15", temperature_c=35.0, rainfall_mm=0.0,
-                humidity=42.0, model=model, engine=engine)
-    print_result(r)
-
-    # ---- 12.2  Multiple villages ----
-    print("\n--- 12.2  Multiple Villages Test ---")
-    test_villages = ["VIL_001", "VIL_010", "VIL_020", "VIL_030", "VIL_045"]
-    for vid in test_villages:
-        r = predict(vid, "2025-07-15", temperature_c=33.0, rainfall_mm=2.0,
-                    humidity=55.0, model=model, engine=engine)
-        print_result(r)
-
-    # ---- 12.3  Different dates (same village) ----
-    print("\n--- 12.3  Different Dates Test (VIL_001) ---")
-    test_dates = [
-        ("2025-07-01", 30.0, 10.0, 60.0),   # monsoon
-        ("2025-10-15", 28.0, 5.0,  70.0),   # post-monsoon
-        ("2025-12-20", 22.0, 0.0,  35.0),   # winter
-        ("2026-04-10", 38.0, 0.0,  25.0),   # summer peak
-    ]
-    for dt, temp, rain, hum in test_dates:
-        r = predict("VIL_001", dt, temperature_c=temp, rainfall_mm=rain,
-                    humidity=hum, model=model, engine=engine)
-        print_result(r)
-
-    # ---- 12.4  Confirm stored predictions ----
-    print("\n--- 12.4  Verifying Stored Predictions in PostgreSQL ---")
     with engine.connect() as conn:
-        rows = conn.execute(text(
-            "SELECT village_id, village_name, prediction_date, "
-            "ROUND(predicted_demand_l::numeric, 0) AS predicted_demand_l "
-            "FROM predictions ORDER BY created_at DESC LIMIT 10"
-        )).mappings().fetchall()
-    print(f"\n  Last {len(rows)} predictions stored in `predictions` table:")
-    for row in rows:
-        print(f"  {row['village_id']}  {row['village_name']:<30}  "
-              f"{str(row['prediction_date'])}  "
-              f"{float(row['predicted_demand_l']):>12,.0f} L/day")
+        conn.execute(text("SELECT 1"))
 
-    print("\n[SUCCESS] Phase 12 Complete: All tests passed & predictions stored in PostgreSQL!")
+    print("Database connection successful.")
 
+    # -----------------------------------------------------
+    # 2. Create prediction table
+    # -----------------------------------------------------
 
-# ------------------------------------------------------------------ #
-#  Entry point                                                        #
-# ------------------------------------------------------------------ #
+    print("\n[2] Checking predictions table...")
+
+    create_predictions_table(engine)
+
+    print("Predictions table ready.")
+
+    # -----------------------------------------------------
+    # 3. Train final model
+    # -----------------------------------------------------
+
+    print("\n[3] Training final prediction model...")
+
+    model, train_mean, train_std = (
+        train_prediction_model(engine)
+    )
+
+    # -----------------------------------------------------
+    # 4. Test prediction
+    # -----------------------------------------------------
+
+    print("\n[4] Running test prediction...")
+
+    predicted_demand = predict(
+        village_id="VIL_001",
+        prediction_date="2025-06-30",
+
+        # Example weather inputs.
+        # Replace these with actual forecast/weather values
+        # when using the service in the final system.
+        temperature_c=32.0,
+        rainfall_mm=2.0,
+        humidity=55.0,
+
+        model=model,
+        train_mean=train_mean,
+        train_std=train_std,
+
+        engine=engine,
+    )
+
+    print("\n==========================================")
+    print("PHASE 12 TEST COMPLETE")
+    print("==========================================")
+    print(
+        f"Predicted demand: "
+        f"{predicted_demand:,.2f} L/day"
+    )
+
 
 if __name__ == "__main__":
-    run_tests()
+    main()
