@@ -1,0 +1,8 @@
+scenario_id,scenario_name,total_water_available_l,total_demand_l,total_allocated_l,total_shortage_l,fulfillment_rate_pct,average_satisfaction_pct,maximum_shortage_l,average_shortage_l,weighted_shortage_l,jains_fairness_index,gini_coefficient,hoover_index,villages_meeting_min_service_pct,failed_pipelines_count,bottleneck_pipelines_count
+SCN_01,Normal Baseline Baseline Conditions,240000000.0,16168320.0,16168320.0,0.0,100.0,100.0,0.0,0.0,0.0,1.0,0.0,0.0,100.0,0,0
+SCN_02,Moderate Drought / Late Monsoon,12236831.0,17481188.0,12236831.0,5244356.0,70.0,59.03,597904.0,116541.0,94958.0,0.5958,0.4095,0.401,57.8,0,0
+SCN_03,Severe Summer Heatwave & Drought,9422088.0,18844177.0,9422088.0,9422088.0,50.0,39.17,644522.0,209380.0,186227.0,0.3969,0.608,0.6,37.8,0,0
+SCN_04,Critical Transmission Main Failure (Dam Feeder),13743072.0,16168320.0,13743072.0,2425248.0,85.0,83.57,553000.0,53894.0,47024.0,0.8411,0.1641,0.1616,82.2,1,0
+SCN_05,Secondary Feeder Burst under Heatwave,10791384.0,17985639.0,10791384.0,7194256.0,60.0,49.95,615157.0,159872.0,136268.0,0.5051,0.5002,0.4898,48.9,1,0
+SCN_06,Mass Festival Influx / Peak Population Demand,18553147.0,20614608.0,18553147.0,2061461.0,90.0,80.57,402874.0,45810.0,31601.0,0.8099,0.1942,0.193,80.0,0,0
+SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion),6709206.0,19169160.0,6709206.0,12459954.0,35.0,25.2,655637.0,276888.0,260961.0,0.2571,0.7475,0.7333,24.4,1,0

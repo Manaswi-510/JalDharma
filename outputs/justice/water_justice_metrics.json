@@ -1,0 +1,27 @@
+{
+    "summary": {
+        "num_villages": 45,
+        "total_demand_l": 15565004.9,
+        "total_allocated_l": 13353569.3,
+        "total_shortage_l": 2211435.6,
+        "overall_fulfillment_pct": 85.79
+    },
+    "phase_19_metrics": {
+        "19.1_average_satisfaction_ratio": 0.8631,
+        "19.1_average_satisfaction_pct": 86.31,
+        "19.2_maximum_shortage_l": 207895.6,
+        "19.3_average_shortage_l": 49143.01,
+        "19.4_weighted_shortage_l": 50001.27,
+        "19.5_jains_fairness_index": 0.9597,
+        "19.6_gini_coefficient_satisfaction": 0.1052,
+        "19.6_gini_coefficient_per_capita": 0.1199,
+        "19.7_villages_meeting_min_service_pct": 77.78,
+        "service_threshold_used": 70.0,
+        "additional_hoover_index": 0.0922
+    },
+    "interpretations": {
+        "jains_fairness": "Excellent (>=0.90)",
+        "gini_satisfaction": "High Equality (<0.15)",
+        "water_justice_grade": "Grade B (Moderate Equity)"
+    }
+}

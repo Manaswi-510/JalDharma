@@ -1,0 +1,316 @@
+village_id,village_name,population,vulnerability_index,historical_shortage,priority_score,priority_rank,predicted_demand_l,allocated_water_l,shortage_l,satisfaction_ratio,scenario_id,scenario_name
+VIL_010,Kashti,8138,0.94,Critical,0.878,1,569660.0,569660.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_025,Malegaon,7574,0.8,Critical,0.7873,2,530180.0,530180.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_026,Supa,8092,0.69,Critical,0.7738,3,566440.0,566440.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_022,Khamgaon,7219,0.88,Moderate,0.7343,4,505330.0,505330.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_014,Loni,7177,0.76,High,0.7248,5,502390.0,502390.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_020,Sawargaon,6316,0.81,High,0.7137,6,442120.0,442120.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_001,Khadki,7956,0.84,Low,0.6788,7,556920.0,556920.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_015,Rahata,8235,0.72,Low,0.662,8,576450.0,576450.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_045,Shevgaon,6939,0.78,Moderate,0.6575,9,485730.0,485730.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_021,Pangri,5391,0.85,Moderate,0.6554,10,377370.0,377370.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_004,Nandur,5040,0.62,High,0.6365,11,352800.0,352800.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_007,Chincholi,8110,0.63,Moderate,0.6314,12,567700.0,567700.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_044,Pathardi,6347,0.59,High,0.6304,13,444290.0,444290.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_013,Koregaon,6334,0.86,Low,0.6219,14,443380.0,443380.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_024,Ghanegaon,7828,0.58,Moderate,0.6126,15,547960.0,547960.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_041,Gondhavale,4260,0.82,High,0.612,16,298200.0,298200.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_016,Walki,2684,0.73,High,0.5918,17,187880.0,187880.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_023,Jategaon,2957,0.58,Critical,0.5893,18,206990.0,206990.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_036,Kasti,7115,0.61,Low,0.5885,19,498050.0,498050.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_005,Wadgaon,2228,0.9,High,0.5836,20,155960.0,155960.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_042,Bhenda,3893,0.47,Critical,0.5625,21,272510.0,272510.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_029,Dahigaon,5836,0.87,Low,0.5592,22,408520.0,408520.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_043,Kukana,6091,0.3,High,0.5585,23,426370.0,426370.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_038,Padali,3929,0.64,Moderate,0.5419,24,275030.0,275030.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_032,Varvand,6479,0.27,High,0.5292,25,453530.0,453530.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_011,Belwandi,5688,0.31,High,0.5247,26,398160.0,398160.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_002,Pipri,6781,0.44,Moderate,0.5178,27,474670.0,474670.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_035,Bori,4357,0.55,High,0.515,28,304990.0,304990.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_037,Manjargaon,3825,0.41,High,0.5125,29,267750.0,267750.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_031,Alandi,7868,0.48,Low,0.5091,30,550760.0,550760.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_039,Wategaon,7900,0.22,Low,0.4777,31,553000.0,553000.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_008,Babhulgaon,5693,0.27,High,0.4704,32,398510.0,398510.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_028,Chikalthana,4442,0.8,Low,0.4612,33,310940.0,310940.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_019,Nimgaon,1763,0.81,Moderate,0.4561,34,123410.0,123410.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_018,Takli,3990,0.42,High,0.4486,35,279300.0,279300.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_027,Khandala,2878,0.73,Low,0.4484,36,201460.0,201460.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_017,Deolali,2063,0.47,Critical,0.446,37,144410.0,144410.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_003,Shirur,3890,0.33,Moderate,0.4274,38,272300.0,272300.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_033,Kedgaon,2922,0.63,Low,0.418,39,204540.0,204540.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_034,Pargaon,4514,0.23,Moderate,0.3883,40,315980.0,315980.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_009,Ambegaon,2070,0.66,Moderate,0.3863,41,144900.0,144900.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_006,Dhamangaon,1702,0.72,Low,0.3748,42,119140.0,119140.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_040,Hingoni,2797,0.23,High,0.3369,43,195790.0,195790.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_030,Ranjangaon,2259,0.45,Low,0.2992,44,158130.0,158130.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_012,Mandavgan,1406,0.59,Low,0.293,45,98420.0,98420.0,0.0,1.0,SCN_01,Normal Baseline Baseline Conditions
+VIL_010,Kashti,8138,0.94,Critical,0.878,1,615916.392,615916.392,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_025,Malegaon,7574,0.8,Critical,0.7873,2,573230.616,573230.616,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_026,Supa,8092,0.69,Critical,0.7738,3,612434.9280000001,612434.9280000001,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_022,Khamgaon,7219,0.88,Moderate,0.7343,4,546362.7960000001,546362.7960000001,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_014,Loni,7177,0.76,High,0.7248,5,543184.068,543184.068,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_020,Sawargaon,6316,0.81,High,0.7137,6,478020.14400000003,478020.14400000003,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_001,Khadki,7956,0.84,Low,0.6788,7,602141.9040000001,602141.9040000001,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_015,Rahata,8235,0.72,Low,0.662,8,623257.74,623257.74,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_045,Shevgaon,6939,0.78,Moderate,0.6575,9,525171.2760000001,525171.2760000001,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_021,Pangri,5391,0.85,Moderate,0.6554,10,408012.444,408012.444,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_004,Nandur,5040,0.62,High,0.6365,11,381447.36000000004,381447.36000000004,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_007,Chincholi,8110,0.63,Moderate,0.6314,12,613797.24,613797.24,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_044,Pathardi,6347,0.59,High,0.6304,13,480366.348,480366.348,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_013,Koregaon,6334,0.86,Low,0.6219,14,479382.45600000006,479382.45600000006,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_024,Ghanegaon,7828,0.58,Moderate,0.6126,15,592454.352,592454.352,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_041,Gondhavale,4260,0.82,High,0.612,16,322413.84,322413.84,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_016,Walki,2684,0.73,High,0.5918,17,203135.85600000003,203135.85600000003,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_023,Jategaon,2957,0.58,Critical,0.5893,18,223797.58800000002,223797.58800000002,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_036,Kasti,7115,0.61,Low,0.5885,19,538491.66,538491.66,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_005,Wadgaon,2228,0.9,High,0.5836,20,168623.95200000002,168623.95200000002,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_042,Bhenda,3893,0.47,Critical,0.5625,21,294637.81200000003,294637.81200000003,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_029,Dahigaon,5836,0.87,Low,0.5592,22,441691.824,441691.824,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_043,Kukana,6091,0.3,High,0.5585,23,460991.24400000006,460991.24400000006,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_038,Padali,3929,0.64,Moderate,0.5419,24,297362.436,297362.436,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_032,Varvand,6479,0.27,High,0.5292,25,490356.63600000006,490356.63600000006,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_011,Belwandi,5688,0.31,High,0.5247,26,430490.59200000006,430490.59200000006,0.0,1.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_002,Pipri,6781,0.44,Moderate,0.5178,27,513213.204,289657.8047999974,223555.3992000026,0.5644,SCN_02,Moderate Drought / Late Monsoon
+VIL_035,Bori,4357,0.55,High,0.515,28,329755.188,0.0,329755.188,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_037,Manjargaon,3825,0.41,High,0.5125,29,289491.3,0.0,289491.3,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_031,Alandi,7868,0.48,Low,0.5091,30,595481.7119999999,0.0,595481.7119999999,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_039,Wategaon,7900,0.22,Low,0.4777,31,597903.6,0.0,597903.6,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_008,Babhulgaon,5693,0.27,High,0.4704,32,430869.01200000005,0.0,430869.01200000005,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_028,Chikalthana,4442,0.8,Low,0.4612,33,336188.328,0.0,336188.328,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_019,Nimgaon,1763,0.81,Moderate,0.4561,34,133430.892,0.0,133430.892,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_018,Takli,3990,0.42,High,0.4486,35,301979.16000000003,0.0,301979.16000000003,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_027,Khandala,2878,0.73,Low,0.4484,36,217818.55200000003,0.0,217818.55200000003,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_017,Deolali,2063,0.47,Critical,0.446,37,156136.09200000003,0.0,156136.09200000003,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_003,Shirur,3890,0.33,Moderate,0.4274,38,294410.76,0.0,294410.76,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_033,Kedgaon,2922,0.63,Low,0.418,39,221148.64800000002,0.0,221148.64800000002,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_034,Pargaon,4514,0.23,Moderate,0.3883,40,341637.576,0.0,341637.576,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_009,Ambegaon,2070,0.66,Moderate,0.3863,41,156665.88,0.0,156665.88,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_006,Dhamangaon,1702,0.72,Low,0.3748,42,128814.168,0.0,128814.168,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_040,Hingoni,2797,0.23,High,0.3369,43,211688.14800000002,0.0,211688.14800000002,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_030,Ranjangaon,2259,0.45,Low,0.2992,44,170970.15600000002,0.0,170970.15600000002,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_012,Mandavgan,1406,0.59,Low,0.293,45,106411.70400000001,0.0,106411.70400000001,0.0,SCN_02,Moderate Drought / Late Monsoon
+VIL_010,Kashti,8138,0.94,Critical,0.878,1,663938.7300000001,663938.7300000001,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_025,Malegaon,7574,0.8,Critical,0.7873,2,617924.79,617924.79,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_026,Supa,8092,0.69,Critical,0.7738,3,660185.8200000001,660185.8200000001,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_022,Khamgaon,7219,0.88,Moderate,0.7343,4,588962.1150000001,588962.1150000001,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_014,Loni,7177,0.76,High,0.7248,5,585535.545,585535.545,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_020,Sawargaon,6316,0.81,High,0.7137,6,515290.86000000004,515290.86000000004,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_001,Khadki,7956,0.84,Low,0.6788,7,649090.26,649090.26,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_015,Rahata,8235,0.72,Low,0.662,8,671852.4750000001,671852.4750000001,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_045,Shevgaon,6939,0.78,Moderate,0.6575,9,566118.3150000001,566118.3150000001,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_021,Pangri,5391,0.85,Moderate,0.6554,10,439824.73500000004,439824.73500000004,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_004,Nandur,5040,0.62,High,0.6365,11,411188.4,411188.4,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_007,Chincholi,8110,0.63,Moderate,0.6314,12,661654.3500000001,661654.3500000001,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_044,Pathardi,6347,0.59,High,0.6304,13,517819.99500000005,517819.99500000005,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_013,Koregaon,6334,0.86,Low,0.6219,14,516759.3900000001,516759.3900000001,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_024,Ghanegaon,7828,0.58,Moderate,0.6126,15,638647.38,638647.38,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_041,Gondhavale,4260,0.82,High,0.612,16,347552.10000000003,347552.10000000003,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_016,Walki,2684,0.73,High,0.5918,17,218974.14,218974.14,0.0,1.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_023,Jategaon,2957,0.58,Critical,0.5893,18,241246.84500000003,150769.08000000054,90477.76499999949,0.625,SCN_03,Severe Summer Heatwave & Drought
+VIL_036,Kasti,7115,0.61,Low,0.5885,19,580477.275,0.0,580477.275,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_005,Wadgaon,2228,0.9,High,0.5836,20,181771.38,0.0,181771.38,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_042,Bhenda,3893,0.47,Critical,0.5625,21,317610.405,0.0,317610.405,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_029,Dahigaon,5836,0.87,Low,0.5592,22,476130.06000000006,0.0,476130.06000000006,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_043,Kukana,6091,0.3,High,0.5585,23,496934.23500000004,0.0,496934.23500000004,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_038,Padali,3929,0.64,Moderate,0.5419,24,320547.465,0.0,320547.465,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_032,Varvand,6479,0.27,High,0.5292,25,528589.2150000001,0.0,528589.2150000001,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_011,Belwandi,5688,0.31,High,0.5247,26,464055.48000000004,0.0,464055.48000000004,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_002,Pipri,6781,0.44,Moderate,0.5178,27,553227.885,0.0,553227.885,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_035,Bori,4357,0.55,High,0.515,28,355465.84500000003,0.0,355465.84500000003,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_037,Manjargaon,3825,0.41,High,0.5125,29,312062.625,0.0,312062.625,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_031,Alandi,7868,0.48,Low,0.5091,30,641910.78,0.0,641910.78,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_039,Wategaon,7900,0.22,Low,0.4777,31,644521.5,0.0,644521.5,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_008,Babhulgaon,5693,0.27,High,0.4704,32,464463.405,0.0,464463.405,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_028,Chikalthana,4442,0.8,Low,0.4612,33,362400.57,0.0,362400.57,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_019,Nimgaon,1763,0.81,Moderate,0.4561,34,143834.355,0.0,143834.355,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_018,Takli,3990,0.42,High,0.4486,35,325524.15,0.0,325524.15,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_027,Khandala,2878,0.73,Low,0.4484,36,234801.63000000003,0.0,234801.63000000003,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_017,Deolali,2063,0.47,Critical,0.446,37,168309.855,0.0,168309.855,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_003,Shirur,3890,0.33,Moderate,0.4274,38,317365.65,0.0,317365.65,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_033,Kedgaon,2922,0.63,Low,0.418,39,238391.37000000002,0.0,238391.37000000002,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_034,Pargaon,4514,0.23,Moderate,0.3883,40,368274.69000000006,0.0,368274.69000000006,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_009,Ambegaon,2070,0.66,Moderate,0.3863,41,168880.95,0.0,168880.95,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_006,Dhamangaon,1702,0.72,Low,0.3748,42,138857.67,0.0,138857.67,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_040,Hingoni,2797,0.23,High,0.3369,43,228193.24500000002,0.0,228193.24500000002,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_030,Ranjangaon,2259,0.45,Low,0.2992,44,184300.515,0.0,184300.515,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_012,Mandavgan,1406,0.59,Low,0.293,45,114708.51000000001,0.0,114708.51000000001,0.0,SCN_03,Severe Summer Heatwave & Drought
+VIL_010,Kashti,8138,0.94,Critical,0.878,1,569660.0,569660.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_025,Malegaon,7574,0.8,Critical,0.7873,2,530180.0,530180.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_026,Supa,8092,0.69,Critical,0.7738,3,566440.0,566440.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_022,Khamgaon,7219,0.88,Moderate,0.7343,4,505330.0,505330.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_014,Loni,7177,0.76,High,0.7248,5,502390.0,502390.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_020,Sawargaon,6316,0.81,High,0.7137,6,442120.0,442120.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_001,Khadki,7956,0.84,Low,0.6788,7,556920.0,556920.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_015,Rahata,8235,0.72,Low,0.662,8,576450.0,576450.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_045,Shevgaon,6939,0.78,Moderate,0.6575,9,485730.0,485730.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_021,Pangri,5391,0.85,Moderate,0.6554,10,377370.0,377370.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_004,Nandur,5040,0.62,High,0.6365,11,352800.0,352800.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_007,Chincholi,8110,0.63,Moderate,0.6314,12,567700.0,567700.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_044,Pathardi,6347,0.59,High,0.6304,13,444290.0,444290.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_013,Koregaon,6334,0.86,Low,0.6219,14,443380.0,0.0,443380.0,0.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_024,Ghanegaon,7828,0.58,Moderate,0.6126,15,547960.0,547960.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_041,Gondhavale,4260,0.82,High,0.612,16,298200.0,298200.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_016,Walki,2684,0.73,High,0.5918,17,187880.0,187880.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_023,Jategaon,2957,0.58,Critical,0.5893,18,206990.0,206990.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_036,Kasti,7115,0.61,Low,0.5885,19,498050.0,498050.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_005,Wadgaon,2228,0.9,High,0.5836,20,155960.0,155960.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_042,Bhenda,3893,0.47,Critical,0.5625,21,272510.0,272510.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_029,Dahigaon,5836,0.87,Low,0.5592,22,408520.0,408520.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_043,Kukana,6091,0.3,High,0.5585,23,426370.0,426370.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_038,Padali,3929,0.64,Moderate,0.5419,24,275030.0,275030.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_032,Varvand,6479,0.27,High,0.5292,25,453530.0,453530.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_011,Belwandi,5688,0.31,High,0.5247,26,398160.0,398160.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_002,Pipri,6781,0.44,Moderate,0.5178,27,474670.0,0.0,474670.0,0.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_035,Bori,4357,0.55,High,0.515,28,304990.0,0.0,304990.0,0.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_037,Manjargaon,3825,0.41,High,0.5125,29,267750.0,267750.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_031,Alandi,7868,0.48,Low,0.5091,30,550760.0,550760.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_039,Wategaon,7900,0.22,Low,0.4777,31,553000.0,0.0,553000.0,0.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_008,Babhulgaon,5693,0.27,High,0.4704,32,398510.0,398510.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_028,Chikalthana,4442,0.8,Low,0.4612,33,310940.0,310940.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_019,Nimgaon,1763,0.81,Moderate,0.4561,34,123410.0,123410.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_018,Takli,3990,0.42,High,0.4486,35,279300.0,279300.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_027,Khandala,2878,0.73,Low,0.4484,36,201460.0,201460.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_017,Deolali,2063,0.47,Critical,0.446,37,144410.0,144410.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_003,Shirur,3890,0.33,Moderate,0.4274,38,272300.0,272300.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_033,Kedgaon,2922,0.63,Low,0.418,39,204540.0,204540.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_034,Pargaon,4514,0.23,Moderate,0.3883,40,315980.0,0.0,315980.0,0.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_009,Ambegaon,2070,0.66,Moderate,0.3863,41,144900.0,144900.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_006,Dhamangaon,1702,0.72,Low,0.3748,42,119140.0,119140.0,0.0,1.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_040,Hingoni,2797,0.23,High,0.3369,43,195790.0,119112.0,76678.0,0.6084,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_030,Ranjangaon,2259,0.45,Low,0.2992,44,158130.0,0.0,158130.0,0.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_012,Mandavgan,1406,0.59,Low,0.293,45,98420.0,0.0,98420.0,0.0,SCN_04,Critical Transmission Main Failure (Dam Feeder)
+VIL_010,Kashti,8138,0.94,Critical,0.878,1,633689.7840000001,633689.7840000001,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_025,Malegaon,7574,0.8,Critical,0.7873,2,589772.2320000001,589772.2320000001,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_026,Supa,8092,0.69,Critical,0.7738,3,630107.8560000001,630107.8560000001,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_022,Khamgaon,7219,0.88,Moderate,0.7343,4,562129.0920000001,562129.0920000001,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_014,Loni,7177,0.76,High,0.7248,5,558858.636,558858.636,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_020,Sawargaon,6316,0.81,High,0.7137,6,491814.28800000006,491814.28800000006,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_001,Khadki,7956,0.84,Low,0.6788,7,619517.808,619517.808,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_015,Rahata,8235,0.72,Low,0.662,8,641242.9800000001,641242.9800000001,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_045,Shevgaon,6939,0.78,Moderate,0.6575,9,540326.052,540326.052,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_021,Pangri,5391,0.85,Moderate,0.6554,10,419786.3880000001,419786.3880000001,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_004,Nandur,5040,0.62,High,0.6365,11,392454.72000000003,392454.72000000003,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_007,Chincholi,8110,0.63,Moderate,0.6314,12,631509.4800000001,631509.4800000001,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_044,Pathardi,6347,0.59,High,0.6304,13,494228.19600000005,494228.19600000005,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_013,Koregaon,6334,0.86,Low,0.6219,14,493215.91200000007,493215.91200000007,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_024,Ghanegaon,7828,0.58,Moderate,0.6126,15,609550.7040000001,609550.7040000001,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_041,Gondhavale,4260,0.82,High,0.612,16,331717.68,331717.68,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_016,Walki,2684,0.73,High,0.5918,17,208997.712,208997.712,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_023,Jategaon,2957,0.58,Critical,0.5893,18,230255.67600000004,230255.67600000004,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_036,Kasti,7115,0.61,Low,0.5885,19,554030.8200000001,554030.8200000001,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_005,Wadgaon,2228,0.9,High,0.5836,20,173489.90400000004,173489.90400000004,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_042,Bhenda,3893,0.47,Critical,0.5625,21,303140.124,303140.124,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_029,Dahigaon,5836,0.87,Low,0.5592,22,454437.64800000004,454437.64800000004,0.0,1.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_043,Kukana,6091,0.3,High,0.5585,23,474293.98800000007,227109.80879999883,247184.17920000124,0.4788,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_038,Padali,3929,0.64,Moderate,0.5419,24,305943.37200000003,0.0,305943.37200000003,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_032,Varvand,6479,0.27,High,0.5292,25,504506.77200000006,0.0,504506.77200000006,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_011,Belwandi,5688,0.31,High,0.5247,26,442913.184,0.0,442913.184,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_002,Pipri,6781,0.44,Moderate,0.5178,27,528022.908,0.0,528022.908,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_035,Bori,4357,0.55,High,0.515,28,339270.87600000005,0.0,339270.87600000005,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_037,Manjargaon,3825,0.41,High,0.5125,29,297845.10000000003,0.0,297845.10000000003,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_031,Alandi,7868,0.48,Low,0.5091,30,612665.4240000001,0.0,612665.4240000001,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_039,Wategaon,7900,0.22,Low,0.4777,31,615157.2000000001,0.0,615157.2000000001,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_008,Babhulgaon,5693,0.27,High,0.4704,32,443302.52400000003,0.0,443302.52400000003,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_028,Chikalthana,4442,0.8,Low,0.4612,33,345889.656,0.0,345889.656,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_019,Nimgaon,1763,0.81,Moderate,0.4561,34,137281.284,0.0,137281.284,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_018,Takli,3990,0.42,High,0.4486,35,310693.32,0.0,310693.32,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_027,Khandala,2878,0.73,Low,0.4484,36,224104.10400000002,0.0,224104.10400000002,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_017,Deolali,2063,0.47,Critical,0.446,37,160641.68400000004,0.0,160641.68400000004,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_003,Shirur,3890,0.33,Moderate,0.4274,38,302906.52,0.0,302906.52,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_033,Kedgaon,2922,0.63,Low,0.418,39,227530.29600000003,0.0,227530.29600000003,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_034,Pargaon,4514,0.23,Moderate,0.3883,40,351496.15200000006,0.0,351496.15200000006,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_009,Ambegaon,2070,0.66,Moderate,0.3863,41,161186.76,0.0,161186.76,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_006,Dhamangaon,1702,0.72,Low,0.3748,42,132531.336,0.0,132531.336,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_040,Hingoni,2797,0.23,High,0.3369,43,217796.79600000003,0.0,217796.79600000003,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_030,Ranjangaon,2259,0.45,Low,0.2992,44,175903.812,0.0,175903.812,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_012,Mandavgan,1406,0.59,Low,0.293,45,109482.40800000001,0.0,109482.40800000001,0.0,SCN_05,Secondary Feeder Burst under Heatwave
+VIL_010,Kashti,8138,0.94,Critical,0.878,1,726316.5,726316.5,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_025,Malegaon,7574,0.8,Critical,0.7873,2,675979.5,675979.5,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_026,Supa,8092,0.69,Critical,0.7738,3,722211.0,722211.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_022,Khamgaon,7219,0.88,Moderate,0.7343,4,644295.75,644295.75,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_014,Loni,7177,0.76,High,0.7248,5,640547.25,640547.25,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_020,Sawargaon,6316,0.81,High,0.7137,6,563703.0,563703.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_001,Khadki,7956,0.84,Low,0.6788,7,710073.0,710073.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_015,Rahata,8235,0.72,Low,0.662,8,734973.75,734973.75,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_045,Shevgaon,6939,0.78,Moderate,0.6575,9,619305.75,619305.75,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_021,Pangri,5391,0.85,Moderate,0.6554,10,481146.75,481146.75,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_004,Nandur,5040,0.62,High,0.6365,11,449820.0,449820.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_007,Chincholi,8110,0.63,Moderate,0.6314,12,723817.5,723817.5,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_044,Pathardi,6347,0.59,High,0.6304,13,566469.75,566469.75,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_013,Koregaon,6334,0.86,Low,0.6219,14,565309.5,565309.5,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_024,Ghanegaon,7828,0.58,Moderate,0.6126,15,698649.0,698649.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_041,Gondhavale,4260,0.82,High,0.612,16,380205.0,380205.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_016,Walki,2684,0.73,High,0.5918,17,239547.0,239547.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_023,Jategaon,2957,0.58,Critical,0.5893,18,263912.25,263912.25,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_036,Kasti,7115,0.61,Low,0.5885,19,635013.75,635013.75,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_005,Wadgaon,2228,0.9,High,0.5836,20,198849.0,198849.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_042,Bhenda,3893,0.47,Critical,0.5625,21,347450.25,347450.25,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_029,Dahigaon,5836,0.87,Low,0.5592,22,520863.0,520863.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_043,Kukana,6091,0.3,High,0.5585,23,543621.75,543621.75,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_038,Padali,3929,0.64,Moderate,0.5419,24,350663.25,350663.25,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_032,Varvand,6479,0.27,High,0.5292,25,578250.75,578250.75,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_011,Belwandi,5688,0.31,High,0.5247,26,507654.0,507654.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_002,Pipri,6781,0.44,Moderate,0.5178,27,605204.25,605204.25,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_035,Bori,4357,0.55,High,0.515,28,388862.25,388862.25,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_037,Manjargaon,3825,0.41,High,0.5125,29,341381.25,341381.25,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_031,Alandi,7868,0.48,Low,0.5091,30,702219.0,702219.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_039,Wategaon,7900,0.22,Low,0.4777,31,705075.0,705075.0,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_008,Babhulgaon,5693,0.27,High,0.4704,32,508100.25,508100.25,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_028,Chikalthana,4442,0.8,Low,0.4612,33,396448.5,396448.5,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_019,Nimgaon,1763,0.81,Moderate,0.4561,34,157347.75,157347.75,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_018,Takli,3990,0.42,High,0.4486,35,356107.5,356107.5,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_027,Khandala,2878,0.73,Low,0.4484,36,256861.5,256861.5,0.0,1.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_017,Deolali,2063,0.47,Critical,0.446,37,184122.75,46891.950000000186,137230.7999999998,0.2547,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_003,Shirur,3890,0.33,Moderate,0.4274,38,347182.5,0.0,347182.5,0.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_033,Kedgaon,2922,0.63,Low,0.418,39,260788.5,0.0,260788.5,0.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_034,Pargaon,4514,0.23,Moderate,0.3883,40,402874.5,0.0,402874.5,0.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_009,Ambegaon,2070,0.66,Moderate,0.3863,41,184747.5,0.0,184747.5,0.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_006,Dhamangaon,1702,0.72,Low,0.3748,42,151903.5,0.0,151903.5,0.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_040,Hingoni,2797,0.23,High,0.3369,43,249632.25,0.0,249632.25,0.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_030,Ranjangaon,2259,0.45,Low,0.2992,44,201615.75,0.0,201615.75,0.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_012,Mandavgan,1406,0.59,Low,0.293,45,125485.5,0.0,125485.5,0.0,SCN_06,Mass Festival Influx / Peak Population Demand
+VIL_010,Kashti,8138,0.94,Critical,0.878,1,675388.8960000001,675388.8960000001,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_025,Malegaon,7574,0.8,Critical,0.7873,2,628581.4080000002,628581.4080000002,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_026,Supa,8092,0.69,Critical,0.7738,3,671571.2640000001,671571.2640000001,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_022,Khamgaon,7219,0.88,Moderate,0.7343,4,599119.2480000001,599119.2480000001,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_014,Loni,7177,0.76,High,0.7248,5,595633.5840000001,595633.5840000001,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_020,Sawargaon,6316,0.81,High,0.7137,6,524177.47200000007,524177.47200000007,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_001,Khadki,7956,0.84,Low,0.6788,7,660284.3520000001,660284.3520000001,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_015,Rahata,8235,0.72,Low,0.662,8,683439.1200000001,683439.1200000001,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_045,Shevgaon,6939,0.78,Moderate,0.6575,9,575881.4880000001,575881.4880000001,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_021,Pangri,5391,0.85,Moderate,0.6554,10,447409.87200000003,447409.87200000003,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_004,Nandur,5040,0.62,High,0.6365,11,418279.68000000005,418279.68000000005,0.0,1.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_007,Chincholi,8110,0.63,Moderate,0.6314,12,673065.1200000001,229439.68320000055,443625.43679999956,0.3409,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_044,Pathardi,6347,0.59,High,0.6304,13,526750.224,0.0,526750.224,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_013,Koregaon,6334,0.86,Low,0.6219,14,525671.3280000001,0.0,525671.3280000001,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_024,Ghanegaon,7828,0.58,Moderate,0.6126,15,649661.376,0.0,649661.376,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_041,Gondhavale,4260,0.82,High,0.612,16,353545.92000000004,0.0,353545.92000000004,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_016,Walki,2684,0.73,High,0.5918,17,222750.52800000005,0.0,222750.52800000005,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_023,Jategaon,2957,0.58,Critical,0.5893,18,245407.34400000004,0.0,245407.34400000004,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_036,Kasti,7115,0.61,Low,0.5885,19,590488.0800000001,0.0,590488.0800000001,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_005,Wadgaon,2228,0.9,High,0.5836,20,184906.176,0.0,184906.176,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_042,Bhenda,3893,0.47,Critical,0.5625,21,323087.8560000001,0.0,323087.8560000001,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_029,Dahigaon,5836,0.87,Low,0.5592,22,484341.31200000003,0.0,484341.31200000003,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_043,Kukana,6091,0.3,High,0.5585,23,505504.27200000006,0.0,505504.27200000006,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_038,Padali,3929,0.64,Moderate,0.5419,24,326075.568,0.0,326075.568,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_032,Varvand,6479,0.27,High,0.5292,25,537705.1680000001,0.0,537705.1680000001,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_011,Belwandi,5688,0.31,High,0.5247,26,472058.4960000001,0.0,472058.4960000001,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_002,Pipri,6781,0.44,Moderate,0.5178,27,562768.7520000001,0.0,562768.7520000001,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_035,Bori,4357,0.55,High,0.515,28,361596.1440000001,0.0,361596.1440000001,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_037,Manjargaon,3825,0.41,High,0.5125,29,317444.4,0.0,317444.4,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_031,Alandi,7868,0.48,Low,0.5091,30,652981.0560000001,0.0,652981.0560000001,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_039,Wategaon,7900,0.22,Low,0.4777,31,655636.8,0.0,655636.8,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_008,Babhulgaon,5693,0.27,High,0.4704,32,472473.45600000006,0.0,472473.45600000006,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_028,Chikalthana,4442,0.8,Low,0.4612,33,368650.4640000001,0.0,368650.4640000001,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_019,Nimgaon,1763,0.81,Moderate,0.4561,34,146314.89600000004,0.0,146314.89600000004,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_018,Takli,3990,0.42,High,0.4486,35,331138.08,0.0,331138.08,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_027,Khandala,2878,0.73,Low,0.4484,36,238850.97600000002,0.0,238850.97600000002,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_017,Deolali,2063,0.47,Critical,0.446,37,171212.496,0.0,171212.496,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_003,Shirur,3890,0.33,Moderate,0.4274,38,322838.88000000006,0.0,322838.88000000006,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_033,Kedgaon,2922,0.63,Low,0.418,39,242502.62400000004,0.0,242502.62400000004,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_034,Pargaon,4514,0.23,Moderate,0.3883,40,374625.88800000004,0.0,374625.88800000004,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_009,Ambegaon,2070,0.66,Moderate,0.3863,41,171793.44000000003,0.0,171793.44000000003,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_006,Dhamangaon,1702,0.72,Low,0.3748,42,141252.38400000002,0.0,141252.38400000002,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_040,Hingoni,2797,0.23,High,0.3369,43,232128.62400000004,0.0,232128.62400000004,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_030,Ranjangaon,2259,0.45,Low,0.2992,44,187478.92800000004,0.0,187478.92800000004,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)
+VIL_012,Mandavgan,1406,0.59,Low,0.293,45,116686.75200000002,0.0,116686.75200000002,0.0,SCN_07,Compound Climate Disaster (Extreme Drought + Aquifer Depletion)

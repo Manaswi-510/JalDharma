@@ -1,0 +1,38 @@
+{
+    "Proportional": {
+        "Total Water Delivered (L)": "12,126,240",
+        "Fulfillment Rate (%)": "75.00%",
+        "Average Shortage (L)": "89,824",
+        "Maximum Shortage (L)": "144,112",
+        "Weighted Shortage (L)": "96,110",
+        "Average Satisfaction (%)": "75.00%",
+        "Jain's Fairness Index": "1.0000",
+        "Gini Coefficient": "0.0000",
+        "Hoover (Robin Hood) Index": "0.0000",
+        "% Villages >= 70% Service": "100.0%"
+    },
+    "Max-Flow": {
+        "Total Water Delivered (L)": "12,126,240",
+        "Fulfillment Rate (%)": "75.00%",
+        "Average Shortage (L)": "89,824",
+        "Maximum Shortage (L)": "576,450",
+        "Weighted Shortage (L)": "99,498",
+        "Average Satisfaction (%)": "74.39%",
+        "Jain's Fairness Index": "0.7514",
+        "Gini Coefficient": "0.2558",
+        "Hoover (Robin Hood) Index": "0.2525",
+        "% Villages >= 70% Service": "73.3%"
+    },
+    "Equity-Aware": {
+        "Total Water Delivered (L)": "12,126,240",
+        "Fulfillment Rate (%)": "75.00%",
+        "Average Shortage (L)": "89,824",
+        "Maximum Shortage (L)": "553,000",
+        "Weighted Shortage (L)": "71,067",
+        "Average Satisfaction (%)": "64.56%",
+        "Jain's Fairness Index": "0.6467",
+        "Gini Coefficient": "0.3544",
+        "Hoover (Robin Hood) Index": "0.3537",
+        "% Villages >= 70% Service": "64.4%"
+    }
+}
