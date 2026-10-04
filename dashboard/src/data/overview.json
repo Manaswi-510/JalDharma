@@ -1,0 +1,125 @@
+{
+  "snapshotDate": "2025-06-29",
+  "totalWaterAvailableL": 240000000.0,
+  "totalPredictedDemandL": 15249623.0,
+  "totalAllocatedL": 13084177.0,
+  "totalShortageL": 2165447.0,
+  "averageSatisfactionPct": 86.31,
+  "fairnessIndex": 0.9597,
+  "giniCoefficient": 0.1052,
+  "hooverIndex": 0.0922,
+  "minServiceCompliancePct": 77.78,
+  "totalVillages": 45,
+  "totalPopulationServed": 230976,
+  "waterSources": [
+    {
+      "id": "SRC_001",
+      "name": "Godavari Major Reservoir",
+      "type": "Reservoir",
+      "capacityL": 125000000000.0,
+      "storageL": 82000000000.0,
+      "dailySupplyL": 150000000.0,
+      "reliability": 0.92,
+      "status": "Active"
+    },
+    {
+      "id": "SRC_002",
+      "name": "Jayakwadi Canal Intake",
+      "type": "River/Canal",
+      "capacityL": 45000000000.0,
+      "storageL": 26000000000.0,
+      "dailySupplyL": 65000000.0,
+      "reliability": 0.85,
+      "status": "Active"
+    },
+    {
+      "id": "SRC_003",
+      "name": "Kashti Deep Aquifer Wellfield",
+      "type": "Groundwater",
+      "capacityL": 15000000000.0,
+      "storageL": 7200000000.0,
+      "dailySupplyL": 25000000.0,
+      "reliability": 0.78,
+      "status": "Active"
+    }
+  ],
+  "topPriorityVillages": [
+    {
+      "village_id": "VIL_010",
+      "village_name": "Kashti",
+      "population": 8138,
+      "vulnerability_index": 0.94,
+      "historical_shortage": "Critical",
+      "priority_score": 0.878,
+      "priority_rank": 1
+    },
+    {
+      "village_id": "VIL_025",
+      "village_name": "Malegaon",
+      "population": 7574,
+      "vulnerability_index": 0.8,
+      "historical_shortage": "Critical",
+      "priority_score": 0.7873,
+      "priority_rank": 2
+    },
+    {
+      "village_id": "VIL_026",
+      "village_name": "Supa",
+      "population": 8092,
+      "vulnerability_index": 0.69,
+      "historical_shortage": "Critical",
+      "priority_score": 0.7738,
+      "priority_rank": 3
+    },
+    {
+      "village_id": "VIL_022",
+      "village_name": "Khamgaon",
+      "population": 7219,
+      "vulnerability_index": 0.88,
+      "historical_shortage": "Moderate",
+      "priority_score": 0.7343,
+      "priority_rank": 4
+    },
+    {
+      "village_id": "VIL_014",
+      "village_name": "Loni",
+      "population": 7177,
+      "vulnerability_index": 0.76,
+      "historical_shortage": "High",
+      "priority_score": 0.7248,
+      "priority_rank": 5
+    },
+    {
+      "village_id": "VIL_020",
+      "village_name": "Sawargaon",
+      "population": 6316,
+      "vulnerability_index": 0.81,
+      "historical_shortage": "High",
+      "priority_score": 0.7137,
+      "priority_rank": 6
+    }
+  ],
+  "allocationStrategies": [
+    {
+      "strategy": "Proportional",
+      "fulfillmentPct": 70.0,
+      "fairness": 1.0,
+      "gini": 0.0,
+      "weightedShortage": 115332
+    },
+    {
+      "strategy": "Max-Flow",
+      "fulfillmentPct": 70.0,
+      "fairness": 0.7029,
+      "gini": 0.3071,
+      "weightedShortage": 117330
+    },
+    {
+      "strategy": "Equity-Aware",
+      "fulfillmentPct": 70.0,
+      "fairness": 0.5958,
+      "gini": 0.4095,
+      "weightedShortage": 87827
+    }
+  ]
+}
