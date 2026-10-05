@@ -32,7 +32,10 @@ from datetime import date, timedelta
 from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException, Query
+from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.openapi.docs import get_swagger_ui_html
 from sqlalchemy import text
 
 from src.database.connection import get_engine
@@ -43,6 +46,7 @@ app = FastAPI(
     title="Jal Dharma AI API",
     description="Live water management data from PostgreSQL",
     version="1.0.0",
+    docs_url=None,  # Disabled default jsdelivr CDN
 )
 
 # Allow the Vite dev server (port 5173) and any other local origin
@@ -54,6 +58,21 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount local static files for offline Swagger UI
+STATIC_DIR = PROJECT_ROOT / "src" / "api" / "static"
+if STATIC_DIR.exists():
+    app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+@app.get("/docs", include_in_schema=False)
+async def custom_swagger_ui_html():
+    return get_swagger_ui_html(
+        openapi_url=app.openapi_url,
+        title=app.title + " - API Docs",
+        oauth2_redirect_url=app.swagger_ui_oauth2_redirect_url,
+        swagger_js_url="/static/swagger-ui-bundle.min.js",
+        swagger_css_url="/static/swagger-ui.min.css",
+    )
 
 # ─── Shared DB Engine ────────────────────────────────────────────────────────
 
@@ -480,6 +499,90 @@ def get_allocations(
 
         return {"date": target_date, "totalVillages": len(records), "allocations": records}
 
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class QuotaAdjustmentRequest(BaseModel):
+    village_id: str
+    allocated_kl: Optional[float] = None
+    allocated_l: Optional[float] = None
+
+
+@app.post("/api/allocations/adjust")
+def adjust_allocation(req: QuotaAdjustmentRequest):
+    """
+    Adjust a village's allocation quota in PostgreSQL and recompute
+    shortage and satisfaction ratio for the latest allocation cycle.
+    """
+    engine = get_db()
+
+    # Resolve liters
+    if req.allocated_l is not None:
+        alloc_l = float(req.allocated_l)
+    elif req.allocated_kl is not None:
+        alloc_l = float(req.allocated_kl) * 1000.0
+    else:
+        raise HTTPException(status_code=400, detail="Must provide allocated_kl or allocated_l")
+
+    try:
+        with engine.begin() as conn:
+            # 1. Update historical_water_allocations for latest cycle
+            res = conn.execute(text("""
+                UPDATE historical_water_allocations
+                SET allocated_water_l = :alloc_l,
+                    shortage_l = GREATEST(0.0, predicted_demand_l - :alloc_l),
+                    satisfaction_ratio = CASE 
+                        WHEN predicted_demand_l > 0 THEN ROUND((:alloc_l / predicted_demand_l)::numeric, 4)
+                        ELSE 1.0 
+                    END
+                WHERE village_id = :vid
+                  AND date = (SELECT MAX(date) FROM historical_water_allocations WHERE village_id = :vid)
+                RETURNING allocation_id, village_id, predicted_demand_l, allocated_water_l, shortage_l, satisfaction_ratio
+            """), {"vid": req.village_id, "alloc_l": alloc_l})
+
+            row = res.mappings().first()
+            if not row:
+                raise HTTPException(status_code=404, detail=f"No allocation record found in DB for village {req.village_id}")
+
+            # 2. Also update allocations table if present
+            try:
+                conn.execute(text("""
+                    UPDATE allocations
+                    SET allocated_water = :alloc_l,
+                        shortage = GREATEST(0.0, predicted_demand - :alloc_l),
+                        satisfaction_ratio = CASE 
+                            WHEN predicted_demand > 0 THEN ROUND((:alloc_l / predicted_demand)::numeric, 4)
+                            ELSE 1.0 
+                        END
+                    WHERE village_id = :vid
+                      AND date = (SELECT MAX(date) FROM allocations WHERE village_id = :vid)
+                """), {"vid": req.village_id, "alloc_l": alloc_l})
+            except Exception:
+                pass
+
+        sat_ratio = float(row["satisfaction_ratio"])
+        sat_pct = round(sat_ratio * 100, 1)
+        status = (
+            "High" if sat_pct < 80 else
+            "Medium" if sat_pct < 92 else
+            "Low"
+        )
+
+        return {
+            "status": "success",
+            "message": f"Allocation quota successfully saved to PostgreSQL for {req.village_id}",
+            "village_id": row["village_id"],
+            "allocated_l": float(row["allocated_water_l"]),
+            "allocated_kl": round(float(row["allocated_water_l"]) / 1000.0, 1),
+            "shortage_l": float(row["shortage_l"]),
+            "shortage_kl": round(float(row["shortage_l"]) / 1000.0, 1),
+            "satisfaction_ratio": sat_ratio,
+            "satisfaction_pct": sat_pct,
+            "status_tier": status,
+        }
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

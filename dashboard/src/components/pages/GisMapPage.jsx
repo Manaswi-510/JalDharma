@@ -9,7 +9,9 @@ import {
   Sliders,
   CheckCircle2,
   ShieldAlert,
-  Maximize2
+  Maximize2,
+  Save,
+  SlidersHorizontal
 } from 'lucide-react';
 import { api } from '../../api/client';
 import { useLiveData } from '../../api/useLiveData';
@@ -21,13 +23,45 @@ import {
 export default function GisMapPage({ onNavigateToPage }) {
   const [selectedVillage, setSelectedVillage] = useState(null);
   const [filterMode, setFilterMode] = useState('all');
+  const [mapSliderAllocated, setMapSliderAllocated] = useState(0);
+  const [mapSaving, setMapSaving] = useState(false);
 
-  const { data: villagesRaw, loading: vLoad, error: vErr } = useLiveData(api.villages);
+  const { data: villagesRaw, loading: vLoad, error: vErr, refetch: refetchVillages } = useLiveData(api.villages);
   const { data: pipelinesRaw, loading: pLoad, error: pErr } = useLiveData(api.pipelines);
   const { data: sourcesRaw, loading: sLoad, error: sErr } = useLiveData(api.waterSources);
 
   const loading = vLoad || pLoad || sLoad;
   const error = vErr || pErr || sErr;
+
+  const handleSelectVillage = (v) => {
+    setSelectedVillage(v);
+    setMapSliderAllocated(v.allocatedKL);
+  };
+
+  const handleSaveMapQuota = async () => {
+    if (!selectedVillage) return;
+    setMapSaving(true);
+    try {
+      const res = await api.adjustAllocation(selectedVillage.id, mapSliderAllocated);
+      await refetchVillages();
+      const newShortage = res.shortage_kl ?? Math.max(0, selectedVillage.demandKL - mapSliderAllocated);
+      const newSatisfaction = res.satisfaction_pct ?? Math.min(100, Math.round((mapSliderAllocated / selectedVillage.demandKL) * 1000) / 10);
+      const newStatus = res.status_tier ?? ((mapSliderAllocated / selectedVillage.demandKL) < 0.8 ? 'High' : (mapSliderAllocated / selectedVillage.demandKL) < 0.92 ? 'Medium' : 'Low');
+
+      setSelectedVillage(prev => prev ? ({
+        ...prev,
+        allocatedKL: mapSliderAllocated,
+        shortageKL: newShortage,
+        satisfaction: newSatisfaction,
+        status: newStatus,
+      }) : null);
+    } catch (err) {
+      console.error('Failed to save allocation from map:', err);
+      alert(`Error saving to PostgreSQL: ${err.message}`);
+    } finally {
+      setMapSaving(false);
+    }
+  };
 
   // Map API villages to shape the existing JSX uses
   // The GIS map uses x/y canvas coords — we derive them from lat/lon or keep index-based positioning
@@ -236,7 +270,7 @@ export default function GisMapPage({ onNavigateToPage }) {
                   key={v.id}
                   transform={`translate(${v.x}, ${v.y})`}
                   style={{ cursor: 'pointer' }}
-                  onClick={() => setSelectedVillage(v)}
+                  onClick={() => handleSelectVillage(v)}
                 >
                   {/* Pulsing ring for High shortage nodes */}
                   {v.status === 'High' && (
@@ -358,6 +392,59 @@ export default function GisMapPage({ onNavigateToPage }) {
               </div>
               <div style={{ width: '100%', height: '6px', background: 'rgba(0,0,0,0.1)', borderRadius: '9999px', overflow: 'hidden' }}>
                 <div style={{ width: `${selectedVillage.satisfaction}%`, height: '100%', background: selectedVillage.status === 'High' ? '#ef4444' : '#10b981' }} />
+              </div>
+            </div>
+
+            {/* Direct Quota Adjustment on Map */}
+            <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '12px', border: '1px solid #e2e8f0', marginBottom: '1.25rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#334155', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <SlidersHorizontal size={15} color="#0284c7" />
+                  <span>Adjust Allocation Quota:</span>
+                </span>
+                <span style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0284c7' }}>{mapSliderAllocated} kL</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max={Math.max(10, Math.round(selectedVillage.demandKL * 1.2))}
+                step="5"
+                value={mapSliderAllocated}
+                onChange={(e) => setMapSliderAllocated(Number(e.target.value))}
+                style={{ width: '100%', accentColor: '#0284c7', height: '6px', cursor: 'pointer' }}
+              />
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: '#94a3b8', marginTop: '0.3rem' }}>
+                <span>0 kL (0%)</span>
+                <span>Demand: {selectedVillage.demandKL} kL (100%)</span>
+                <span>Surplus: {Math.round(selectedVillage.demandKL * 1.2)} kL</span>
+              </div>
+
+              {/* Preview of impact */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.65rem', paddingTop: '0.5rem', borderTop: '1px dashed #cbd5e1', fontSize: '0.78rem' }}>
+                <span style={{ color: '#64748b' }}>
+                  Expected: <strong style={{ color: mapSliderAllocated < selectedVillage.demandKL * 0.8 ? '#dc2626' : '#059669' }}>
+                    {Math.min(100, Math.round((mapSliderAllocated / (selectedVillage.demandKL || 1)) * 1000) / 10)}% Satisfaction
+                  </strong>
+                </span>
+                <button
+                  onClick={handleSaveMapQuota}
+                  disabled={mapSaving}
+                  style={{
+                    padding: '0.45rem 0.9rem',
+                    background: mapSaving ? '#64748b' : 'linear-gradient(135deg, #0284c7, #06b6d4)',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '8px',
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    cursor: mapSaving ? 'not-allowed' : 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                  }}
+                >
+                  <Save size={13} /> {mapSaving ? 'Saving...' : 'Save & Update Map'}
+                </button>
               </div>
             </div>
 

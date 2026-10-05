@@ -39,6 +39,7 @@ export default function AllocationPage() {
   const [priorityFilter, setPriorityFilter] = useState('ALL');
   const [editingVillage, setEditingVillage] = useState(null);
   const [sliderAllocated, setSliderAllocated] = useState(0);
+  const [saving, setSaving] = useState(false);
 
   // Filtered dataset
   const filteredVillages = villages.filter(v => {
@@ -52,19 +53,37 @@ export default function AllocationPage() {
     setSliderAllocated(village.allocatedKL);
   };
 
-  const handleSaveQuota = () => {
+  const handleSaveQuota = async () => {
     if (!editingVillage) return;
-    const newShortage = Math.max(0, editingVillage.demandKL - sliderAllocated);
-    const newSatisfaction = Math.min(100, Math.round((sliderAllocated / editingVillage.demandKL) * 1000) / 10);
-    const newStatus = newSatisfaction >= 90 ? 'Low' : newSatisfaction >= 75 ? 'Medium' : 'High';
+    setSaving(true);
+    try {
+      // 1. Persist directly into PostgreSQL
+      const res = await api.adjustAllocation(editingVillage.id, sliderAllocated);
 
-    setVillages(prev => prev.map(v => {
-      if (v.id === editingVillage.id) {
-        return { ...v, allocatedKL: sliderAllocated, shortageKL: newShortage, satisfaction: newSatisfaction, status: newStatus };
-      }
-      return v;
-    }));
-    setEditingVillage(null);
+      const newShortage = res.shortage_kl ?? Math.max(0, editingVillage.demandKL - sliderAllocated);
+      const newSatisfaction = res.satisfaction_pct ?? Math.min(100, Math.round((sliderAllocated / editingVillage.demandKL) * 1000) / 10);
+      const newStatus = res.status_tier ?? (newSatisfaction >= 90 ? 'Low' : newSatisfaction >= 75 ? 'Medium' : 'High');
+
+      // 2. Update local state
+      setVillages(prev => prev.map(v => {
+        if (v.id === editingVillage.id) {
+          return {
+            ...v,
+            allocatedKL: sliderAllocated,
+            shortageKL: newShortage,
+            satisfaction: newSatisfaction,
+            status: newStatus,
+          };
+        }
+        return v;
+      }));
+      setEditingVillage(null);
+    } catch (err) {
+      console.error('Failed to save allocation quota to PostgreSQL:', err);
+      alert(`Error saving to PostgreSQL: ${err.message}`);
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -290,9 +309,24 @@ export default function AllocationPage() {
             <div style={{ display: 'flex', gap: '0.75rem' }}>
               <button
                 onClick={handleSaveQuota}
-                style={{ flex: 1, padding: '0.75rem', background: 'linear-gradient(135deg, #0284c7, #06b6d4)', color: '#ffffff', border: 'none', borderRadius: '12px', fontSize: '0.88rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+                disabled={saving}
+                style={{
+                  flex: 1,
+                  padding: '0.75rem',
+                  background: saving ? '#64748b' : 'linear-gradient(135deg, #0284c7, #06b6d4)',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '12px',
+                  fontSize: '0.88rem',
+                  fontWeight: 700,
+                  cursor: saving ? 'not-allowed' : 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                }}
               >
-                <Save size={16} /> Save & Re-balance LP
+                <Save size={16} /> {saving ? 'Saving to PostgreSQL...' : 'Save & Re-balance LP'}
               </button>
               <button
                 onClick={() => setEditingVillage(null)}
