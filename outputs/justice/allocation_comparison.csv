@@ -1,11 +1,11 @@
 Metric,Proportional,Max-Flow,Equity-Aware
-Total Water Delivered (L),"11,317,824","11,317,824","11,317,824"
-Fulfillment Rate (%),70.00%,70.00%,70.00%
-Average Shortage (L),"107,789","107,789","107,789"
-Maximum Shortage (L),"172,935","576,450","553,000"
-Weighted Shortage (L),"115,332","117,330","87,827"
-Average Satisfaction (%),70.00%,69.24%,59.03%
-Jain's Fairness Index,1.0000,0.7029,0.5958
-Gini Coefficient,0.0000,0.3071,0.4095
-Hoover (Robin Hood) Index,0.0000,0.2962,0.4010
-% Villages >= 70% Service,100.0%,66.7%,57.8%
+Total Water Delivered (L),"12,126,240","12,126,240","12,126,240"
+Fulfillment Rate (%),75.00%,75.00%,75.00%
+Average Shortage (L),"89,824","89,824","89,824"
+Maximum Shortage (L),"144,112","576,450","553,000"
+Weighted Shortage (L),"96,110","99,498","71,067"
+Average Satisfaction (%),75.00%,74.39%,64.56%
+Jain's Fairness Index,1.0000,0.7514,0.6467
+Gini Coefficient,0.0000,0.2558,0.3544
+Hoover (Robin Hood) Index,0.0000,0.2525,0.3537
+% Villages >= 70% Service,100.0%,73.3%,64.4%

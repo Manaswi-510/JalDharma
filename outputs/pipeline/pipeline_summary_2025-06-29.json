@@ -1,0 +1,26 @@
+{
+  "execution_timestamp": "2026-10-06T11:26:09.579914",
+  "target_date": "2025-06-29",
+  "water_available_l": 240000000.0,
+  "water_available_ml": 240.0,
+  "shortage_metrics": {
+    "total_demand_l": 16168320.0,
+    "total_allocated_l": 16168320.0,
+    "total_shortage_l": 0.0,
+    "mean_shortage_l": 0.0,
+    "max_shortage_l": 0.0,
+    "worst_village": "Kashti",
+    "fulfillment_pct": 100.0
+  },
+  "fairness_metrics": {
+    "jains_fairness_index": 1.0,
+    "gini_coefficient": 0.0,
+    "hoover_index": 0.0,
+    "average_satisfaction_pct": 100.0,
+    "weighted_shortage_l": 0.0,
+    "pct_minimum_service_70": 100.0,
+    "pct_minimum_service_75": 100.0
+  },
+  "villages_count": 45,
+  "pipelines_count": 63
+}

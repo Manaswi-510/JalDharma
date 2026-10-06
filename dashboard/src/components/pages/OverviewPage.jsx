@@ -37,7 +37,7 @@ export default function OverviewPage({ onNavigateToPage }) {
   const error = ovError || vilError;
 
   // Derive metrics from live data
-  const totalAvailML = overview ? +(overview.totalPredictedDemandL / 1e6).toFixed(1) : '…';
+  const totalAvailML = overview ? +((overview.totalWaterAvailableL ?? (overview.totalWaterAvailableML ? overview.totalWaterAvailableML * 1e6 : null) ?? overview.totalPredictedDemandL) / 1e6).toFixed(1) : '…';
   const totalDemandML = overview ? +(overview.totalPredictedDemandL / 1e6).toFixed(1) : '…';
   const totalAllocML = overview ? +(overview.totalAllocatedL / 1e6).toFixed(1) : '…';
   const totalShortML = overview ? +(overview.totalShortageL / 1e6).toFixed(2) : '…';

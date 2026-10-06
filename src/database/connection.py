@@ -14,11 +14,11 @@ DB_NAME = os.getenv("DB_NAME")
 
 DATABASE_URL = URL.create(
     drivername="postgresql+psycopg2",
-    username=DB_USER,
-    password=DB_PASSWORD,
-    host=DB_HOST,
-    port=int(DB_PORT),
-    database=DB_NAME
+    username=DB_USER or "postgres",
+    password=DB_PASSWORD or "postgres",
+    host=DB_HOST or "localhost",
+    port=int(DB_PORT or 5432),
+    database=DB_NAME or "jal_dharma"
 )
 
 
